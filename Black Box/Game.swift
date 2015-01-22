@@ -8,7 +8,7 @@
 
 public enum Movement {
     case Hit
-    case Miss
+    case Miss(Int)
     case Reflection
     case Detour(Int)
 }
@@ -48,13 +48,13 @@ public class Game {
         guesses += 1
         switch side(entry)! {
         case .Left:
-            return move((entry - 1) * 8, positionDelta: 1, xDelta: 1, yDelta: 0)
+            return move(entry, initialPosition: (entry - 1) * 8, positionDelta: 1, xDelta: 1, yDelta: 0)
         case .Bottom:
-            return move(entry + 47, positionDelta: -8, xDelta: 0, yDelta: -1)
+            return move(entry, initialPosition: entry + 47, positionDelta: -8, xDelta: 0, yDelta: -1)
         case .Right:
-            return move((25 - entry) * 8 - 1, positionDelta: -1, xDelta: -1, yDelta: 0)
+            return move(entry, initialPosition: (25 - entry) * 8 - 1, positionDelta: -1, xDelta: -1, yDelta: 0)
         case .Top:
-            return move(32 - entry, positionDelta: 8, xDelta: 0, yDelta: 1)
+            return move(entry, initialPosition: 32 - entry, positionDelta: 8, xDelta: 0, yDelta: 1)
         }
     }
     
@@ -62,7 +62,7 @@ public class Game {
         balls[spot].filled = true
     }
     
-    func move(initialPosition: Int, positionDelta: Int, xDelta: Int, yDelta: Int) -> Movement {
+    func move(entry: Int, initialPosition: Int, positionDelta: Int, xDelta: Int, yDelta: Int) -> Movement {
         var inBox = true
         var position = initialPosition
         while(inBox) {
@@ -72,7 +72,18 @@ public class Game {
             inBox = !didExit(balls[position].x + xDelta, y: balls[position].y + yDelta)
             position += positionDelta
         }
-        return .Miss
+        return .Miss(exitForMiss(entry))
+    }
+    
+    func exitForMiss(entry: Int) -> Int {
+        switch side(entry)! {
+        case .Left, .Right:
+            return 25 - entry
+        case .Bottom, .Top:
+            return 41 - entry
+        default:
+            return 0
+        }
     }
     
     func didExit(x: Int, y: Int) -> Bool {

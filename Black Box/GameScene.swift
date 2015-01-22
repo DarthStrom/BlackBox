@@ -62,9 +62,15 @@ class GameScene: SKScene {
             // do some stuff
             if let entryPoint = self.nodeAtPoint(location) as? EntryPoint {
                 println(entryPoint.name!)
+                entryPoint.hidden = false
                 switch game.guess(entryPoint.number) {
                 case .Hit:
-                    entryPoint.hidden = false
+                    entryPoint.texture = SKTexture(imageNamed: "Hit")
+                case .Miss(let exitPoint):
+                    let exitPoint = self.childNodeWithName("Entry\(exitPoint)") as EntryPoint
+                    entryPoint.texture = SKTexture(imageNamed: "Miss")
+                    exitPoint.texture = SKTexture(imageNamed: "Miss")
+                    exitPoint.hidden = false
                 default:
                     entryPoint.hidden = true
                 }

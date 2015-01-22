@@ -40,12 +40,12 @@ class BlackBoxSpecs: QuickSpec {
                     }
                 }
                 
-                let expectMiss = { (entry: Int) -> () in
-                    switch game!.guess(entry) {
+                let expectMiss = { (entryPoint: Int, exitPoint: Int) -> () in
+                    switch game!.guess(entryPoint) {
                     case .Hit:
                         fail("Expected a Miss but got a Hit")
-                    case .Miss:
-                        expect(true)
+                    case .Miss(let i):
+                        expect(exitPoint == i)
                     case .Reflection:
                         fail("Expected a Miss but got a Reflection")
                     case .Detour(let i):
@@ -72,7 +72,7 @@ class BlackBoxSpecs: QuickSpec {
                     }
                     
                     it("returns Miss when no ball is hit") {
-                        expectMiss(7)
+                        expectMiss(7, 18)
                     }
                 }
                 
@@ -82,6 +82,10 @@ class BlackBoxSpecs: QuickSpec {
                         game!.place(0)
                         expectHit(9)
                     }
+                    
+                    it("returns Miss when no ball is hit") {
+                        expectMiss(11, 30)
+                    }
                 }
                 
                 describe("from the right") {
@@ -90,6 +94,10 @@ class BlackBoxSpecs: QuickSpec {
                         game!.place(56)
                         expectHit(17)
                     }
+                    
+                    it("returns Miss when no ball is hit") {
+                        expectMiss(18, 7)
+                    }
                 }
                 
                 describe("from the top") {
@@ -97,6 +105,10 @@ class BlackBoxSpecs: QuickSpec {
                     it("returns Hit when a ball is hit") {
                         game!.place(28)
                         expectHit(28)
+                    }
+                    
+                    it("returns Miss when no ball is hit") {
+                        expectMiss(29, 12)
                     }
                 }
             }
