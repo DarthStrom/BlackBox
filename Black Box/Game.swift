@@ -13,27 +13,85 @@ public enum Movement {
     case Detour(Int)
 }
 
+enum Side {
+    case Left
+    case Bottom
+    case Right
+    case Top
+}
+
+class Slot {
+    let x: Int
+    let y: Int
+    var filled: Bool
+    
+    init(x: Int, y: Int, filled: Bool) {
+        self.x = x
+        self.y = y
+        self.filled = filled
+    }
+}
+
 public class Game {
     public var guesses = 0
-    var balls = [Bool]()
+    var balls = [Slot]()
     
     public init() {
-        for i in 0...63 {
-            balls.append(false)
+        for y in 0...7 {
+            for x in 0...7 {
+                balls.append(Slot(x: x, y: y, filled: false))
+            }
         }
     }
     
     public func guess(entry: Int) -> Movement {
         guesses += 1
-        switch balls[entry - 1] {
-        case true:
-            return .Hit
-        default:
-            return .Miss
+        switch side(entry)! {
+        case .Left:
+            return move((entry - 1) * 8, positionDelta: 1, xDelta: 1, yDelta: 0)
+        case .Bottom:
+            return move(entry + 47, positionDelta: -8, xDelta: 0, yDelta: -1)
+        case .Right:
+            return move((25 - entry) * 8 - 1, positionDelta: -1, xDelta: -1, yDelta: 0)
+        case .Top:
+            return move(32 - entry, positionDelta: 8, xDelta: 0, yDelta: 1)
         }
     }
     
     public func place(spot: Int) {
-        balls[spot] = true
+        balls[spot].filled = true
+    }
+    
+    func move(initialPosition: Int, positionDelta: Int, xDelta: Int, yDelta: Int) -> Movement {
+        var inBox = true
+        var position = initialPosition
+        while(inBox) {
+            if balls[position].filled {
+                return .Hit
+            }
+            inBox = !didExit(balls[position].x + xDelta, y: balls[position].y + yDelta)
+            position += positionDelta
+        }
+        return .Miss
+    }
+    
+    func didExit(x: Int, y: Int) -> Bool {
+        return x < 0 || x > 7 || y < 0 || y > 7
+    }
+    
+    func side(entry: Int) -> Side? {
+        switch entry {
+        case 1...8:
+            return .Left
+        case 9...16:
+            return .Bottom
+        case 17...24:
+            return .Right
+        case 25...32:
+            return .Top
+        default:
+            println("Expected entry point between 1 and 32")
+            return nil
+        }
     }
 }
