@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9603D80C1A70A123007A1A0F /* Hit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9603D80B1A70A123007A1A0F /* Hit@2x.png */; };
+		9603D8161A70A4E2007A1A0F /* Hit.png in Resources */ = {isa = PBXBuildFile; fileRef = 9603D8151A70A4E2007A1A0F /* Hit.png */; };
+		9603D8181A70A9A7007A1A0F /* EntryPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9603D8171A70A9A7007A1A0F /* EntryPoint.swift */; };
 		9633C2FA1A524038005826D1 /* BlackBoxSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9633C2F91A524038005826D1 /* BlackBoxSpecs.swift */; };
 		965E5FFE1A507C6000BB183F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965E5FFD1A507C6000BB183F /* AppDelegate.swift */; };
 		965E60021A507C6000BB183F /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965E60011A507C6000BB183F /* GameScene.swift */; };
@@ -88,6 +91,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9603D80B1A70A123007A1A0F /* Hit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hit@2x.png"; sourceTree = "<group>"; };
+		9603D8151A70A4E2007A1A0F /* Hit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Hit.png; sourceTree = "<group>"; };
+		9603D8171A70A9A7007A1A0F /* EntryPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryPoint.swift; sourceTree = "<group>"; };
 		9633C2F91A524038005826D1 /* BlackBoxSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlackBoxSpecs.swift; sourceTree = "<group>"; };
 		965E5FF81A507C5F00BB183F /* Black Box.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Black Box.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		965E5FFC1A507C6000BB183F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -155,6 +161,7 @@
 				965E600A1A507C6000BB183F /* LaunchScreen.xib */,
 				965E5FFB1A507C5F00BB183F /* Supporting Files */,
 				96F12CCA1A6AF6D100435452 /* Game.swift */,
+				9603D8171A70A9A7007A1A0F /* EntryPoint.swift */,
 			);
 			path = "Black Box";
 			sourceTree = "<group>";
@@ -162,6 +169,8 @@
 		965E5FFB1A507C5F00BB183F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9603D8151A70A4E2007A1A0F /* Hit.png */,
+				9603D80B1A70A123007A1A0F /* Hit@2x.png */,
 				96F82C861A50883900C9365B /* blackboxboard@2x.png */,
 				96F82C871A50883900C9365B /* blackboxboard.png */,
 				965E5FFC1A507C6000BB183F /* Info.plist */,
@@ -361,6 +370,8 @@
 			files = (
 				965E600C1A507C6000BB183F /* LaunchScreen.xib in Resources */,
 				96F82C891A50883900C9365B /* blackboxboard.png in Resources */,
+				9603D80C1A70A123007A1A0F /* Hit@2x.png in Resources */,
+				9603D8161A70A4E2007A1A0F /* Hit.png in Resources */,
 				965E60091A507C6000BB183F /* Images.xcassets in Resources */,
 				965E60071A507C6000BB183F /* Main.storyboard in Resources */,
 				96F82C881A50883900C9365B /* blackboxboard@2x.png in Resources */,
@@ -382,6 +393,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				965E60021A507C6000BB183F /* GameScene.swift in Sources */,
+				9603D8181A70A9A7007A1A0F /* EntryPoint.swift in Sources */,
 				965E60041A507C6000BB183F /* GameViewController.swift in Sources */,
 				965E5FFE1A507C6000BB183F /* AppDelegate.swift in Sources */,
 				96F12CCB1A6AF6D100435452 /* Game.swift in Sources */,
