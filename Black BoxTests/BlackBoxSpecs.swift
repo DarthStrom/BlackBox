@@ -21,14 +21,14 @@ class BlackBoxSpecs: QuickSpec {
             }
         
             it("initially has 0 guesses") {
-                expect(game!.guesses).to(equal(0))
+                expect(game!.guesses) == 0
             }
             
-            // spots on board are numbered 0...63 starting at the top left
-            // entry points are numbered 1...32 starting at the upper most left and continuing counter-clockwise
+            // entry points are numbered 1...32 starting at the upper most left and
+            // continuing counter-clockwise
             describe("guessing") {
-                let expectHit = { (entry: Int) -> () in
-                    switch game!.guess(entry) {
+                let expectHit = { (entryPoint: Int) -> () in
+                    switch game!.guess(entryPoint) {
                     case .Hit:
                         expect(true)
                     case .Miss:
@@ -53,21 +53,34 @@ class BlackBoxSpecs: QuickSpec {
                     }
                 }
                 
+                let expectReflection = { (entryPoint: Int) -> () in
+                    switch game!.guess(entryPoint) {
+                    case .Hit:
+                        fail("Expected a Reflection but got a Hit")
+                    case .Miss(_):
+                        fail("Expected a Reflection but got a Miss")
+                    case .Reflection:
+                        expect(true)
+                    case .Detour(let i):
+                        fail("Expected a Reflection but got a Detour to \(i)")
+                    }
+                }
+                
                 it("increments the guess count") {
                     game!.guess(1)
-                    expect(game!.guesses).to(equal(1))
+                    expect(game!.guesses) == 1
                 }
                 
                 it("increments again with another guess") {
                     game!.guess(2)
                     game!.guess(3)
-                    expect(game!.guesses).to(equal(2))
+                    expect(game!.guesses) == 2
                 }
                 
                 describe("from the left") {
                     
                     it("returns Hit when a ball is hit") {
-                        game!.place(0)
+                        game!.place(0, y: 0)
                         expectHit(1)
                     }
                     
@@ -79,7 +92,7 @@ class BlackBoxSpecs: QuickSpec {
                 describe("from the bottom") {
                     
                     it("returns Hit when a ball is hit") {
-                        game!.place(0)
+                        game!.place(0, y: 0)
                         expectHit(9)
                     }
                     
@@ -91,7 +104,7 @@ class BlackBoxSpecs: QuickSpec {
                 describe("from the right") {
                     
                     it("returns Hit when a ball is hit") {
-                        game!.place(56)
+                        game!.place(0, y: 7)
                         expectHit(17)
                     }
                     
@@ -103,7 +116,7 @@ class BlackBoxSpecs: QuickSpec {
                 describe("from the top") {
                     
                     it("returns Hit when a ball is hit") {
-                        game!.place(28)
+                        game!.place(4, y: 3)
                         expectHit(28)
                     }
                     

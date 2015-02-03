@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Peapod Media, llc. All rights reserved.
 //
 
-public enum Movement {
+public enum Exit {
     case Hit
     case Miss(Int)
     case Reflection
@@ -20,62 +20,44 @@ enum Side {
     case Top
 }
 
-class Slot {
-    let x: Int
-    let y: Int
-    var filled: Bool
-    
-    init(x: Int, y: Int, filled: Bool) {
-        self.x = x
-        self.y = y
-        self.filled = filled
-    }
-}
-
 public class Game {
     public var guesses = 0
-    var balls = [Slot]()
+    var balls = [[Bool]](count: 8, repeatedValue: [Bool](count: 8, repeatedValue: false))
     
-    public init() {
-        for y in 0...7 {
-            for x in 0...7 {
-                balls.append(Slot(x: x, y: y, filled: false))
-            }
-        }
-    }
+    public init () {}
     
-    public func guess(entry: Int) -> Movement {
+    public func guess(entry: Int) -> Exit {
         guesses += 1
         switch side(entry)! {
         case .Left:
-            return move(entry, initialPosition: (entry - 1) * 8, positionDelta: 1, xDelta: 1, yDelta: 0)
+            return shoot(entry, x: 0, y: entry - 1, xDelta: 1, yDelta: 0)
         case .Bottom:
-            return move(entry, initialPosition: entry + 47, positionDelta: -8, xDelta: 0, yDelta: -1)
+            return shoot(entry, x: entry - 9, y: 7, xDelta: 0, yDelta: -1)
         case .Right:
-            return move(entry, initialPosition: (25 - entry) * 8 - 1, positionDelta: -1, xDelta: -1, yDelta: 0)
+            return shoot(entry, x: 7, y: 24 - entry, xDelta: -1, yDelta: 0)
         case .Top:
-            return move(entry, initialPosition: 32 - entry, positionDelta: 8, xDelta: 0, yDelta: 1)
+            return shoot(entry, x: 32 - entry, y: 0, xDelta: 0, yDelta: 1)
         }
     }
     
-    public func place(spot: Int) {
-        balls[spot].filled = true
+    public func place(x: Int, y: Int) {
+        balls[x][y] = true
     }
     
-    func move(entry: Int, initialPosition: Int, positionDelta: Int, xDelta: Int, yDelta: Int) -> Movement {
+    func shoot(entry: Int, x: Int, y: Int, xDelta: Int, yDelta: Int) -> Exit {
         var inBox = true
-        var position = initialPosition
+        var position = (x: x, y: y)
         while(inBox) {
-            if balls[position].filled {
+            if balls[position.x][position.y] {
                 return .Hit
             }
-            inBox = !didExit(balls[position].x + xDelta, y: balls[position].y + yDelta)
-            position += positionDelta
+            inBox = !didExit(position.x + xDelta, y: position.y + yDelta)
+            position = (position.x + xDelta, position.y + yDelta)
         }
-        return .Miss(exitForMiss(entry))
+        return .Miss(exitPointForMiss(entry))
     }
     
-    func exitForMiss(entry: Int) -> Int {
+    func exitPointForMiss(entry: Int) -> Int {
         switch side(entry)! {
         case .Left, .Right:
             return 25 - entry
