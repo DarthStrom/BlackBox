@@ -44,6 +44,7 @@ class GameScene: SKScene {
         
         //TODO: real ball hiding
         game.place(1, y: 1)
+        game.place(7, y: 7)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -71,6 +72,8 @@ class GameScene: SKScene {
                     entryPoint.texture = SKTexture(imageNamed: "Miss")
                     exitPoint.texture = SKTexture(imageNamed: "Miss")
                     exitPoint.hidden = false
+                case .Reflection:
+                    entryPoint.texture = SKTexture(imageNamed: "Reflection")
                 default:
                     entryPoint.hidden = true
                 }

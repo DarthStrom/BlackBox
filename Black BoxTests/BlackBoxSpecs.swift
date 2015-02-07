@@ -87,6 +87,11 @@ class BlackBoxSpecs: QuickSpec {
                     it("returns Miss when no ball is hit") {
                         expectMiss(7, 18)
                     }
+                    
+                    it("returns Reflection when ball prevents entering the box") {
+                        game!.place(0, y: 0)
+                        expectReflection(2)
+                    }
                 }
                 
                 describe("from the bottom") {
@@ -98,6 +103,11 @@ class BlackBoxSpecs: QuickSpec {
                     
                     it("returns Miss when no ball is hit") {
                         expectMiss(11, 30)
+                    }
+                    
+                    it("returns Reflection when ball prevents entering the box") {
+                        game!.place(4, y: 7)
+                        expectReflection(14)
                     }
                 }
                 
@@ -111,6 +121,11 @@ class BlackBoxSpecs: QuickSpec {
                     it("returns Miss when no ball is hit") {
                         expectMiss(18, 7)
                     }
+                    
+                    it("returns Reflection when ball prevents entering the box") {
+                        game!.place(7, y: 7)
+                        expectReflection(18)
+                    }
                 }
                 
                 describe("from the top") {
@@ -122,6 +137,11 @@ class BlackBoxSpecs: QuickSpec {
                     
                     it("returns Miss when no ball is hit") {
                         expectMiss(29, 12)
+                    }
+                    
+                    it("returns Reflection when ball prevents entering the box") {
+                        game!.place(7, y: 1)
+                        expectReflection(24)
                     }
                 }
             }
