@@ -92,6 +92,12 @@ class BlackBoxSpecs: QuickSpec {
                         game!.place(0, y: 0)
                         expectReflection(2)
                     }
+                    
+                    it("returns Reflection when deflected by two balls at once") {
+                        game!.place(1, y: 1)
+                        game!.place(1, y: 3)
+                        expectReflection(3)
+                    }
                 }
                 
                 describe("from the bottom") {
@@ -108,6 +114,12 @@ class BlackBoxSpecs: QuickSpec {
                     it("returns Reflection when ball prevents entering the box") {
                         game!.place(4, y: 7)
                         expectReflection(14)
+                    }
+                    
+                    it("returns Reflection when deflected by two balls at once") {
+                        game!.place(1, y: 1)
+                        game!.place(3, y: 1)
+                        expectReflection(11)
                     }
                 }
                 
@@ -126,6 +138,12 @@ class BlackBoxSpecs: QuickSpec {
                         game!.place(7, y: 7)
                         expectReflection(18)
                     }
+                    
+                    it("returns Reflection when deflected by two balls at once") {
+                        game!.place(1, y: 1)
+                        game!.place(1, y: 3)
+                        expectReflection(22)
+                    }
                 }
                 
                 describe("from the top") {
@@ -142,6 +160,12 @@ class BlackBoxSpecs: QuickSpec {
                     it("returns Reflection when ball prevents entering the box") {
                         game!.place(7, y: 1)
                         expectReflection(24)
+                    }
+                    
+                    it("returns Reflection when deflected by two balls at once") {
+                        game!.place(1, y: 1)
+                        game!.place(3, y: 1)
+                        expectReflection(30)
                     }
                 }
             }
