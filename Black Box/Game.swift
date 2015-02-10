@@ -84,16 +84,8 @@ public class Game {
     
     func willReflect(x: Int, y: Int, xDelta: Int, yDelta: Int) -> Bool {
         switch (x-1 < 0, x+1 > 7, y-1 < 0, y+1 > 7, xDelta, yDelta) {
-        case (true, _, _, _, 0, _):
-            return false
-        case (_, true, _, _, 0, _):
-            return false
         case (false, false, _, _, 0, _):
             return balls[x-1][y] && balls[x+1][y]
-        case (_, _, true, _, _, 0):
-            return false
-        case (_, _, _, true, _, 0):
-            return false
         case (_, _, false, false, _, 0):
             return balls[x][y-1] && balls[x][y+1]
         default:
