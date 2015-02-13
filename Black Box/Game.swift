@@ -20,7 +20,6 @@ enum Direction {
     case Right
 }
 
-
 struct Point: Hashable {
     let x: Int
     let y: Int
@@ -90,7 +89,6 @@ public class Game {
     }
     
     public func place(x: Int, y: Int) {
-        println("adding (\(x),\(y))")
         balls[Point(x: x, y: y)] = true
     }
     
@@ -104,7 +102,7 @@ public class Game {
         }
         position = getNewPosition(position, direction: direction)
         while(inBox) {
-            if willHit(position.x, y: position.y) {
+            if willHit((position.x, y: position.y), direction: direction) {
                 return .Hit
             }
             if willReflect((position.x, y: position.y), direction: direction) {
@@ -132,8 +130,31 @@ public class Game {
         }
     }
     
-    func willHit(x: Int, y: Int) -> Bool {
-        return balls[Point(x: x, y: y)]!
+    func willHit(position: (x: Int, y: Int), direction: Direction) -> Bool {
+        if let currentSpot = balls[Point(x: position.x, y: position.y)] {
+            if currentSpot {
+                return true
+            }
+        }
+        switch direction {
+        case .Up:
+            if let result = balls[Point(x: position.x, y: position.y - 1)] {
+                return result
+            }
+        case .Down:
+            if let result = balls[Point(x: position.x, y: position.y + 1)] {
+                return result
+            }
+        case .Left:
+            if let result = balls[Point(x: position.x - 1, y: position.y)] {
+                return result
+            }
+        case .Right:
+            if let result = balls[Point(x: position.x + 1, y: position.y)] {
+                return result
+            }
+        }
+        return false
     }
     
     func willDetour(position: (x: Int, y: Int), direction: Direction) -> Bool {

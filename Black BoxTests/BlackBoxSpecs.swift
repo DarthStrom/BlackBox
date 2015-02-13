@@ -157,7 +157,7 @@ class BlackBoxSpecs: QuickSpec {
                     
                     it("returns Detour when deflected") {
                         game!.place(4, y: 3)
-                        expectDetour(22, 27)
+                        expectDetour(20, 14)
                     }
                 }
                 
@@ -173,8 +173,8 @@ class BlackBoxSpecs: QuickSpec {
                     }
                     
                     it("returns Reflection when ball prevents entering the box") {
-                        game!.place(7, y: 1)
-                        expectReflection(24)
+                        game!.place(0, y: 0)
+                        expectReflection(31)
                     }
                     
                     it("returns Reflection when deflected by two balls at once") {
@@ -185,7 +185,55 @@ class BlackBoxSpecs: QuickSpec {
                     
                     it("returns Detour when deflected") {
                         game!.place(6, y: 3)
-                        expectDetour(22, 25)
+                        expectDetour(27, 3)
+                    }
+                }
+                
+                describe("multiple detours") {
+                    
+                    it("can detour multiple times") {
+                        game!.place(4, y: 3)
+                        game!.place(7, y: 3)
+                        expectDetour(14, 15)
+                    }
+                    
+                    it("will hit instead of reflecting on three balls in a row") {
+                        game!.place(4, y: 3)
+                        game!.place(5, y: 3)
+                        game!.place(6, y: 3)
+                        expectHit(14)
+                    }
+                    
+                    it("can detour many times") {
+                        game!.place(4, y: 0)
+                        game!.place(0, y: 2)
+                        game!.place(4, y: 4)
+                        expectDetour(31, 10)
+                    }
+                    
+                    it("can reflect after detours") {
+                        game!.place(4, y: 0)
+                        game!.place(4, y: 4)
+                        game!.place(6, y: 4)
+                        expectReflection(23)
+                    }
+                    
+                    it("can hit after detours") {
+                        game!.place(0, y: 2)
+                        game!.place(7, y: 2)
+                        game!.place(5, y: 5)
+                        game!.place(6, y: 5)
+                        game!.place(0, y: 7)
+                        expectHit(13)
+                    }
+                    
+                    it("can reflect after many detours") {
+                        game!.place(0, y: 0)
+                        game!.place(6, y: 0)
+                        game!.place(6, y: 2)
+                        game!.place(0, y: 4)
+                        game!.place(6, y: 6)
+                        expectReflection(10)
                     }
                 }
             }
