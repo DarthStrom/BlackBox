@@ -7,120 +7,221 @@
 //
 
 public enum Exit {
+    case None
     case Hit
-    case Miss(Int)
     case Reflection
     case Detour(Int)
 }
 
-enum Side {
+enum Direction {
+    case Up
+    case Down
     case Left
-    case Bottom
     case Right
-    case Top
+}
+
+
+struct Point: Hashable {
+    let x: Int
+    let y: Int
+    
+    var hashValue: Int {
+        return x.hashValue ^ y.hashValue
+    }
+    
+    init (x: Int, y: Int) {
+        self.x = x
+        self.y = y
+    }
+}
+
+func ==(lhs: Point, rhs: Point) -> Bool {
+    return lhs.x == rhs.x && lhs.y == rhs.y
 }
 
 public class Game {
     public var guesses = 0
-    var balls = [[Bool]](count: 8, repeatedValue: [Bool](count: 8, repeatedValue: false))
+    var balls = [Point: Bool]()
+    var entryPointsLookup = [Point: Int]()
     
-    public init () {}
+    public init () {
+        populateBalls()
+        populateEntryPoints()
+    }
+    
+    func populateBalls() {
+        for y in 0...7 {
+            for x in 0...7 {
+                balls[Point(x: x, y: y)] = false
+            }
+        }
+    }
+    
+    func populateEntryPoints() {
+        for n in 1...8 {
+            entryPointsLookup[Point(x: -1, y: n-1)] = n
+        }
+        for n in 9...16 {
+            entryPointsLookup[Point(x: n-9, y: 8)] = n
+        }
+        for n in 17...24 {
+            entryPointsLookup[Point(x: 8, y: 24-n)] = n
+        }
+        for n in 25...32 {
+            entryPointsLookup[Point(x: 32-n, y: -1)] = n
+        }
+    }
     
     public func guess(entry: Int) -> Exit {
         guesses += 1
-        switch side(entry)! {
-        case .Left:
-            return shoot(entry, x: 0, y: entry - 1, xDelta: 1, yDelta: 0)
-        case .Bottom:
-            return shoot(entry, x: entry - 9, y: 7, xDelta: 0, yDelta: -1)
-        case .Right:
-            return shoot(entry, x: 7, y: 24 - entry, xDelta: -1, yDelta: 0)
-        case .Top:
-            return shoot(entry, x: 32 - entry, y: 0, xDelta: 0, yDelta: 1)
+        
+        switch entry {
+        case 1...8:
+            return shoot((-1, entry - 1), direction: .Right)
+        case 9...16:
+            return shoot((entry - 9, 8), direction: .Up)
+        case 17...24:
+            return shoot((8, 24 - entry), direction: .Left)
+        case 25...32:
+            return shoot((32 - entry, -1), direction: .Down)
+        default:
+            return .None
         }
     }
     
     public func place(x: Int, y: Int) {
-        balls[x][y] = true
+        println("adding (\(x),\(y))")
+        balls[Point(x: x, y: y)] = true
     }
     
-    func shoot(entry: Int, x: Int, y: Int, xDelta: Int, yDelta: Int) -> Exit {
+    func shoot(start: (x: Int, y: Int), direction startingDirection: Direction) -> Exit {
         var inBox = true
-        var position = (x: x, y: y)
-        if preEntryReflection(x, y: y, xDelta: xDelta, yDelta: yDelta) {
+        var position = (x: start.x, y: start.y)
+        var direction = startingDirection
+        
+        if willDetour((start.x, start.y), direction: direction) {
             return .Reflection
         }
+        position = getNewPosition(position, direction: direction)
         while(inBox) {
-            if balls[position.x][position.y] {
+            if willHit(position.x, y: position.y) {
                 return .Hit
             }
-            if willReflect(position.x, y: position.y, xDelta: xDelta, yDelta: yDelta) {
+            if willReflect((position.x, y: position.y), direction: direction) {
                 return .Reflection
             }
-            inBox = !didExit(position.x + xDelta, y: position.y + yDelta)
-            position = (position.x + xDelta, position.y + yDelta)
+            
+            direction = getNewDirection((position.x, position.y), direction: direction)
+
+            position = getNewPosition(position, direction: direction)
+            inBox = !didExit(position)
         }
-        return .Miss(exitPointForMiss(entry))
+        return .Detour(entryPointsLookup[Point(x: position.x, y: position.y)]!)
     }
     
-    func preEntryReflection(x: Int, y: Int, xDelta: Int, yDelta: Int) -> Bool {
-        switch (x-1 < 0, x+1 > 7, y-1 < 0, y+1 > 7, xDelta, yDelta) {
-        case (true, _, _, _, 0, _):
-            return balls[x+1][y]
-        case (_, true, _, _, 0, _):
-            return balls[x-1][y]
-        case (false, false, _, _, 0, _):
-            return balls[x-1][y] || balls[x+1][y]
-        case (_, _, true, _, _, 0):
-            return balls[x][y+1]
-        case (_, _, _, true, _, 0):
-            return balls[x][y-1]
-        case (_, _, false, false, _, 0):
-            return balls[x][y-1] || balls[x][y+1]
-        default:
-            return false
+    func getNewPosition(position: (x: Int, y: Int), direction: Direction) -> (x: Int, y: Int) {
+        switch direction {
+        case .Up:
+            return (position.x, position.y - 1)
+        case .Down:
+            return (position.x, position.y + 1)
+        case .Left:
+            return (position.x - 1, position.y)
+        case .Right:
+            return (position.x + 1, position.y)
         }
     }
     
-    func willReflect(x: Int, y: Int, xDelta: Int, yDelta: Int) -> Bool {
-        switch (x-1 < 0, x+1 > 7, y-1 < 0, y+1 > 7, xDelta, yDelta) {
-        case (false, false, _, _, 0, _):
-            return balls[x-1][y] && balls[x+1][y]
-        case (_, _, false, false, _, 0):
-            return balls[x][y-1] && balls[x][y+1]
-        default:
-            return false
-        }
+    func willHit(x: Int, y: Int) -> Bool {
+        return balls[Point(x: x, y: y)]!
     }
     
-    func exitPointForMiss(entry: Int) -> Int {
-        switch side(entry)! {
-        case .Left, .Right:
-            return 25 - entry
-        case .Bottom, .Top:
-            return 41 - entry
-        default:
-            return 0
-        }
+    func willDetour(position: (x: Int, y: Int), direction: Direction) -> Bool {
+        let newDirection = getNewDirection((position.x, position.y), direction: direction)
+        return newDirection != direction
     }
     
-    func didExit(x: Int, y: Int) -> Bool {
-        return x < 0 || x > 7 || y < 0 || y > 7
+    func getNewDirection(position: (x: Int, y: Int), direction: Direction) -> Direction {
+        switch direction {
+        case .Up:
+            if let leftBall = balls[Point(x: position.x - 1, y: position.y - 1)] {
+                if leftBall {
+                    return .Right
+                }
+            }
+            if let rightBall = balls[Point(x: position.x + 1, y: position.y - 1)] {
+                if rightBall {
+                    return .Left
+                }
+            }
+        case .Down:
+            if let leftBall = balls[Point(x: position.x - 1, y: position.y + 1)] {
+                if leftBall {
+                    return .Right
+                }
+            }
+            if let rightBall = balls[Point(x: position.x + 1, y: position.y + 1)] {
+                if rightBall {
+                    return .Left
+                }
+            }
+        case .Left:
+            if let topBall = balls[Point(x: position.x - 1, y: position.y - 1)] {
+                if topBall {
+                    return .Down
+                }
+            }
+            if let bottomBall = balls[Point(x: position.x - 1, y: position.y + 1)] {
+                if bottomBall {
+                    return .Up
+                }
+            }
+        case .Right:
+            if let topBall = balls[Point(x: position.x + 1, y: position.y - 1)] {
+                if topBall {
+                    return .Down
+                }
+            }
+            if let bottomBall = balls[Point(x: position.x + 1, y: position.y + 1)] {
+                if bottomBall {
+                    return .Up
+                }
+            }
+        }
+        return direction
     }
     
-    func side(entry: Int) -> Side? {
-        switch entry {
-        case 1...8:
-            return .Left
-        case 9...16:
-            return .Bottom
-        case 17...24:
-            return .Right
-        case 25...32:
-            return .Top
-        default:
-            println("Expected entry point between 1 and 32")
-            return nil
+    func willReflect(position: (x: Int, y: Int), direction: Direction) -> Bool {
+        switch direction {
+        case .Up:
+            if let leftBall = balls[Point(x: position.x-1, y: position.y-1)] {
+                if let rightBall = balls[Point(x: position.x+1, y: position.y-1)] {
+                    return leftBall && rightBall
+                }
+            }
+        case .Down:
+            if let leftBall = balls[Point(x: position.x-1, y: position.y+1)] {
+                if let rightBall = balls[Point(x: position.x+1, y: position.y+1)] {
+                    return leftBall && rightBall
+                }
+            }
+        case .Left:
+            if let topBall = balls[Point(x: position.x-1, y: position.y-1)] {
+                if let bottomBall = balls[Point(x: position.x-1, y: position.y+1)] {
+                    return topBall && bottomBall
+                }
+            }
+        case .Right:
+            if let topBall = balls[Point(x: position.x+1, y: position.y-1)] {
+                if let bottomBall = balls[Point(x: position.x+1, y: position.y+1)] {
+                    return topBall && bottomBall
+                }
+            }
         }
+        return false
+    }
+    
+    func didExit(position: (x: Int, y: Int)) -> Bool {
+        return position.x < 0 || position.x > 7 || position.y < 0 || position.y > 7
     }
 }

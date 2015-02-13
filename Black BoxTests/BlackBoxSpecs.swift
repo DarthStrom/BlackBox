@@ -31,25 +31,12 @@ class BlackBoxSpecs: QuickSpec {
                     switch game!.guess(entryPoint) {
                     case .Hit:
                         expect(true)
-                    case .Miss:
-                        fail("Expected a Hit but got a Miss")
                     case .Reflection:
-                        fail("Expected a Hit but got a reflection")
+                        fail("Expected a Hit but got a Reflection")
                     case .Detour(let i):
                         fail("Expected a Hit but got a Detour to \(i)")
-                    }
-                }
-                
-                let expectMiss = { (entryPoint: Int, exitPoint: Int) -> () in
-                    switch game!.guess(entryPoint) {
-                    case .Hit:
-                        fail("Expected a Miss but got a Hit")
-                    case .Miss(let i):
-                        expect(exitPoint == i)
-                    case .Reflection:
-                        fail("Expected a Miss but got a Reflection")
-                    case .Detour(let i):
-                        fail("Expected a Hit but got a Detour to \(i)")
+                    case .None:
+                        fail("Invalid entry")
                     }
                 }
                 
@@ -57,12 +44,25 @@ class BlackBoxSpecs: QuickSpec {
                     switch game!.guess(entryPoint) {
                     case .Hit:
                         fail("Expected a Reflection but got a Hit")
-                    case .Miss(_):
-                        fail("Expected a Reflection but got a Miss")
                     case .Reflection:
                         expect(true)
                     case .Detour(let i):
                         fail("Expected a Reflection but got a Detour to \(i)")
+                    case .None:
+                        fail("Invalid entry")
+                    }
+                }
+                
+                let expectDetour = { (entryPoint: Int, exitPoint: Int) -> () in
+                    switch game!.guess(entryPoint) {
+                    case .Hit:
+                        fail("Expected a Detour but got a Hit")
+                    case .Reflection:
+                        fail("Expected a Detour but got a Reflection")
+                    case .Detour(let i):
+                        expect(i).to(equal(exitPoint))
+                    case .None:
+                        fail("Invalid entry")
                     }
                 }
                 
@@ -84,8 +84,8 @@ class BlackBoxSpecs: QuickSpec {
                         expectHit(1)
                     }
                     
-                    it("returns Miss when no ball is hit") {
-                        expectMiss(7, 18)
+                    it("exits the other side when no ball is hit") {
+                        expectDetour(7, 18)
                     }
                     
                     it("returns Reflection when ball prevents entering the box") {
@@ -98,6 +98,11 @@ class BlackBoxSpecs: QuickSpec {
                         game!.place(1, y: 3)
                         expectReflection(3)
                     }
+                    
+                    it("returns Detour when deflected") {
+                        game!.place(1, y: 1)
+                        expectDetour(1, 32)
+                    }
                 }
                 
                 describe("from the bottom") {
@@ -107,8 +112,8 @@ class BlackBoxSpecs: QuickSpec {
                         expectHit(9)
                     }
                     
-                    it("returns Miss when no ball is hit") {
-                        expectMiss(11, 30)
+                    it("exits the other side when no ball is hit") {
+                        expectDetour(11, 30)
                     }
                     
                     it("returns Reflection when ball prevents entering the box") {
@@ -121,6 +126,11 @@ class BlackBoxSpecs: QuickSpec {
                         game!.place(3, y: 1)
                         expectReflection(11)
                     }
+                    
+                    it("returns Detour when deflected") {
+                        game!.place(4, y: 3)
+                        expectDetour(12, 5)
+                    }
                 }
                 
                 describe("from the right") {
@@ -130,8 +140,8 @@ class BlackBoxSpecs: QuickSpec {
                         expectHit(17)
                     }
                     
-                    it("returns Miss when no ball is hit") {
-                        expectMiss(18, 7)
+                    it("exits the other side when no ball is hit") {
+                        expectDetour(18, 7)
                     }
                     
                     it("returns Reflection when ball prevents entering the box") {
@@ -144,6 +154,11 @@ class BlackBoxSpecs: QuickSpec {
                         game!.place(1, y: 3)
                         expectReflection(22)
                     }
+                    
+                    it("returns Detour when deflected") {
+                        game!.place(4, y: 3)
+                        expectDetour(22, 27)
+                    }
                 }
                 
                 describe("from the top") {
@@ -153,8 +168,8 @@ class BlackBoxSpecs: QuickSpec {
                         expectHit(28)
                     }
                     
-                    it("returns Miss when no ball is hit") {
-                        expectMiss(29, 12)
+                    it("exits the other side when no ball is hit") {
+                        expectDetour(29, 12)
                     }
                     
                     it("returns Reflection when ball prevents entering the box") {
@@ -166,6 +181,11 @@ class BlackBoxSpecs: QuickSpec {
                         game!.place(1, y: 1)
                         game!.place(3, y: 1)
                         expectReflection(30)
+                    }
+                    
+                    it("returns Detour when deflected") {
+                        game!.place(6, y: 3)
+                        expectDetour(22, 25)
                     }
                 }
             }
