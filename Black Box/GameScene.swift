@@ -66,14 +66,14 @@ class GameScene: SKScene {
                 println(entryPoint.name!)
                 entryPoint.hidden = false
                 switch game.guess(entryPoint.number) {
-                case .Hit:
+                case .Some(.Hit):
                     entryPoint.texture = SKTexture(imageNamed: "Hit")
-                case .Detour(let exitPoint):
+                case .Some(.Detour(let exitPoint)):
                     let exitPoint = self.childNodeWithName("Entry\(exitPoint)") as EntryPoint
                     entryPoint.texture = SKTexture(imageNamed: "Detour")
                     exitPoint.texture = SKTexture(imageNamed: "Detour")
                     exitPoint.hidden = false
-                case .Reflection:
+                case .Some(.Reflection):
                     entryPoint.texture = SKTexture(imageNamed: "Reflection")
                 case .None:
                     entryPoint.hidden = true

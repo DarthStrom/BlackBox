@@ -29,11 +29,11 @@ class BlackBoxSpecs: QuickSpec {
             describe("guessing") {
                 let expectHit = { (entryPoint: Int) -> () in
                     switch game!.guess(entryPoint) {
-                    case .Hit:
+                    case .Some(.Hit):
                         expect(true)
-                    case .Reflection:
+                    case .Some(.Reflection):
                         fail("Expected a Hit but got a Reflection")
-                    case .Detour(let i):
+                    case .Some(.Detour(let i)):
                         fail("Expected a Hit but got a Detour to \(i)")
                     case .None:
                         fail("Invalid entry")
@@ -42,11 +42,11 @@ class BlackBoxSpecs: QuickSpec {
                 
                 let expectReflection = { (entryPoint: Int) -> () in
                     switch game!.guess(entryPoint) {
-                    case .Hit:
+                    case .Some(.Hit):
                         fail("Expected a Reflection but got a Hit")
-                    case .Reflection:
+                    case .Some(.Reflection):
                         expect(true)
-                    case .Detour(let i):
+                    case .Some(.Detour(let i)):
                         fail("Expected a Reflection but got a Detour to \(i)")
                     case .None:
                         fail("Invalid entry")
@@ -55,11 +55,11 @@ class BlackBoxSpecs: QuickSpec {
                 
                 let expectDetour = { (entryPoint: Int, exitPoint: Int) -> () in
                     switch game!.guess(entryPoint) {
-                    case .Hit:
+                    case .Some(.Hit):
                         fail("Expected a Detour but got a Hit")
-                    case .Reflection:
+                    case .Some(.Reflection):
                         fail("Expected a Detour but got a Reflection")
-                    case .Detour(let i):
+                    case .Some(.Detour(let i)):
                         expect(i).to(equal(exitPoint))
                     case .None:
                         fail("Invalid entry")

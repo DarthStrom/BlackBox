@@ -6,72 +6,13 @@
 //  Copyright (c) 2015 Peapod Media, llc. All rights reserved.
 //
 
-public enum Exit {
-    case None
-    case Hit
-    case Reflection
-    case Detour(Int)
-}
-
-enum Direction {
-    case Up
-    case Down
-    case Left
-    case Right
-}
-
-struct Point: Hashable {
-    let x: Int
-    let y: Int
-    
-    var hashValue: Int {
-        return x.hashValue ^ y.hashValue
-    }
-    
-    init (x: Int, y: Int) {
-        self.x = x
-        self.y = y
-    }
-}
-
-func ==(lhs: Point, rhs: Point) -> Bool {
-    return lhs.x == rhs.x && lhs.y == rhs.y
-}
-
 public class Game {
     public var guesses = 0
-    var balls = [Point: Bool]()
-    var entryPointsLookup = [Point: Int]()
+    let board = Board()
     
-    public init () {
-        populateBalls()
-        populateEntryPoints()
-    }
+    public init() {}
     
-    func populateBalls() {
-        for y in 0...7 {
-            for x in 0...7 {
-                balls[Point(x: x, y: y)] = false
-            }
-        }
-    }
-    
-    func populateEntryPoints() {
-        for n in 1...8 {
-            entryPointsLookup[Point(x: -1, y: n-1)] = n
-        }
-        for n in 9...16 {
-            entryPointsLookup[Point(x: n-9, y: 8)] = n
-        }
-        for n in 17...24 {
-            entryPointsLookup[Point(x: 8, y: 24-n)] = n
-        }
-        for n in 25...32 {
-            entryPointsLookup[Point(x: 32-n, y: -1)] = n
-        }
-    }
-    
-    public func guess(entry: Int) -> Exit {
+    public func guess(entry: Int) -> ExitResult? {
         guesses += 1
         
         switch entry {
@@ -84,15 +25,15 @@ public class Game {
         case 25...32:
             return shoot((32 - entry, -1), direction: .Down)
         default:
-            return .None
+            return nil
         }
     }
     
     public func place(x: Int, y: Int) {
-        balls[Point(x: x, y: y)] = true
+        board.place(x, y: y)
     }
     
-    func shoot(start: (x: Int, y: Int), direction startingDirection: Direction) -> Exit {
+    func shoot(start: (x: Int, y: Int), direction startingDirection: Direction) -> ExitResult? {
         var inBox = true
         var position = (x: start.x, y: start.y)
         var direction = startingDirection
@@ -114,7 +55,10 @@ public class Game {
             position = getNewPosition(position, direction: direction)
             inBox = !didExit(position)
         }
-        return .Detour(entryPointsLookup[Point(x: position.x, y: position.y)]!)
+        if let exitPoint = board.getExitPoint(position.x, y: position.y) {
+            return .Detour(exitPoint)
+        }
+        return nil
     }
     
     func getNewPosition(position: (x: Int, y: Int), direction: Direction) -> (x: Int, y: Int) {
@@ -131,26 +75,26 @@ public class Game {
     }
     
     func willHit(position: (x: Int, y: Int), direction: Direction) -> Bool {
-        if let currentSpot = balls[Point(x: position.x, y: position.y)] {
+        if let currentSpot = board.getSlot(position.x, y: position.y) {
             if currentSpot {
                 return true
             }
         }
         switch direction {
         case .Up:
-            if let result = balls[Point(x: position.x, y: position.y - 1)] {
+            if let result = board.getSlot(position.x, y: position.y - 1) {
                 return result
             }
         case .Down:
-            if let result = balls[Point(x: position.x, y: position.y + 1)] {
+            if let result = board.getSlot(position.x, y: position.y + 1) {
                 return result
             }
         case .Left:
-            if let result = balls[Point(x: position.x - 1, y: position.y)] {
+            if let result = board.getSlot(position.x - 1, y: position.y) {
                 return result
             }
         case .Right:
-            if let result = balls[Point(x: position.x + 1, y: position.y)] {
+            if let result = board.getSlot(position.x + 1, y: position.y) {
                 return result
             }
         }
@@ -165,45 +109,45 @@ public class Game {
     func getNewDirection(position: (x: Int, y: Int), direction: Direction) -> Direction {
         switch direction {
         case .Up:
-            if let leftBall = balls[Point(x: position.x - 1, y: position.y - 1)] {
+            if let leftBall = board.getSlot(position.x - 1, y: position.y - 1) {
                 if leftBall {
                     return .Right
                 }
             }
-            if let rightBall = balls[Point(x: position.x + 1, y: position.y - 1)] {
+            if let rightBall = board.getSlot(position.x + 1, y: position.y - 1) {
                 if rightBall {
                     return .Left
                 }
             }
         case .Down:
-            if let leftBall = balls[Point(x: position.x - 1, y: position.y + 1)] {
+            if let leftBall = board.getSlot(position.x - 1, y: position.y + 1) {
                 if leftBall {
                     return .Right
                 }
             }
-            if let rightBall = balls[Point(x: position.x + 1, y: position.y + 1)] {
+            if let rightBall = board.getSlot(position.x + 1, y: position.y + 1) {
                 if rightBall {
                     return .Left
                 }
             }
         case .Left:
-            if let topBall = balls[Point(x: position.x - 1, y: position.y - 1)] {
+            if let topBall = board.getSlot(position.x - 1, y: position.y - 1) {
                 if topBall {
                     return .Down
                 }
             }
-            if let bottomBall = balls[Point(x: position.x - 1, y: position.y + 1)] {
+            if let bottomBall = board.getSlot(position.x - 1, y: position.y + 1) {
                 if bottomBall {
                     return .Up
                 }
             }
         case .Right:
-            if let topBall = balls[Point(x: position.x + 1, y: position.y - 1)] {
+            if let topBall = board.getSlot(position.x + 1, y: position.y - 1) {
                 if topBall {
                     return .Down
                 }
             }
-            if let bottomBall = balls[Point(x: position.x + 1, y: position.y + 1)] {
+            if let bottomBall = board.getSlot(position.x + 1, y: position.y + 1) {
                 if bottomBall {
                     return .Up
                 }
@@ -215,26 +159,26 @@ public class Game {
     func willReflect(position: (x: Int, y: Int), direction: Direction) -> Bool {
         switch direction {
         case .Up:
-            if let leftBall = balls[Point(x: position.x-1, y: position.y-1)] {
-                if let rightBall = balls[Point(x: position.x+1, y: position.y-1)] {
+            if let leftBall = board.getSlot(position.x-1, y: position.y-1) {
+                if let rightBall = board.getSlot(position.x+1, y: position.y-1) {
                     return leftBall && rightBall
                 }
             }
         case .Down:
-            if let leftBall = balls[Point(x: position.x-1, y: position.y+1)] {
-                if let rightBall = balls[Point(x: position.x+1, y: position.y+1)] {
+            if let leftBall = board.getSlot(position.x-1, y: position.y+1) {
+                if let rightBall = board.getSlot(position.x+1, y: position.y+1) {
                     return leftBall && rightBall
                 }
             }
         case .Left:
-            if let topBall = balls[Point(x: position.x-1, y: position.y-1)] {
-                if let bottomBall = balls[Point(x: position.x-1, y: position.y+1)] {
+            if let topBall = board.getSlot(position.x-1, y: position.y-1) {
+                if let bottomBall = board.getSlot(position.x-1, y: position.y+1) {
                     return topBall && bottomBall
                 }
             }
         case .Right:
-            if let topBall = balls[Point(x: position.x+1, y: position.y-1)] {
-                if let bottomBall = balls[Point(x: position.x+1, y: position.y+1)] {
+            if let topBall = board.getSlot(position.x+1, y: position.y-1) {
+                if let bottomBall = board.getSlot(position.x+1, y: position.y+1) {
                     return topBall && bottomBall
                 }
             }
