@@ -49,4 +49,41 @@ class Board {
     func getSlot(x: Int, y: Int) -> Bool? {
         return slots[Location(x: x, y: y)]
     }
+    
+    func getLocationForEntry(entry: Int) -> Location? {
+        switch entry {
+        case 1...8:
+            return Location(x: -1, y: entry - 1)
+        case 9...16:
+            return Location(x: entry - 9, y: 8)
+        case 17...24:
+            return Location(x: 8, y: 24 - entry)
+        case 25...32:
+            return Location(x: 32 - entry, y: -1)
+        default:
+            return nil
+        }
+    }
+    
+    func getDirectionForEntry(entry: Int) -> Direction? {
+        switch entry {
+        case 1...8:
+            return .Right
+        case 9...16:
+            return .Up
+        case 17...24:
+            return .Left
+        case 25...32:
+            return .Down
+        default:
+            return nil
+        }
+    }
+    
+    func isInBox(position: Location) -> Bool {
+        if let slot = slots[position] {
+            return true
+        }
+        return false
+    }
 }
