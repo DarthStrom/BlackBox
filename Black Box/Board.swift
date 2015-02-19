@@ -42,12 +42,15 @@ class Board {
        slots[Location(x: x, y: y)] = true
     }
     
-    func getExitPoint(x: Int, y: Int) -> Int? {
+    func getEntryPoint(x: Int, y: Int) -> Int? {
         return entries[Location(x: x, y: y)]
     }
     
-    func getSlot(x: Int, y: Int) -> Bool? {
-        return slots[Location(x: x, y: y)]
+    func getSlot(x: Int, y: Int) -> Bool {
+        if let result = slots[Location(x: x, y: y)] {
+            return result
+        }
+        return false
     }
     
     func getLocationForEntry(entry: Int) -> Location? {

@@ -30,7 +30,7 @@ class Ray {
     
     func shootFrom(position: Location, direction: Direction) -> ExitResult? {
         if board.isInBox(position) {
-            if willHit(position, direction: direction) {
+            if board.getSlot(position.x, y: position.y) || willHit(position, direction: direction) {
                 return .Hit
             }
             if willReflect(position, direction: direction) {
@@ -42,7 +42,7 @@ class Ray {
             
             return shootFrom(newPosition, direction: newDirection)
         }
-        if let exitPoint = board.getExitPoint(position.x, y: position.y) {
+        if let exitPoint = board.getEntryPoint(position.x, y: position.y) {
             return .Detour(exitPoint)
         }
         return nil
@@ -54,60 +54,33 @@ class Ray {
     }
     
     func willHit(position: Location, direction: Direction) -> Bool {
-        if let currentPosition = board.getSlot(position.x, y: position.y) {
-            if currentPosition {
-                return true
-            }
-        }
         switch direction {
         case .Up:
-            if let result = board.getSlot(position.x, y: position.y - 1) {
-                return result
-            }
+            return board.getSlot(position.x, y: position.y - 1)
         case .Down:
-            if let result = board.getSlot(position.x, y: position.y + 1) {
-                return result
-            }
+            return board.getSlot(position.x, y: position.y + 1)
         case .Left:
-            if let result = board.getSlot(position.x - 1, y: position.y) {
-                return result
-            }
+            return board.getSlot(position.x - 1, y: position.y)
         case .Right:
-            if let result = board.getSlot(position.x + 1, y: position.y) {
-                return result
-            }
+            return board.getSlot(position.x + 1, y: position.y)
         }
-        return false
     }
     
     func willReflect(position: Location, direction: Direction) -> Bool {
         switch direction {
         case .Up:
-            if let leftBall = board.getSlot(position.x - 1, y: position.y - 1) {
-                if let rightBall = board.getSlot(position.x + 1, y: position.y - 1) {
-                    return leftBall && rightBall
-                }
-            }
+            return board.getSlot(position.x - 1, y: position.y - 1) &&
+                board.getSlot(position.x + 1, y: position.y - 1)
         case .Down:
-            if let leftBall = board.getSlot(position.x - 1, y: position.y + 1) {
-                if let rightBall = board.getSlot(position.x + 1, y: position.y + 1) {
-                    return leftBall && rightBall
-                }
-            }
+            return board.getSlot(position.x - 1, y: position.y + 1) &&
+                board.getSlot(position.x + 1, y: position.y + 1)
         case .Left:
-            if let topBall = board.getSlot(position.x - 1, y: position.y - 1) {
-                if let bottomBall = board.getSlot(position.x - 1, y: position.y + 1) {
-                    return topBall && bottomBall
-                }
-            }
+            return board.getSlot(position.x - 1, y: position.y - 1) &&
+                board.getSlot(position.x - 1, y: position.y + 1)
         case .Right:
-            if let topBall = board.getSlot(position.x + 1, y: position.y - 1) {
-                if let bottomBall = board.getSlot(position.x + 1, y: position.y + 1) {
-                    return topBall && bottomBall
-                }
-            }
+            return board.getSlot(position.x + 1, y: position.y - 1) &&
+                board.getSlot(position.x + 1, y: position.y + 1)
         }
-        return false
     }
     
     func getNewPosition(position: Location, direction: Direction) -> Location {
@@ -126,48 +99,32 @@ class Ray {
     func getNewDirection(position: Location, direction: Direction) -> Direction {
         switch direction {
         case .Up:
-            if let leftBall = board.getSlot(position.x - 1, y: position.y - 1) {
-                if leftBall {
-                    return .Right
-                }
+            if board.getSlot(position.x - 1, y: position.y - 1) {
+                return .Right
             }
-            if let rightBall = board.getSlot(position.x + 1, y: position.y - 1) {
-                if rightBall {
-                    return .Left
-                }
+            if board.getSlot(position.x + 1, y: position.y - 1) {
+                return .Left
             }
         case .Down:
-            if let leftBall = board.getSlot(position.x - 1, y: position.y + 1) {
-                if leftBall {
-                    return .Right
-                }
+            if board.getSlot(position.x - 1, y: position.y + 1) {
+                return .Right
             }
-            if let rightBall = board.getSlot(position.x + 1, y: position.y + 1) {
-                if rightBall {
-                    return .Left
-                }
+            if board.getSlot(position.x + 1, y: position.y + 1) {
+                return .Left
             }
         case .Left:
-            if let topBall = board.getSlot(position.x - 1, y: position.y - 1) {
-                if topBall {
-                    return .Down
-                }
+            if board.getSlot(position.x - 1, y: position.y - 1) {
+                return .Down
             }
-            if let bottomBall = board.getSlot(position.x - 1, y: position.y + 1) {
-                if bottomBall {
-                    return .Up
-                }
+            if board.getSlot(position.x - 1, y: position.y + 1) {
+                return .Up
             }
         case .Right:
-            if let topBall = board.getSlot(position.x + 1, y: position.y - 1) {
-                if topBall {
-                    return .Down
-                }
+            if board.getSlot(position.x + 1, y: position.y - 1) {
+                return .Down
             }
-            if let bottomBall = board.getSlot(position.x + 1, y: position.y + 1) {
-                if bottomBall {
-                    return .Up
-                }
+            if board.getSlot(position.x + 1, y: position.y + 1) {
+                return .Up
             }
         }
         return direction
