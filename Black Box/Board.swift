@@ -38,16 +38,16 @@ class Board {
         }
     }
     
-    func place(x: Int, y: Int) {
-       slots[Location(x: x, y: y)] = true
+    func placeAtColumn(column: Int, andRow row: Int) {
+       slots[Location(x: column, y: row)] = true
     }
     
-    func getEntryPoint(x: Int, y: Int) -> Int? {
-        return entries[Location(x: x, y: y)]
+    func getEntryPointAtColumn(column: Int, andRow row: Int) -> Int? {
+        return entries[Location(x: column, y: row)]
     }
     
-    func getSlot(x: Int, y: Int) -> Bool {
-        if let result = slots[Location(x: x, y: y)] {
+    func getSlotAtColumn(column: Int, andRow row: Int) -> Bool {
+        if let result = slots[Location(x: column, y: row)] {
             return result
         }
         return false

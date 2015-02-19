@@ -80,7 +80,7 @@ class BlackBoxSpecs: QuickSpec {
                 describe("from the left") {
                     
                     it("returns Hit when a ball is hit") {
-                        game!.place(0, y: 0)
+                        game!.placeAtColumn(0, andRow: 0)
                         expectHit(1)
                     }
                     
@@ -89,18 +89,18 @@ class BlackBoxSpecs: QuickSpec {
                     }
                     
                     it("returns Reflection when ball prevents entering the box") {
-                        game!.place(0, y: 0)
+                        game!.placeAtColumn(0, andRow: 0)
                         expectReflection(2)
                     }
                     
                     it("returns Reflection when deflected by two balls at once") {
-                        game!.place(1, y: 1)
-                        game!.place(1, y: 3)
+                        game!.placeAtColumn(1, andRow: 1)
+                        game!.placeAtColumn(1, andRow: 3)
                         expectReflection(3)
                     }
                     
                     it("returns Detour when deflected") {
-                        game!.place(1, y: 1)
+                        game!.placeAtColumn(1, andRow: 1)
                         expectDetour(1, 32)
                     }
                 }
@@ -108,7 +108,7 @@ class BlackBoxSpecs: QuickSpec {
                 describe("from the bottom") {
                     
                     it("returns Hit when a ball is hit") {
-                        game!.place(0, y: 0)
+                        game!.placeAtColumn(0, andRow: 0)
                         expectHit(9)
                     }
                     
@@ -117,18 +117,18 @@ class BlackBoxSpecs: QuickSpec {
                     }
                     
                     it("returns Reflection when ball prevents entering the box") {
-                        game!.place(4, y: 7)
+                        game!.placeAtColumn(4, andRow: 7)
                         expectReflection(14)
                     }
                     
                     it("returns Reflection when deflected by two balls at once") {
-                        game!.place(1, y: 1)
-                        game!.place(3, y: 1)
+                        game!.placeAtColumn(1, andRow: 1)
+                        game!.placeAtColumn(3, andRow: 1)
                         expectReflection(11)
                     }
                     
                     it("returns Detour when deflected") {
-                        game!.place(4, y: 3)
+                        game!.placeAtColumn(4, andRow: 3)
                         expectDetour(12, 5)
                     }
                 }
@@ -136,7 +136,7 @@ class BlackBoxSpecs: QuickSpec {
                 describe("from the right") {
                     
                     it("returns Hit when a ball is hit") {
-                        game!.place(0, y: 7)
+                        game!.placeAtColumn(0, andRow: 7)
                         expectHit(17)
                     }
                     
@@ -145,18 +145,18 @@ class BlackBoxSpecs: QuickSpec {
                     }
                     
                     it("returns Reflection when ball prevents entering the box") {
-                        game!.place(7, y: 7)
+                        game!.placeAtColumn(7, andRow: 7)
                         expectReflection(18)
                     }
                     
                     it("returns Reflection when deflected by two balls at once") {
-                        game!.place(1, y: 1)
-                        game!.place(1, y: 3)
+                        game!.placeAtColumn(1, andRow: 1)
+                        game!.placeAtColumn(1, andRow: 3)
                         expectReflection(22)
                     }
                     
                     it("returns Detour when deflected") {
-                        game!.place(4, y: 3)
+                        game!.placeAtColumn(4, andRow: 3)
                         expectDetour(20, 14)
                     }
                 }
@@ -164,7 +164,7 @@ class BlackBoxSpecs: QuickSpec {
                 describe("from the top") {
                     
                     it("returns Hit when a ball is hit") {
-                        game!.place(4, y: 3)
+                        game!.placeAtColumn(4, andRow: 3)
                         expectHit(28)
                     }
                     
@@ -173,18 +173,18 @@ class BlackBoxSpecs: QuickSpec {
                     }
                     
                     it("returns Reflection when ball prevents entering the box") {
-                        game!.place(0, y: 0)
+                        game!.placeAtColumn(0, andRow: 0)
                         expectReflection(31)
                     }
                     
                     it("returns Reflection when deflected by two balls at once") {
-                        game!.place(1, y: 1)
-                        game!.place(3, y: 1)
+                        game!.placeAtColumn(1, andRow: 1)
+                        game!.placeAtColumn(3, andRow: 1)
                         expectReflection(30)
                     }
                     
                     it("returns Detour when deflected") {
-                        game!.place(6, y: 3)
+                        game!.placeAtColumn(6, andRow: 3)
                         expectDetour(27, 3)
                     }
                 }
@@ -192,47 +192,47 @@ class BlackBoxSpecs: QuickSpec {
                 describe("multiple detours") {
                     
                     it("can detour multiple times") {
-                        game!.place(4, y: 3)
-                        game!.place(7, y: 3)
+                        game!.placeAtColumn(4, andRow: 3)
+                        game!.placeAtColumn(7, andRow: 3)
                         expectDetour(14, 15)
                     }
                     
                     it("will hit instead of reflecting on three balls in a row") {
-                        game!.place(4, y: 3)
-                        game!.place(5, y: 3)
-                        game!.place(6, y: 3)
+                        game!.placeAtColumn(4, andRow: 3)
+                        game!.placeAtColumn(5, andRow: 3)
+                        game!.placeAtColumn(6, andRow: 3)
                         expectHit(14)
                     }
                     
                     it("can detour many times") {
-                        game!.place(4, y: 0)
-                        game!.place(0, y: 2)
-                        game!.place(4, y: 4)
+                        game!.placeAtColumn(4, andRow: 0)
+                        game!.placeAtColumn(0, andRow: 2)
+                        game!.placeAtColumn(4, andRow: 4)
                         expectDetour(31, 10)
                     }
                     
                     it("can reflect after detours") {
-                        game!.place(4, y: 0)
-                        game!.place(4, y: 4)
-                        game!.place(6, y: 4)
+                        game!.placeAtColumn(4, andRow: 0)
+                        game!.placeAtColumn(4, andRow: 4)
+                        game!.placeAtColumn(6, andRow: 4)
                         expectReflection(23)
                     }
                     
                     it("can hit after detours") {
-                        game!.place(0, y: 2)
-                        game!.place(7, y: 2)
-                        game!.place(5, y: 5)
-                        game!.place(6, y: 5)
-                        game!.place(0, y: 7)
+                        game!.placeAtColumn(0, andRow: 2)
+                        game!.placeAtColumn(7, andRow: 2)
+                        game!.placeAtColumn(5, andRow: 5)
+                        game!.placeAtColumn(6, andRow: 5)
+                        game!.placeAtColumn(0, andRow: 7)
                         expectHit(13)
                     }
                     
                     it("can reflect after many detours") {
-                        game!.place(0, y: 0)
-                        game!.place(6, y: 0)
-                        game!.place(6, y: 2)
-                        game!.place(0, y: 4)
-                        game!.place(6, y: 6)
+                        game!.placeAtColumn(0, andRow: 0)
+                        game!.placeAtColumn(6, andRow: 0)
+                        game!.placeAtColumn(6, andRow: 2)
+                        game!.placeAtColumn(0, andRow: 4)
+                        game!.placeAtColumn(6, andRow: 6)
                         expectReflection(10)
                     }
                 }

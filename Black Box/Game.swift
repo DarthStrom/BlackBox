@@ -19,7 +19,7 @@ public class Game {
         return ray.shoot()
     }
     
-    public func place(x: Int, y: Int) {
-        board.place(x, y: y)
+    public func placeAtColumn(column: Int, andRow row: Int) {
+        board.placeAtColumn(column, andRow: row)
     }
 }

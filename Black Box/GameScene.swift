@@ -43,9 +43,9 @@ class GameScene: SKScene {
         }
         
         //TODO: real ball hiding
-        game.place(1, y: 1)
-        game.place(1, y: 3)
-        game.place(7, y: 7)
+        game.placeAtColumn(1, andRow: 1)
+        game.placeAtColumn(1, andRow: 3)
+        game.placeAtColumn(7, andRow: 7)
     }
 
     required init?(coder aDecoder: NSCoder) {
