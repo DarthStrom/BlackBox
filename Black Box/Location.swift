@@ -7,19 +7,21 @@
 //
 
 func ==(lhs: Location, rhs: Location) -> Bool {
-    return lhs.x == rhs.x && lhs.y == rhs.y
+  return lhs.x == rhs.x && lhs.y == rhs.y
 }
 
-class Location: Hashable {
-    let x: Int
-    let y: Int
-    
-    var hashValue: Int {
-        return x.hashValue ^ y.hashValue
-    }
-    
-    init (x: Int, y: Int) {
-        self.x = x
-        self.y = y
-    }
+class Location {
+  let x: Int, y: Int
+  
+  init (x: Int, y: Int) {
+    self.x = x
+    self.y = y
+  }
+}
+
+// MARK: - Hashable
+extension Location: Hashable {
+  var hashValue: Int {
+    return x.hashValue ^ y.hashValue
+  }
 }
