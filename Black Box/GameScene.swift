@@ -30,6 +30,14 @@ class GameScene: SKScene {
     addChild(input)
   }
   
+  func addSlotAtColumn(column: Int, andRow row: Int) {
+    let slot = Slot.slot(column: column, row: row, imageNamed: "Guess")
+    slot.anchorPoint = CGPoint(x: 0, y: 0)
+    slot.position = CGPoint(x: 81 + column * 76, y: 81 + row * 76)
+    slot.hidden = true
+    addChild(slot)
+  }
+  
   override init(size: CGSize) {
     super.init(size: size)
     
@@ -40,6 +48,12 @@ class GameScene: SKScene {
     
     for i in 1...32 {
       addEntryPoint(i)
+    }
+    
+    for y in 0...7 {
+      for x in 0...7 {
+        addSlotAtColumn(x, andRow: y)
+      }
     }
     
     //TODO: real ball hiding
@@ -77,6 +91,16 @@ class GameScene: SKScene {
           entryPoint.texture = SKTexture(imageNamed: "Reflection")
         case .None:
           entryPoint.hidden = true
+        }
+      }
+      if let slot = self.nodeAtPoint(location) as? Slot {
+        println(slot.name!)
+        if slot.hidden {
+          slot.hidden = false
+          game.markBallAtColumn(slot.column, andRow: slot.row)
+        } else {
+          slot.hidden = true
+          game.removeMarkAtColumn(slot.column, andRow: slot.row)
         }
       }
     }

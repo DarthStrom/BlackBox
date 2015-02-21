@@ -24,6 +24,20 @@ class BlackBoxSpecs: QuickSpec {
         expect(game!.guesses) == 0
       }
       
+      describe("marking balls") {
+        
+        it("can mark a ball") {
+          game!.markBallAtColumn(3, andRow: 4)
+          expect(game!.marks).to(equal([Location(x: 3, y: 4): true]))
+        }
+        
+        it("can remove a mark") {
+          game!.markBallAtColumn(6, andRow: 5)
+          game!.removeMarkAtColumn(6, andRow: 5)
+          expect(game!.marks).to(beEmpty())
+        }
+      }
+      
       // entry points are numbered 1...32 starting at the upper most left and
       // continuing counter-clockwise
       describe("guessing") {

@@ -6,14 +6,14 @@
 //  Copyright (c) 2015 Peapod Media, llc. All rights reserved.
 //
 
-func ==(lhs: Location, rhs: Location) -> Bool {
+public func ==(lhs: Location, rhs: Location) -> Bool {
   return lhs.x == rhs.x && lhs.y == rhs.y
 }
 
-class Location {
+public class Location {
   let x: Int, y: Int
   
-  init (x: Int, y: Int) {
+  public init (x: Int, y: Int) {
     self.x = x
     self.y = y
   }
@@ -21,7 +21,7 @@ class Location {
 
 // MARK: - Hashable
 extension Location: Hashable {
-  var hashValue: Int {
+  public var hashValue: Int {
     return x.hashValue ^ y.hashValue
   }
 }
