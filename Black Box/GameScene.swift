@@ -9,6 +9,7 @@
 import SpriteKit
 
 class GameScene: SKScene {
+  var detours = 0
   let game = Game()
   
   func addEntryPoint(number: Int) {
@@ -83,9 +84,10 @@ class GameScene: SKScene {
         case .Some(.Hit):
           entryPoint.texture = SKTexture(imageNamed: "Hit")
         case .Some(.Detour(let exitPoint)):
+          detours = (detours % 9) + 1
           let exitPoint = self.childNodeWithName("Entry\(exitPoint)") as EntryPoint
-          entryPoint.texture = SKTexture(imageNamed: "Detour")
-          exitPoint.texture = SKTexture(imageNamed: "Detour")
+          entryPoint.texture = SKTexture(imageNamed: "Detour\(detours)")
+          exitPoint.texture = SKTexture(imageNamed: "Detour\(detours)")
           exitPoint.hidden = false
         case .Some(.Reflection):
           entryPoint.texture = SKTexture(imageNamed: "Reflection")
