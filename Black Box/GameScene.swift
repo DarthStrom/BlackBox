@@ -34,7 +34,7 @@ class GameScene: SKScene {
   func addSlotAtColumn(column: Int, andRow row: Int) {
     let slot = Slot.slot(column: column, row: row, imageNamed: "Guess")
     slot.anchorPoint = CGPoint(x: 0, y: 0)
-    slot.position = CGPoint(x: 81 + column * 76, y: 81 + row * 76)
+    slot.position = CGPoint(x: 81 + column * 76, y: 81 + (7 - row) * 76)
     slot.hidden = true
     addChild(slot)
   }
