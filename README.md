@@ -118,7 +118,3 @@ A ray can be detoured many times... this can be misleading for the seeker
 When both players have played then the player with the lowest score is the winner
 
 In the case of a single player game, the score is compared with a predetermined "par" score for the given ball placement
-
-[<img src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png">](http://creativecommons.org/licenses/by-sa/4.0/ "license")
-
-This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/ "license").

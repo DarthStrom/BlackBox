@@ -1,11 +1,3 @@
-//
-//  Board.swift
-//  Black Box
-//
-//  Created by Jason Duffy on 2/18/15.
-//  Copyright (c) 2015 Peapod Media, llc. All rights reserved.
-//
-
 class Board {
   var slots = [Location: Bool]()
   var entries = [Location: Int]()

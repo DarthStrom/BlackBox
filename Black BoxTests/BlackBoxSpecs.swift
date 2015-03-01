@@ -1,11 +1,3 @@
-//
-//  BlackBoxSpecs.swift
-//  Black Box
-//
-//  Created by Jason Duffy on 12/29/14.
-//  Copyright (c) 2014 Peapod Media, llc. All rights reserved.
-//
-
 import Black_Box
 
 import Quick

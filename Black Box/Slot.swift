@@ -1,11 +1,3 @@
-//
-//  Slot.swift
-//  Black Box
-//
-//  Created by Jason Duffy on 2/21/15.
-//  Copyright (c) 2015 Peapod Media, llc. All rights reserved.
-//
-
 import SpriteKit
 
 class Slot: SKSpriteNode {

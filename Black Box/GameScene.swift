@@ -1,11 +1,3 @@
-//
-//  GameScene.swift
-//  Black Box
-//
-//  Created by Jason Duffy on 12/28/14.
-//  Copyright (c) 2014 Peapod Media, llc. All rights reserved.
-//
-
 import SpriteKit
 
 class GameScene: SKScene {
