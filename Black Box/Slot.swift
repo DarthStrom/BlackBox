@@ -7,6 +7,7 @@ class Slot: SKSpriteNode {
     let sprite = Slot(imageNamed: imageNamed)
     
     sprite.column = column
+    sprite.row = row
     sprite.name = "Slot (\(column), \(row))"
     return sprite
   }

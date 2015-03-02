@@ -9,7 +9,7 @@ class BlackBoxSpecs: QuickSpec {
     describe("game") {
       var game: Game?
       beforeEach {
-        game = Game()
+        game = Game(balls: 4)
       }
       
       it("initially has 0 guesses") {
@@ -241,6 +241,49 @@ class BlackBoxSpecs: QuickSpec {
             game!.placeAtColumn(6, andRow: 6)
             expectReflection(10)
           }
+        }
+      }
+      
+      describe("scoring") {
+        
+        it("counts rays as 1") {
+          game!.guess(7)
+          expect(game!.getScore()) == 1
+        }
+        
+        it("counts multiple rays") {
+          game!.guess(7)
+          game!.guess(9)
+          game!.guess(23)
+          game!.guess(30)
+          expect(game!.getScore()) == 4
+        }
+        
+        it("counts wrong ball placement as 5") {
+          game!.placeAtColumn(0, andRow: 0)
+          game!.markBallAtColumn(1, andRow: 0)
+          expect(game!.getScore()) == 5
+        }
+        
+        it("counts correct ball placement as 0") {
+          game!.placeAtColumn(2, andRow: 2)
+          game!.markBallAtColumn(2, andRow: 2)
+          expect(game!.getScore()) == 0
+        }
+        
+        it("is finishable after 4 ball placements") {
+          game!.markBallAtColumn(1, andRow: 1)
+          game!.markBallAtColumn(2, andRow: 2)
+          game!.markBallAtColumn(3, andRow: 3)
+          game!.markBallAtColumn(4, andRow: 4)
+          expect(game!.isFinishable()).to(beTrue())
+        }
+        
+        it("is not finishable before 4 ball placements") {
+          game!.markBallAtColumn(1, andRow: 1)
+          game!.markBallAtColumn(2, andRow: 2)
+          game!.markBallAtColumn(3, andRow: 3)
+          expect(game!.isFinishable()).to(beFalse())
         }
       }
     }

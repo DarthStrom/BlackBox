@@ -2,6 +2,19 @@ import UIKit
 import SpriteKit
 
 class GameViewController: UIViewController {
+
+  var scene = GameScene(size: CGSize(width: 0, height: 0))
+  
+  @IBOutlet weak var score: UILabel!
+  
+  @IBAction func finished(sender: UIButton) {
+    if scene.isFinishable() {
+      score.text = scene.getScore()
+    } else {
+      println("trying to finish with \(scene.game.marks.count) and need \(scene.game.balls)")
+      score.text = ""
+    }
+  }
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -15,7 +28,7 @@ class GameViewController: UIViewController {
     skView.ignoresSiblingOrder = true
     
     /* Set the scale mode to scale to fit the window */
-    let scene = GameScene(size: skView.bounds.size)
+    scene = GameScene(size: skView.bounds.size)
     scene.scaleMode = .AspectFill
     
     skView.presentScene(scene)

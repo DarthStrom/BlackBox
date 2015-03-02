@@ -2,7 +2,15 @@ import SpriteKit
 
 class GameScene: SKScene {
   var detours = 0
-  let game = Game()
+  let game = Game(balls: 4)
+  
+  func isFinishable() -> Bool {
+    return game.isFinishable()
+  }
+  
+  func getScore() -> String {
+    return String(game.getScore())
+  }
   
   func addEntryPoint(number: Int) {
     let input = EntryPoint.entryPoint(number, imageNamed: "Hit")
@@ -52,6 +60,7 @@ class GameScene: SKScene {
     //TODO: real ball hiding
     game.placeAtColumn(1, andRow: 1)
     game.placeAtColumn(1, andRow: 3)
+    game.placeAtColumn(3, andRow: 4)
     game.placeAtColumn(7, andRow: 7)
   }
   

@@ -2,9 +2,12 @@ public class Game {
   public var guesses = 0
   public var marks = [Location: Bool]()
   
+  let balls: Int
   let board = Board()
   
-  public init() {}
+  public init(balls: Int) {
+    self.balls = balls
+  }
   
   public func guess(entry: Int) -> ExitResult? {
     guesses += 1
@@ -19,9 +22,30 @@ public class Game {
   
   public func markBallAtColumn(column: Int, andRow row: Int) {
     marks.updateValue(true, forKey: Location(x: column, y: row))
+    println("marking (\(column), \(row)) with hash \(Location(x: column, y: row).hashValue)")
   }
   
   public func removeMarkAtColumn(column: Int, andRow row: Int) {
     marks.removeValueForKey(Location(x: column, y: row))
+  }
+  
+  public func isFinishable() -> Bool {
+    return marks.count == balls
+  }
+  
+  public func getScore() -> Int {
+    return guesses + incorrectBalls() * 5
+  }
+  
+  func incorrectBalls() -> Int {
+    var count = 0
+    for mark in marks {
+      if let slot = board.slots[mark.0] {
+        if !slot {
+          count += 1
+        }
+      }
+    }
+    return count
   }
 }
