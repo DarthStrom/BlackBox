@@ -8,8 +8,16 @@ class GameScene: SKScene {
     return game.isFinishable()
   }
   
+  func getProbes() -> String {
+    return "\(game.guesses)"
+  }
+  
+  func getIncorrectBalls() -> String {
+    return "\(game.incorrectBalls())"
+  }
+  
   func getScore() -> String {
-    return String(game.getScore())
+    return "\(game.getScore())"
   }
   
   func addEntryPoint(number: Int) {

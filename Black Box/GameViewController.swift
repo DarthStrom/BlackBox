@@ -5,15 +5,32 @@ class GameViewController: UIViewController {
 
   var scene = GameScene(size: CGSize(width: 0, height: 0))
   
+  @IBOutlet weak var probes: UILabel!
+  @IBOutlet weak var incorrect: UILabel!
   @IBOutlet weak var score: UILabel!
   
   @IBAction func finished(sender: UIButton) {
     if scene.isFinishable() {
+      probes.text = "Probes: \(scene.getProbes())"
+      incorrect.text = "Incorrect: \(scene.getIncorrectBalls())"
       score.text = scene.getScore()
+      showScore()
     } else {
       println("trying to finish with \(scene.game.marks.count) and need \(scene.game.balls)")
-      score.text = ""
+      hideScore()
     }
+  }
+  
+  func hideScore() {
+    probes.hidden = true
+    incorrect.hidden = true
+    score.hidden = true
+  }
+  
+  func showScore() {
+    probes.hidden = false
+    incorrect.hidden = false
+    score.hidden = false
   }
   
   override func viewDidLoad() {
@@ -31,6 +48,7 @@ class GameViewController: UIViewController {
     scene = GameScene(size: skView.bounds.size)
     scene.scaleMode = .AspectFill
     
+    hideScore()
     skView.presentScene(scene)
   }
   
