@@ -22,7 +22,6 @@ public class Game {
   
   public func markBallAtColumn(column: Int, andRow row: Int) {
     marks.updateValue(true, forKey: Location(x: column, y: row))
-    println("marking (\(column), \(row)) with hash \(Location(x: column, y: row).hashValue)")
   }
   
   public func removeMarkAtColumn(column: Int, andRow row: Int) {
