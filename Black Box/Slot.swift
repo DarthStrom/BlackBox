@@ -8,7 +8,7 @@ class Slot: SKSpriteNode {
     
     sprite.column = column
     sprite.row = row
-    sprite.name = "Slot (\(column), \(row))"
+    sprite.name = "Slot\(column)\(row)"
     return sprite
   }
 }

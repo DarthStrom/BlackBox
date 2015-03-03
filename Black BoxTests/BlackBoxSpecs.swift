@@ -286,6 +286,49 @@ class BlackBoxSpecs: QuickSpec {
           expect(game!.isFinishable()).to(beFalse())
         }
       }
+      
+      describe("incorrect balls") {
+        
+        it("returns balls that were incorrectly marked") {
+          game!.markBallAtColumn(5, andRow: 4)
+          expect(game!.incorrectBalls()).to(contain(Location(x: 5, y: 4)))
+        }
+        
+        it("does not return balls that were correctly marked") {
+          game!.placeAtColumn(4, andRow: 5)
+          game!.markBallAtColumn(4, andRow: 5)
+          expect(game!.incorrectBalls()).to(beEmpty())
+        }
+      }
+      
+      describe("missed balls") {
+        
+        it("returns balls that were not marked") {
+          game!.placeAtColumn(6, andRow: 3)
+          expect(game!.missedBalls()).to(contain(Location(x: 6, y: 3)))
+        }
+        
+        it("does not return balls that were correctly marked") {
+          game!.placeAtColumn(2, andRow: 7)
+          game!.markBallAtColumn(2, andRow: 7)
+          expect(game!.missedBalls()).to(beEmpty())
+        }
+      }
+      
+      describe("correct balls") {
+        
+        it("returns balls that were marked correctly") {
+          game!.placeAtColumn(5, andRow: 5)
+          game!.markBallAtColumn(5, andRow: 5)
+          expect(game!.correctBalls()).to(contain(Location(x: 5, y: 5)))
+        }
+        
+        it("does not return balls that were marked incorrectly") {
+          game!.placeAtColumn(2, andRow: 3)
+          game!.markBallAtColumn(3, andRow: 3)
+          expect(game!.correctBalls()).to(beEmpty())
+        }
+      }
     }
   }
 }

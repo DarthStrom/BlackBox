@@ -33,18 +33,49 @@ public class Game {
   }
   
   public func getScore() -> Int {
-    return guesses + incorrectBalls() * 5
+    return guesses + incorrectBalls().count * 5
   }
   
-  func incorrectBalls() -> Int {
-    var count = 0
+  public func incorrectBalls() -> [Location] {
+    var result = [Location]()
     for mark in marks {
       if let slot = board.slots[mark.0] {
         if !slot {
-          count += 1
+          result.append(mark.0)
         }
       }
     }
-    return count
+    return result
+  }
+  
+  public func missedBalls() -> [Location] {
+    var result = [Location]()
+    for slot in board.slots {
+      if slot.1 {
+        if let mark = marks[slot.0] {
+          if !mark {
+            result.append(slot.0)
+          }
+        } else {
+          result.append(slot.0)
+        }
+      }
+    }
+    return result
+  }
+  
+  public func correctBalls() -> [Location] {
+    var result = [Location]()
+    for slot in board.slots {
+      if slot.1 {
+        if let mark = marks[slot.0] {
+          if mark {
+            result.append(slot.0)
+          }
+        }
+      }
+    }
+    println("found \(result.count) correct balls")
+    return result
   }
 }

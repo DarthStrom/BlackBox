@@ -13,7 +13,7 @@ class GameScene: SKScene {
   }
   
   func getIncorrectBalls() -> String {
-    return "\(game.incorrectBalls())"
+    return "\(game.incorrectBalls().count * 5)"
   }
   
   func getScore() -> String {
@@ -45,6 +45,31 @@ class GameScene: SKScene {
     slot.position = CGPoint(x: 81 + column * 76, y: 81 + (7 - row) * 76)
     slot.hidden = true
     addChild(slot)
+  }
+  
+  func showIncorrectBalls() {
+    for ball in game.incorrectBalls() {
+      if let mark = childNodeWithName("Slot\(ball.x)\(ball.y)") as? Slot {
+        mark.texture = SKTexture(imageNamed: "Incorrect")
+      }
+    }
+  }
+  
+  func showMissedBalls() {
+    for ball in game.missedBalls() {
+      if let miss = childNodeWithName("Slot\(ball.x)\(ball.y)") as? Slot {
+        miss.texture = SKTexture(imageNamed: "Miss")
+        miss.hidden = false
+      }
+    }
+  }
+  
+  func showCorrectBalls() {
+    for ball in game.correctBalls() {
+      if let mark = childNodeWithName("Slot\(ball.x)\(ball.y)") as? Slot {
+        mark.texture = SKTexture(imageNamed: "Correct")
+      }
+    }
   }
   
   override init(size: CGSize) {

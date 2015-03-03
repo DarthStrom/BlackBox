@@ -19,6 +19,10 @@
 		9620CB5A1A8D86AD00B413F1 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9620CB401A8D868C00B413F1 /* Quick.framework */; };
 		9620CB5B1A8D86B200B413F1 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9620CB531A8D869B00B413F1 /* Nimble.framework */; };
 		9633C2FA1A524038005826D1 /* BlackBoxSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9633C2F91A524038005826D1 /* BlackBoxSpecs.swift */; };
+		963741311AA4CD0C002F35B9 /* Incorrect.png in Resources */ = {isa = PBXBuildFile; fileRef = 9637412F1AA4CD0C002F35B9 /* Incorrect.png */; };
+		963741321AA4CD0C002F35B9 /* Incorrect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 963741301AA4CD0C002F35B9 /* Incorrect@2x.png */; };
+		9637413F1AA4CEF4002F35B9 /* Miss.png in Resources */ = {isa = PBXBuildFile; fileRef = 9637413D1AA4CEF4002F35B9 /* Miss.png */; };
+		963741401AA4CEF4002F35B9 /* Miss@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9637413E1AA4CEF4002F35B9 /* Miss@2x.png */; };
 		965E5FFE1A507C6000BB183F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965E5FFD1A507C6000BB183F /* AppDelegate.swift */; };
 		965E60021A507C6000BB183F /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965E60011A507C6000BB183F /* GameScene.swift */; };
 		965E60041A507C6000BB183F /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965E60031A507C6000BB183F /* GameViewController.swift */; };
@@ -26,8 +30,6 @@
 		965E60091A507C6000BB183F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 965E60081A507C6000BB183F /* Images.xcassets */; };
 		965E600C1A507C6000BB183F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 965E600A1A507C6000BB183F /* LaunchScreen.xib */; };
 		968FFDA51A94F08D006E59A2 /* Ray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968FFDA41A94F08D006E59A2 /* Ray.swift */; };
-		96BCDF921A7194C100D1B3D2 /* Miss.png in Resources */ = {isa = PBXBuildFile; fileRef = 96BCDF901A7194C100D1B3D2 /* Miss.png */; };
-		96BCDF931A7194C100D1B3D2 /* Miss@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 96BCDF911A7194C100D1B3D2 /* Miss@2x.png */; };
 		96F0C8871A98F07600755598 /* Correct.png in Resources */ = {isa = PBXBuildFile; fileRef = 96F0C8831A98F07600755598 /* Correct.png */; };
 		96F0C8881A98F07600755598 /* Correct@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 96F0C8841A98F07600755598 /* Correct@2x.png */; };
 		96F0C8891A98F07600755598 /* Guess.png in Resources */ = {isa = PBXBuildFile; fileRef = 96F0C8851A98F07600755598 /* Guess.png */; };
@@ -149,6 +151,10 @@
 		9620CB361A8D868C00B413F1 /* Quick.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Quick.xcodeproj; path = ../../../Vendor/Quick/Quick.xcodeproj; sourceTree = "<group>"; };
 		9620CB4B1A8D869B00B413F1 /* Nimble.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Nimble.xcodeproj; path = ../../../Vendor/Nimble/Nimble.xcodeproj; sourceTree = "<group>"; };
 		9633C2F91A524038005826D1 /* BlackBoxSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlackBoxSpecs.swift; sourceTree = "<group>"; };
+		9637412F1AA4CD0C002F35B9 /* Incorrect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Incorrect.png; sourceTree = "<group>"; };
+		963741301AA4CD0C002F35B9 /* Incorrect@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Incorrect@2x.png"; sourceTree = "<group>"; };
+		9637413D1AA4CEF4002F35B9 /* Miss.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Miss.png; sourceTree = "<group>"; };
+		9637413E1AA4CEF4002F35B9 /* Miss@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Miss@2x.png"; sourceTree = "<group>"; };
 		965E5FF81A507C5F00BB183F /* Black Box.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Black Box.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		965E5FFC1A507C6000BB183F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		965E5FFD1A507C6000BB183F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -160,8 +166,6 @@
 		965E60111A507C6000BB183F /* Black BoxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Black BoxTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		965E60161A507C6000BB183F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		968FFDA41A94F08D006E59A2 /* Ray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ray.swift; sourceTree = "<group>"; };
-		96BCDF901A7194C100D1B3D2 /* Miss.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Miss.png; sourceTree = "<group>"; };
-		96BCDF911A7194C100D1B3D2 /* Miss@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Miss@2x.png"; sourceTree = "<group>"; };
 		96F0C8831A98F07600755598 /* Correct.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Correct.png; sourceTree = "<group>"; };
 		96F0C8841A98F07600755598 /* Correct@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Correct@2x.png"; sourceTree = "<group>"; };
 		96F0C8851A98F07600755598 /* Guess.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Guess.png; sourceTree = "<group>"; };
@@ -301,6 +305,10 @@
 		965E5FFB1A507C5F00BB183F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9637413D1AA4CEF4002F35B9 /* Miss.png */,
+				9637413E1AA4CEF4002F35B9 /* Miss@2x.png */,
+				9637412F1AA4CD0C002F35B9 /* Incorrect.png */,
+				963741301AA4CD0C002F35B9 /* Incorrect@2x.png */,
 				96F0C8991A9909D500755598 /* Detour1.png */,
 				96F0C89A1A9909D500755598 /* Detour1@2x.png */,
 				96F0C89B1A9909D500755598 /* Detour2.png */,
@@ -325,8 +333,6 @@
 				96F0C8861A98F07600755598 /* Guess@2x.png */,
 				96040BF51A83E2EB00DBBBCB /* Reflection.png */,
 				96040BF61A83E2EB00DBBBCB /* Reflection@2x.png */,
-				96BCDF901A7194C100D1B3D2 /* Miss.png */,
-				96BCDF911A7194C100D1B3D2 /* Miss@2x.png */,
 				9603D8151A70A4E2007A1A0F /* Hit.png */,
 				9603D80B1A70A123007A1A0F /* Hit@2x.png */,
 				96F82C861A50883900C9365B /* blackboxboard@2x.png */,
@@ -520,7 +526,6 @@
 			files = (
 				96F0C8BA1A9909D500755598 /* Detour8@2x.png in Resources */,
 				965E600C1A507C6000BB183F /* LaunchScreen.xib in Resources */,
-				96BCDF931A7194C100D1B3D2 /* Miss@2x.png in Resources */,
 				96F0C8B51A9909D500755598 /* Detour6.png in Resources */,
 				96F0C8AD1A9909D500755598 /* Detour2.png in Resources */,
 				96F0C8AC1A9909D500755598 /* Detour1@2x.png in Resources */,
@@ -531,6 +536,8 @@
 				96F0C8B91A9909D500755598 /* Detour8.png in Resources */,
 				96F0C8881A98F07600755598 /* Correct@2x.png in Resources */,
 				96F0C8AB1A9909D500755598 /* Detour1.png in Resources */,
+				963741321AA4CD0C002F35B9 /* Incorrect@2x.png in Resources */,
+				9637413F1AA4CEF4002F35B9 /* Miss.png in Resources */,
 				96F0C8871A98F07600755598 /* Correct.png in Resources */,
 				96F82C891A50883900C9365B /* blackboxboard.png in Resources */,
 				96F0C8B01A9909D500755598 /* Detour3@2x.png in Resources */,
@@ -541,6 +548,8 @@
 				9603D8161A70A4E2007A1A0F /* Hit.png in Resources */,
 				96F0C8AF1A9909D500755598 /* Detour3.png in Resources */,
 				965E60091A507C6000BB183F /* Images.xcassets in Resources */,
+				963741401AA4CEF4002F35B9 /* Miss@2x.png in Resources */,
+				963741311AA4CD0C002F35B9 /* Incorrect.png in Resources */,
 				965E60071A507C6000BB183F /* Main.storyboard in Resources */,
 				96F0C8B61A9909D500755598 /* Detour6@2x.png in Resources */,
 				96F82C881A50883900C9365B /* blackboxboard@2x.png in Resources */,
@@ -548,7 +557,6 @@
 				96F0C8B11A9909D500755598 /* Detour4.png in Resources */,
 				96F0C88A1A98F07600755598 /* Guess@2x.png in Resources */,
 				96F0C8B81A9909D500755598 /* Detour7@2x.png in Resources */,
-				96BCDF921A7194C100D1B3D2 /* Miss.png in Resources */,
 				96F0C8B21A9909D500755598 /* Detour4@2x.png in Resources */,
 				96F0C8BC1A9909D500755598 /* Detour9@2x.png in Resources */,
 			);

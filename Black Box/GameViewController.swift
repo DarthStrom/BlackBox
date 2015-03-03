@@ -11,14 +11,21 @@ class GameViewController: UIViewController {
   
   @IBAction func finished(sender: UIButton) {
     if scene.isFinishable() {
-      probes.text = "Probes: \(scene.getProbes())"
-      incorrect.text = "Incorrect: \(scene.getIncorrectBalls())"
-      score.text = scene.getScore()
-      showScore()
+      updateScore()
+      scene.showIncorrectBalls()
+      scene.showMissedBalls()
+      scene.showCorrectBalls()
     } else {
       println("trying to finish with \(scene.game.marks.count) and need \(scene.game.balls)")
       hideScore()
     }
+  }
+  
+  func updateScore() {
+    probes.text = "Probes: \(scene.getProbes())"
+    incorrect.text = "Incorrect: \(scene.getIncorrectBalls())"
+    score.text = scene.getScore()
+    showScore()
   }
   
   func hideScore() {
