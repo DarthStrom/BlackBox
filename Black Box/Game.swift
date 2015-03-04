@@ -2,11 +2,11 @@ public class Game {
   public var guesses = 0
   public var marks = [Location: Bool]()
   
-  let balls: Int
+  let size: Int
   let board = Board()
   
-  public init(balls: Int) {
-    self.balls = balls
+  public init(size: Int) {
+    self.size = size
   }
   
   public func guess(entry: Int) -> ExitResult? {
@@ -29,7 +29,7 @@ public class Game {
   }
   
   public func isFinishable() -> Bool {
-    return marks.count == balls
+    return marks.count == size
   }
   
   public func getScore() -> Int {

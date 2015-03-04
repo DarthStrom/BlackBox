@@ -2,7 +2,7 @@ import SpriteKit
 
 class GameScene: SKScene {
   var detours = 0
-  let game = Game(balls: 4)
+  let game = Game(size: 4)
   
   func isFinishable() -> Bool {
     return game.isFinishable()

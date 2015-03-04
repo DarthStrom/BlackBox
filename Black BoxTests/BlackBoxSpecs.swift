@@ -9,7 +9,7 @@ class BlackBoxSpecs: QuickSpec {
     describe("game") {
       var game: Game?
       beforeEach {
-        game = Game(balls: 4)
+        game = Game(size: 4)
       }
       
       it("initially has 0 guesses") {

@@ -20,7 +20,7 @@ class GameViewController: UIViewController {
       scene.showMissedBalls()
       scene.showCorrectBalls()
     } else {
-      println("trying to finish with \(scene.game.marks.count) and need \(scene.game.balls)")
+      println("trying to finish with \(scene.game.marks.count) and need \(scene.game.size)")
       hideScore()
     }
   }
