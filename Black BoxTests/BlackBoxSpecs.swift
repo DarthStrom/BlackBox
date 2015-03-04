@@ -12,8 +12,8 @@ class BlackBoxSpecs: QuickSpec {
         game = Game(size: 4)
       }
       
-      it("initially has 0 guesses") {
-        expect(game!.guesses) == 0
+      it("initially has 0 probes") {
+        expect(game!.probes) == 0
       }
       
       describe("marking balls") {
@@ -32,9 +32,9 @@ class BlackBoxSpecs: QuickSpec {
       
       // entry points are numbered 1...32 starting at the upper most left and
       // continuing counter-clockwise
-      describe("guessing") {
+      describe("probing") {
         let expectHit = { (entryPoint: Int) -> () in
-          switch game!.guess(entryPoint) {
+          switch game!.probe(entryPoint) {
           case .Some(.Hit):
             expect(true)
           case .Some(.Reflection):
@@ -47,7 +47,7 @@ class BlackBoxSpecs: QuickSpec {
         }
         
         let expectReflection = { (entryPoint: Int) -> () in
-          switch game!.guess(entryPoint) {
+          switch game!.probe(entryPoint) {
           case .Some(.Hit):
             fail("Expected a Reflection but got a Hit")
           case .Some(.Reflection):
@@ -60,7 +60,7 @@ class BlackBoxSpecs: QuickSpec {
         }
         
         let expectDetour = { (entryPoint: Int, exitPoint: Int) -> () in
-          switch game!.guess(entryPoint) {
+          switch game!.probe(entryPoint) {
           case .Some(.Hit):
             fail("Expected a Detour but got a Hit")
           case .Some(.Reflection):
@@ -73,14 +73,14 @@ class BlackBoxSpecs: QuickSpec {
         }
         
         it("increments the guess count") {
-          game!.guess(1)
-          expect(game!.guesses) == 1
+          game!.probe(1)
+          expect(game!.probes) == 1
         }
         
         it("increments again with another guess") {
-          game!.guess(2)
-          game!.guess(3)
-          expect(game!.guesses) == 2
+          game!.probe(2)
+          game!.probe(3)
+          expect(game!.probes) == 2
         }
         
         describe("from the left") {
@@ -247,15 +247,15 @@ class BlackBoxSpecs: QuickSpec {
       describe("scoring") {
         
         it("counts rays as 1") {
-          game!.guess(7)
+          game!.probe(7)
           expect(game!.getScore()) == 1
         }
         
         it("counts multiple rays") {
-          game!.guess(7)
-          game!.guess(9)
-          game!.guess(23)
-          game!.guess(30)
+          game!.probe(7)
+          game!.probe(9)
+          game!.probe(23)
+          game!.probe(30)
           expect(game!.getScore()) == 4
         }
         

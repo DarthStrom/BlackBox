@@ -9,7 +9,7 @@ class GameScene: SKScene {
   }
   
   func getProbes() -> String {
-    return "\(game.guesses)"
+    return "\(game.probes)"
   }
   
   func getIncorrectBalls() -> String {
@@ -114,7 +114,7 @@ class GameScene: SKScene {
       if let entryPoint = self.nodeAtPoint(location) as? EntryPoint {
         println(entryPoint.name!)
         entryPoint.hidden = false
-        switch game.guess(entryPoint.number) {
+        switch game.probe(entryPoint.number) {
         case .Some(.Hit):
           entryPoint.texture = SKTexture(imageNamed: "Hit")
         case .Some(.Detour(let exitPoint)):

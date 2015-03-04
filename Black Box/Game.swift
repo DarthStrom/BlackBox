@@ -1,5 +1,5 @@
 public class Game {
-  public var guesses = 0
+  public var probes = 0
   public var marks = [Location: Bool]()
   
   let size: Int
@@ -9,8 +9,8 @@ public class Game {
     self.size = size
   }
   
-  public func guess(entry: Int) -> ExitResult? {
-    guesses += 1
+  public func probe(entry: Int) -> ExitResult? {
+    probes += 1
     
     let ray = Ray(entry: entry, board: board)
     return ray.shoot()
@@ -33,7 +33,7 @@ public class Game {
   }
   
   public func getScore() -> Int {
-    return guesses + incorrectBalls().count * 5
+    return probes + incorrectBalls().count * 5
   }
   
   public func incorrectBalls() -> [Location] {
