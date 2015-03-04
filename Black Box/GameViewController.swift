@@ -9,6 +9,10 @@ class GameViewController: UIViewController {
   @IBOutlet weak var incorrect: UILabel!
   @IBOutlet weak var score: UILabel!
   
+  @IBAction func newGame(sender: UIButton) {
+    setUpGame()
+  }
+  
   @IBAction func finished(sender: UIButton) {
     if scene.isFinishable() {
       updateScore()
@@ -40,6 +44,15 @@ class GameViewController: UIViewController {
     score.hidden = false
   }
   
+  func setUpGame() {
+    let skView = self.view as SKView
+    scene = GameScene(size: skView.bounds.size)
+    scene.scaleMode = .AspectFill
+    
+    hideScore()
+    skView.presentScene(scene)
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -51,12 +64,7 @@ class GameViewController: UIViewController {
     /* Sprite Kit applies additional optimizations to improve rendering performance */
     skView.ignoresSiblingOrder = true
     
-    /* Set the scale mode to scale to fit the window */
-    scene = GameScene(size: skView.bounds.size)
-    scene.scaleMode = .AspectFill
-    
-    hideScore()
-    skView.presentScene(scene)
+    setUpGame()
   }
   
   override func shouldAutorotate() -> Bool {
