@@ -1,12 +1,19 @@
 public class Game {
   public var probes = 0
   public var marks = [Location: Bool]()
+  public let size: Int
   
-  let size: Int
   let board = Board()
   
   public init(size: Int) {
     self.size = size
+  }
+  
+  public init(balls: [Location]) {
+    self.size = balls.count
+    for ball in balls {
+      board.placeAtColumn(ball.x, andRow: ball.y)
+    }
   }
   
   public func probe(entry: Int) -> ExitResult? {

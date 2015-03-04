@@ -6,7 +6,7 @@ import Nimble
 class BlackBoxSpecs: QuickSpec {
   
   override func spec() {
-    describe("game") {
+    describe("custom game") {
       var game: Game?
       beforeEach {
         game = Game(size: 4)
@@ -328,6 +328,29 @@ class BlackBoxSpecs: QuickSpec {
           game!.markBallAtColumn(3, andRow: 3)
           expect(game!.correctBalls()).to(beEmpty())
         }
+      }
+    }
+    
+    describe("defined game") {
+      it("can be initialized with ball placement") {
+        let balls = [Location(x: 4, y: 6),
+          Location(x: 2, y: 2),
+          Location(x: 1, y: 1),
+          Location(x: 7, y: 2)]
+        let game = Game(balls: balls)
+        
+        game.markBallAtColumn(1, andRow: 1)
+        game.markBallAtColumn(2, andRow: 2)
+        game.markBallAtColumn(3, andRow: 3)
+        game.markBallAtColumn(4, andRow: 4)
+        
+        expect(game.size) == 4
+        expect(game.correctBalls()).to(contain(Location(x: 1, y: 1)))
+        expect(game.correctBalls()).to(contain(Location(x: 2, y: 2)))
+        expect(game.incorrectBalls()).to(contain(Location(x: 3, y: 3)))
+        expect(game.incorrectBalls()).to(contain(Location(x: 4, y: 4)))
+        expect(game.missedBalls()).to(contain(Location(x: 4, y: 6)))
+        expect(game.missedBalls()).to(contain(Location(x: 7, y: 2)))
       }
     }
   }
