@@ -8,6 +8,7 @@ class GameViewController: UIViewController {
   @IBOutlet weak var probes: UILabel!
   @IBOutlet weak var incorrect: UILabel!
   @IBOutlet weak var score: UILabel!
+  @IBOutlet weak var par: UILabel!
   
   @IBAction func newGame(sender: UIButton) {
     setUpGame()
@@ -15,12 +16,12 @@ class GameViewController: UIViewController {
   
   @IBAction func finished(sender: UIButton) {
     if scene.isFinishable() {
-      updateScore()
       scene.showIncorrectBalls()
       scene.showMissedBalls()
       scene.showCorrectBalls()
+      updateScore()
     } else {
-      println("trying to finish with \(scene.game.marks.count) and need \(scene.game.size)")
+      println("trying to finish with \(scene.game?.marks.count) and need \(scene.game?.size)")
       hideScore()
     }
   }
@@ -28,7 +29,8 @@ class GameViewController: UIViewController {
   func updateScore() {
     probes.text = "Probes: \(scene.getProbes())"
     incorrect.text = "Incorrect: \(scene.getIncorrectBalls())"
-    score.text = scene.getScore()
+    score.text = "Score: \(scene.getScore())"
+    par.text = "Par: \(scene.getPar()!)"
     showScore()
   }
   
@@ -36,12 +38,16 @@ class GameViewController: UIViewController {
     probes.hidden = true
     incorrect.hidden = true
     score.hidden = true
+    par.hidden = true
   }
   
   func showScore() {
     probes.hidden = false
     incorrect.hidden = false
     score.hidden = false
+    if let parValue = scene.getPar() {
+      par.hidden = parValue == 0
+    }
   }
   
   func setUpGame() {

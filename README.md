@@ -37,16 +37,15 @@
     - Stay in the box (Hit)
     - Exit back out the way they came (Reflection)
     - Exit somewhere else (Detour)
-- The hider traces the ray's movement and responds with the result
 
 ## Ray Movement
-Hit: The ray travels into a ball
+Hit: The ray travels into a ball.
 
 <pre>
 ──────O
 </pre>
 
-Detour: Rays change direction (90 degrees) to avoid passing by a ball
+Detour: Rays change direction (90 degrees) to avoid passing by a ball.
 
 <pre>
     O
@@ -54,7 +53,7 @@ Detour: Rays change direction (90 degrees) to avoid passing by a ball
    │
 </pre>
 
-Reflection: The ray comes back out the way it came. This can happen by being deflected before it enters
+Reflection: The ray comes back out the way it came. This can happen by being deflected before it enters.
 
 <pre>
    ║O
@@ -62,7 +61,7 @@ Reflection: The ray comes back out the way it came. This can happen by being def
    ║
 </pre>
 
-It can also happen by being deflected by two balls at once
+It can also happen by being deflected by two balls at once.
 
 <pre>
       O
@@ -71,21 +70,21 @@ It can also happen by being deflected by two balls at once
 </pre>
 
 ## Marks
-When a ball exits the box, it is marked
+When a ball exits the box, it is marked.
 
 - A hit is marked with red on its entry point
 - A reflection is marked with yellow on its entry point
 - A detour is marked with matching orange symbols on the entry point and the exit point
 
 ## Special cases
-If a ray encounters one ball straight on and one to the side, it counts as a hit
+If a ray encounters one ball straight on and one to the side, it counts as a hit.
 
 <pre>
 ──────O
       O
 </pre>
 
-If a ray encounters three balls, it counts as a hit
+If a ray encounters three balls, it counts as a hit.
 
 <pre>
       O
@@ -94,7 +93,7 @@ If a ray encounters three balls, it counts as a hit
 </pre>
 
 ## Multiple detours
-A ray can be detoured many times... this can be misleading for the seeker
+A ray can be detoured many times... this can be misleading for the seeker.
 
 <pre>
       O
@@ -111,10 +110,10 @@ A ray can be detoured many times... this can be misleading for the seeker
 3. The seeker marks balls as they are found
 4. Marked balls may be moved if further clues indicate that the placement may not be correct
 5. When the seeker is finished guessing, the game is scored
-    a. 1 point for each ray used
-    b. 5 points for each incorrect ball
+    - 1 point for each ray used
+    - 5 points for each incorrect ball
 
 ## Winning
-When both players have played then the player with the lowest score is the winner
+When both players have played then the player with the lowest score is the winner.
 
-In the case of a single player game, the score is compared with a predetermined "par" score for the given ball placement
+In the case of a single player game, the score is compared with a predetermined "par" score for the given ball placement.

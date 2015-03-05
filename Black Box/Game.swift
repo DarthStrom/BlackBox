@@ -10,9 +10,9 @@ public class Game {
   }
   
   public init(balls: [Location]) {
-    self.size = balls.count
+    size = balls.count
     for ball in balls {
-      board.placeAtColumn(ball.x, andRow: ball.y)
+      placeAtColumn(ball.x, andRow: ball.y)
     }
   }
   

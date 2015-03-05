@@ -2,22 +2,39 @@ import SpriteKit
 
 class GameScene: SKScene {
   var detours = 0
-  let game = Game(size: 4)
+  var game: Game?
+  var level: Level?
   
   func isFinishable() -> Bool {
-    return game.isFinishable()
+    if let result = game?.isFinishable() {
+      return result
+    }
+    return false
   }
   
   func getProbes() -> String {
-    return "\(game.probes)"
+    if let result = game?.probes {
+      return String(result)
+    }
+    return "No game"
   }
   
   func getIncorrectBalls() -> String {
-    return "\(game.incorrectBalls().count * 5)"
+    if let result = game?.incorrectBalls() {
+      return String(result.count * 5)
+    }
+    return "No game"
+  }
+  
+  func getPar() -> Int? {
+    return level?.par
   }
   
   func getScore() -> String {
-    return "\(game.getScore())"
+    if let result = game?.getScore() {
+      return String(result)
+    }
+    return "No game"
   }
   
   func addEntryPoint(number: Int) {
@@ -48,26 +65,32 @@ class GameScene: SKScene {
   }
   
   func showIncorrectBalls() {
-    for ball in game.incorrectBalls() {
-      if let mark = childNodeWithName("Slot\(ball.x)\(ball.y)") as? Slot {
-        mark.texture = SKTexture(imageNamed: "Incorrect")
+    if let incorrectBalls = game?.incorrectBalls() {
+      for ball in incorrectBalls {
+        if let mark = childNodeWithName("Slot\(ball.x)\(ball.y)") as? Slot {
+          mark.texture = SKTexture(imageNamed: "Incorrect")
+        }
       }
     }
   }
   
   func showMissedBalls() {
-    for ball in game.missedBalls() {
-      if let miss = childNodeWithName("Slot\(ball.x)\(ball.y)") as? Slot {
-        miss.texture = SKTexture(imageNamed: "Miss")
-        miss.hidden = false
+    if let missedBalls = game?.missedBalls() {
+      for ball in missedBalls {
+        if let miss = childNodeWithName("Slot\(ball.x)\(ball.y)") as? Slot {
+          miss.texture = SKTexture(imageNamed: "Miss")
+          miss.hidden = false
+        }
       }
     }
   }
   
   func showCorrectBalls() {
-    for ball in game.correctBalls() {
-      if let mark = childNodeWithName("Slot\(ball.x)\(ball.y)") as? Slot {
-        mark.texture = SKTexture(imageNamed: "Correct")
+    if let correctBalls = game?.correctBalls() {
+      for ball in correctBalls {
+        if let mark = childNodeWithName("Slot\(ball.x)\(ball.y)") as? Slot {
+          mark.texture = SKTexture(imageNamed: "Correct")
+        }
       }
     }
   }
@@ -90,15 +113,24 @@ class GameScene: SKScene {
       }
     }
     
-    //TODO: real ball hiding
-    game.placeAtColumn(1, andRow: 1)
-    game.placeAtColumn(1, andRow: 3)
-    game.placeAtColumn(3, andRow: 4)
-    game.placeAtColumn(7, andRow: 7)
+    createGame(randoBetweenOneAnd(80))
   }
   
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
+  }
+  
+  func createGame(number: Int) {
+    level = Level(number: number)
+    if let balls = level?.balls {
+      game = Game(balls: level!.balls)
+    } else {
+      println("Couldn't create game.")
+    }
+  }
+  
+  func randoBetweenOneAnd(upperLimit: Int) -> Int {
+    return Int(arc4random_uniform(UInt32(upperLimit))) + 1
   }
   
   override func didMoveToView(view: SKView) {
@@ -114,7 +146,7 @@ class GameScene: SKScene {
       if let entryPoint = self.nodeAtPoint(location) as? EntryPoint {
         println(entryPoint.name!)
         entryPoint.hidden = false
-        switch game.probe(entryPoint.number) {
+        switch game?.probe(entryPoint.number) {
         case .Some(.Hit):
           entryPoint.texture = SKTexture(imageNamed: "Hit")
         case .Some(.Detour(let exitPoint)):
@@ -133,10 +165,10 @@ class GameScene: SKScene {
         println(slot.name!)
         if slot.hidden {
           slot.hidden = false
-          game.markBallAtColumn(slot.column, andRow: slot.row)
+          game?.markBallAtColumn(slot.column, andRow: slot.row)
         } else {
           slot.hidden = true
-          game.removeMarkAtColumn(slot.column, andRow: slot.row)
+          game?.removeMarkAtColumn(slot.column, andRow: slot.row)
         }
       }
     }
