@@ -5,6 +5,12 @@ class GameScene: SKScene {
   var game: Game?
   var level: Level?
   
+  let soundMarkBall = SKAction.playSoundFileNamed("Mark.wav", waitForCompletion: false)
+  let soundProbe = SKAction.playSoundFileNamed("Probe.wav", waitForCompletion: false)
+  let soundSuccess = SKAction.playSoundFileNamed("Success.wav", waitForCompletion: true)
+  let soundFailure = SKAction.playSoundFileNamed("Failure.wav", waitForCompletion: true)
+  let soundNewGame = SKAction.playSoundFileNamed("NewGame.wav", waitForCompletion: false)
+  
   func isFinishable() -> Bool {
     if let result = game?.isFinishable() {
       return result
@@ -21,6 +27,11 @@ class GameScene: SKScene {
   
   func getIncorrectBalls() -> String {
     if let result = game?.incorrectBalls() {
+      if result.count == 0 {
+        runAction(soundSuccess)
+      } else {
+        runAction(soundFailure)
+      }
       return String(result.count * 5)
     }
     return "No game"
@@ -124,6 +135,7 @@ class GameScene: SKScene {
     level = Level(number: number)
     if let balls = level?.balls {
       game = Game(balls: level!.balls)
+      runAction(soundNewGame)
     } else {
       println("Couldn't create game.")
     }
@@ -144,6 +156,7 @@ class GameScene: SKScene {
       
       // do some stuff
       if let entryPoint = self.nodeAtPoint(location) as? EntryPoint {
+        runAction(soundProbe)
         println(entryPoint.name!)
         entryPoint.hidden = false
         switch game?.probe(entryPoint.number) {
@@ -162,6 +175,7 @@ class GameScene: SKScene {
         }
       }
       if let slot = self.nodeAtPoint(location) as? Slot {
+        runAction(soundMarkBall)
         println(slot.name!)
         if slot.hidden {
           slot.hidden = false
