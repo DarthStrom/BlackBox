@@ -163,7 +163,7 @@ class GameScene: SKScene {
         case .Some(.Hit):
           entryPoint.texture = SKTexture(imageNamed: "Hit")
         case .Some(.Detour(let exitPoint)):
-          detours = (detours % 9) + 1
+          detours = (detours % 12) + 1
           let exitPoint = self.childNodeWithName("Entry\(exitPoint)") as EntryPoint
           entryPoint.texture = SKTexture(imageNamed: "Detour\(detours)")
           exitPoint.texture = SKTexture(imageNamed: "Detour\(detours)")
