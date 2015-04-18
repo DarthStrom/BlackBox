@@ -149,7 +149,7 @@ class GameScene: SKScene {
     /* Setup your scene here */
   }
   
-  override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+  override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
     for touch: AnyObject in touches {
       let location = touch.locationInNode(self)
       println("location: (\(location.x),\(location.y))")
@@ -164,7 +164,7 @@ class GameScene: SKScene {
           entryPoint.texture = SKTexture(imageNamed: "Hit")
         case .Some(.Detour(let exitPoint)):
           detours = (detours % 12) + 1
-          let exitPoint = self.childNodeWithName("Entry\(exitPoint)") as EntryPoint
+          let exitPoint = self.childNodeWithName("Entry\(exitPoint)") as! EntryPoint
           entryPoint.texture = SKTexture(imageNamed: "Detour\(detours)")
           exitPoint.texture = SKTexture(imageNamed: "Detour\(detours)")
           exitPoint.hidden = false

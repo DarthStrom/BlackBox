@@ -595,7 +595,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0610;
-				ORGANIZATIONNAME = "Peapod Media, llc.";
+				ORGANIZATIONNAME = "Peapod Multimedia, ltd.";
 				TargetAttributes = {
 					965E5FF71A507C5F00BB183F = {
 						CreatedOnToolsVersion = 6.1.1;

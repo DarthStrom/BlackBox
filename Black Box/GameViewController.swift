@@ -51,7 +51,7 @@ class GameViewController: UIViewController {
   }
   
   func setUpGame() {
-    let skView = self.view as SKView
+    let skView = self.view as! SKView
     scene = GameScene(size: skView.bounds.size)
     scene.scaleMode = .AspectFill
     
@@ -63,7 +63,7 @@ class GameViewController: UIViewController {
     super.viewDidLoad()
     
     // Configure the view.
-    let skView = self.view as SKView
+    let skView = self.view as! SKView
     skView.showsFPS = true
     skView.showsNodeCount = true
     
