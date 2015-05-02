@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BV1-FR-VrT">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -32,25 +32,31 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 52" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="91h-8u-W5a">
-                                <rect key="frame" x="908" y="84" width="100" height="20.5"/>
+                                <rect key="frame" x="908" y="86" width="100" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Incorrect: 20" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zo4-DW-Nkg">
-                                <rect key="frame" x="908" y="56" width="100" height="20.5"/>
+                                <rect key="frame" x="908" y="57" width="100" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Probes: 32" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pX9-TR-O8H">
-                                <rect key="frame" x="908" y="28" width="100" height="20.5"/>
+                                <rect key="frame" x="908" y="28" width="100" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WFb-LQ-tx0">
-                                <rect key="frame" x="908" y="369" width="100" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Par: 15" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="52c-gS-OZ0">
+                                <rect key="frame" x="908" y="115" width="100" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WFb-LQ-tx0">
+                                <rect key="frame" x="908" y="718" width="100" height="30"/>
                                 <color key="backgroundColor" red="0.39215686274509803" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="New Game">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -61,22 +67,16 @@
                                     <action selector="newGame:" destination="BV1-FR-VrT" eventType="touchUpInside" id="KbM-Kd-RUO"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Par: 15" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="52c-gS-OZ0">
-                                <rect key="frame" x="908" y="113" width="100" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="WFb-LQ-tx0" firstAttribute="width" secondItem="oVQ-U8-JRR" secondAttribute="width" id="0IW-jX-1WT"/>
                             <constraint firstItem="WFb-LQ-tx0" firstAttribute="trailing" secondItem="3se-qz-xqx" secondAttribute="trailingMargin" id="0rz-me-viS"/>
+                            <constraint firstItem="khH-OB-KpY" firstAttribute="top" secondItem="WFb-LQ-tx0" secondAttribute="bottom" constant="20" id="5aF-9s-xXZ"/>
                             <constraint firstItem="Zo4-DW-Nkg" firstAttribute="width" secondItem="91h-8u-W5a" secondAttribute="width" id="9At-CG-xGL"/>
                             <constraint firstItem="pX9-TR-O8H" firstAttribute="trailing" secondItem="3se-qz-xqx" secondAttribute="trailingMargin" id="AJd-OA-0Bx"/>
                             <constraint firstItem="pX9-TR-O8H" firstAttribute="width" secondItem="Zo4-DW-Nkg" secondAttribute="width" id="EEm-FR-6Vb"/>
                             <constraint firstItem="oVQ-U8-JRR" firstAttribute="trailing" secondItem="3se-qz-xqx" secondAttribute="trailingMargin" id="Lmb-Zc-wMh"/>
-                            <constraint firstAttribute="centerY" secondItem="WFb-LQ-tx0" secondAttribute="centerY" id="OOL-Lq-ywJ"/>
                             <constraint firstItem="Zo4-DW-Nkg" firstAttribute="top" secondItem="pX9-TR-O8H" secondAttribute="bottom" constant="8" id="PIE-JB-d52"/>
                             <constraint firstItem="52c-gS-OZ0" firstAttribute="width" secondItem="91h-8u-W5a" secondAttribute="width" id="PbB-ao-AaH"/>
                             <constraint firstItem="WFb-LQ-tx0" firstAttribute="width" secondItem="91h-8u-W5a" secondAttribute="width" id="Tn0-Hb-dnq"/>
@@ -92,7 +92,9 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
+                        <outlet property="finishedButton" destination="oVQ-U8-JRR" id="Ush-dD-xNu"/>
                         <outlet property="incorrect" destination="Zo4-DW-Nkg" id="aQD-W1-93H"/>
+                        <outlet property="newGameButton" destination="WFb-LQ-tx0" id="cNT-5P-SUO"/>
                         <outlet property="par" destination="52c-gS-OZ0" id="RsM-IR-RNs"/>
                         <outlet property="probes" destination="pX9-TR-O8H" id="eIE-PY-gnD"/>
                         <outlet property="score" destination="91h-8u-W5a" id="RtQ-oX-Mfs"/>
