@@ -69,7 +69,7 @@ class GameViewController: UIViewController {
         scene.scaleMode = .AspectFill
         
         hideScore()
-        showFinishedButton()
+        newGameButton.hidden = true
         skView.presentScene(scene)
     }
     
@@ -106,5 +106,9 @@ class GameViewController: UIViewController {
     
     override func prefersStatusBarHidden() -> Bool {
         return true
+    }
+    
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        finishedButton.hidden = !scene.isFinishable()
     }
 }
