@@ -11,9 +11,23 @@ class GameViewController: UIViewController {
     @IBOutlet weak var par: UILabel!
     @IBOutlet weak var newGameButton: UIButton!
     @IBOutlet weak var finishedButton: UIButton!
-    
+    @IBOutlet weak var audioToggleButton: UIButton!
+
     @IBAction func newGame(sender: UIButton) {
         setUpGame()
+    }
+    
+    @IBAction func toggleSound(sender: UIButton) {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if let audioToggle = defaults.stringForKey("audio") {
+            if audioToggle == "on" {
+                sender.setImage(UIImage(named: "AudioOff"), forState: .Normal)
+                defaults.setValue("off", forKey: "audio")
+            } else {
+                sender.setImage(UIImage(named: "AudioOn"), forState: .Normal)
+                defaults.setValue("on", forKey: "audio")
+            }
+        }
     }
     
     @IBAction func finished(sender: UIButton) {
@@ -80,6 +94,20 @@ class GameViewController: UIViewController {
         let skView = self.view as! SKView
         skView.showsFPS = true
         skView.showsNodeCount = true
+        
+        // User defaults
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if let audio = defaults.stringForKey("audio") {
+            if audio == "on" {
+                audioToggleButton.setImage(UIImage(named: "AudioOn"), forState: .Normal)
+                defaults.setValue("on", forKey: "audio")
+            } else {
+                audioToggleButton.setImage(UIImage(named: "AudioOff"), forState: .Normal)
+                defaults.setValue("off", forKey: "audio")
+            }
+        } else {
+            defaults.setObject("on", forKey: "audio")
+        }
         
         /* Sprite Kit applies additional optimizations to improve rendering performance */
         skView.ignoresSiblingOrder = true

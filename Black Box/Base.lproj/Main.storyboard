@@ -67,6 +67,15 @@
                                     <action selector="newGame:" destination="BV1-FR-VrT" eventType="touchUpInside" id="KbM-Kd-RUO"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="een-sm-CLU" userLabel="AudioToggle">
+                                <rect key="frame" x="850" y="708" width="50" height="50"/>
+                                <state key="normal" image="AudioOn">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="toggleSound:" destination="BV1-FR-VrT" eventType="touchUpInside" id="Z8G-OL-Sce"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -92,7 +101,8 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
-                        <outlet property="finishedButton" destination="oVQ-U8-JRR" id="Ush-dD-xNu"/>
+                        <outlet property="audioToggleButton" destination="een-sm-CLU" id="Pss-1w-8SP"/>
+                        <outlet property="finishedButton" destination="oVQ-U8-JRR" id="Dih-Ms-nqS"/>
                         <outlet property="incorrect" destination="Zo4-DW-Nkg" id="aQD-W1-93H"/>
                         <outlet property="newGameButton" destination="WFb-LQ-tx0" id="cNT-5P-SUO"/>
                         <outlet property="par" destination="52c-gS-OZ0" id="RsM-IR-RNs"/>
@@ -104,4 +114,7 @@
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="AudioOn" width="50" height="50"/>
+    </resources>
 </document>

@@ -28,9 +28,9 @@ class GameScene: SKScene {
     func getIncorrectBalls() -> String {
         if let result = game?.incorrectBalls() {
             if result.count == 0 {
-                runAction(soundSuccess)
+                playSound(soundSuccess)
             } else {
-                runAction(soundFailure)
+                playSound(soundFailure)
             }
             return String(result.count * 5)
         }
@@ -135,7 +135,7 @@ class GameScene: SKScene {
         level = Level(number: number)
         if let balls = level?.balls {
             game = Game(balls: level!.balls)
-            runAction(soundNewGame)
+            playSound(soundNewGame)
         } else {
             println("Couldn't create game.")
         }
@@ -143,6 +143,15 @@ class GameScene: SKScene {
     
     func randoBetweenOneAnd(upperLimit: Int) -> Int {
         return Int(arc4random_uniform(UInt32(upperLimit))) + 1
+    }
+    
+    func playSound(sound: SKAction) {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if let audio = defaults.stringForKey("audio") {
+            if audio == "on" {
+                runAction(sound)
+            }
+        }
     }
     
     override func didMoveToView(view: SKView) {
@@ -156,7 +165,7 @@ class GameScene: SKScene {
             
             // do some stuff
             if let entryPoint = self.nodeAtPoint(location) as? EntryPoint {
-                runAction(soundProbe)
+                playSound(soundProbe)
                 println(entryPoint.name!)
                 entryPoint.hidden = false
                 switch game?.probe(entryPoint.number) {
@@ -175,7 +184,7 @@ class GameScene: SKScene {
                 }
             }
             if let slot = self.nodeAtPoint(location) as? Slot {
-                runAction(soundMarkBall)
+                playSound(soundMarkBall)
                 println(slot.name!)
                 if slot.hidden {
                     slot.hidden = false
