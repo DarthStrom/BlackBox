@@ -74,7 +74,7 @@ When a ball exits the box, it is marked.
 
 - A hit is marked with red on its entry point
 - A reflection is marked with yellow on its entry point
-- A detour is marked with matching orange symbols on the entry point and the exit point
+- A detour is marked with matching white symbols on the entry point and the exit point
 
 ## Special cases
 If a ray encounters one ball straight on and one to the side, it counts as a hit.

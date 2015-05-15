@@ -21,6 +21,10 @@
 		965E60071A507C6000BB183F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 965E60051A507C6000BB183F /* Main.storyboard */; };
 		965E60091A507C6000BB183F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 965E60081A507C6000BB183F /* Images.xcassets */; };
 		965E600C1A507C6000BB183F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 965E600A1A507C6000BB183F /* LaunchScreen.xib */; };
+		968C01AF1B0439F0003F8BA7 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 968C01AE1B0439F0003F8BA7 /* README.md */; };
+		968C01B11B0445FF003F8BA7 /* InstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968C01B01B0445FF003F8BA7 /* InstructionsViewController.swift */; };
+		968C01B31B057DE4003F8BA7 /* Markdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968C01B21B057DE4003F8BA7 /* Markdown.swift */; };
+		968C01B51B058993003F8BA7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 968C01AE1B0439F0003F8BA7 /* README.md */; };
 		968FFDA51A94F08D006E59A2 /* Ray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968FFDA41A94F08D006E59A2 /* Ray.swift */; };
 		969865141AAB47AD00D277C6 /* Mark.wav in Resources */ = {isa = PBXBuildFile; fileRef = 969865131AAB47AD00D277C6 /* Mark.wav */; };
 		969865231AAB48D400D277C6 /* Probe.wav in Resources */ = {isa = PBXBuildFile; fileRef = 9698651F1AAB48D400D277C6 /* Probe.wav */; };
@@ -212,6 +216,9 @@
 		965E600B1A507C6000BB183F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		965E60111A507C6000BB183F /* Black BoxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Black BoxTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		965E60161A507C6000BB183F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		968C01AE1B0439F0003F8BA7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		968C01B01B0445FF003F8BA7 /* InstructionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionsViewController.swift; sourceTree = "<group>"; };
+		968C01B21B057DE4003F8BA7 /* Markdown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Markdown.swift; path = Vendor/Markdown.swift; sourceTree = SOURCE_ROOT; };
 		968FFDA41A94F08D006E59A2 /* Ray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ray.swift; sourceTree = "<group>"; };
 		969865131AAB47AD00D277C6 /* Mark.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Mark.wav; sourceTree = "<group>"; };
 		9698651F1AAB48D400D277C6 /* Probe.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Probe.wav; sourceTree = "<group>"; };
@@ -343,6 +350,7 @@
 			isa = PBXGroup;
 			children = (
 				965E60031A507C6000BB183F /* GameViewController.swift */,
+				968C01B01B0445FF003F8BA7 /* InstructionsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -422,7 +430,9 @@
 				96DB343F1AA78F7A0076F165 /* Extensions */,
 				96DB34261AA789570076F165 /* Levels */,
 				965DF4951ABF3C92008866BC /* Sounds */,
+				968C01AD1B04399D003F8BA7 /* Markdown */,
 				965E5FFB1A507C5F00BB183F /* Supporting Files */,
+				968C01B41B057DF0003F8BA7 /* Vendor */,
 				965E60081A507C6000BB183F /* Images.xcassets */,
 			);
 			path = "Black Box";
@@ -453,6 +463,22 @@
 				965E60161A507C6000BB183F /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		968C01AD1B04399D003F8BA7 /* Markdown */ = {
+			isa = PBXGroup;
+			children = (
+				968C01AE1B0439F0003F8BA7 /* README.md */,
+			);
+			name = Markdown;
+			sourceTree = "<group>";
+		};
+		968C01B41B057DF0003F8BA7 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				968C01B21B057DE4003F8BA7 /* Markdown.swift */,
+			);
+			name = Vendor;
 			sourceTree = "<group>";
 		};
 		96DB34261AA789570076F165 /* Levels */ = {
@@ -714,6 +740,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				968C01B51B058993003F8BA7 /* README.md in Resources */,
 				96DB347F1AA7CBA50076F165 /* Game47.json in Resources */,
 				96DB343A1AA78C230076F165 /* Game31.json in Resources */,
 				969865261AAB48D400D277C6 /* NewGame.wav in Resources */,
@@ -828,7 +855,10 @@
 				96DB34411AA78F930076F165 /* Dictionary.swift in Sources */,
 				965E5FFE1A507C6000BB183F /* AppDelegate.swift in Sources */,
 				9610684C1A94D86D002B02D0 /* Location.swift in Sources */,
+				968C01B11B0445FF003F8BA7 /* InstructionsViewController.swift in Sources */,
 				9610684E1A94DAB7002B02D0 /* ExitResult.swift in Sources */,
+				968C01AF1B0439F0003F8BA7 /* README.md in Sources */,
+				968C01B31B057DE4003F8BA7 /* Markdown.swift in Sources */,
 				96F12CCB1A6AF6D100435452 /* Game.swift in Sources */,
 				961068521A94E01B002B02D0 /* Board.swift in Sources */,
 				96F0C8961A98F14E00755598 /* Slot.swift in Sources */,
