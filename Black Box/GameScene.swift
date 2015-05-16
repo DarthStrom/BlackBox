@@ -154,6 +154,36 @@ class GameScene: SKScene {
         }
     }
     
+    func shootFrom(entryPoint: EntryPoint) {
+        playSound(soundProbe)
+        entryPoint.hidden = false
+        switch game?.probe(entryPoint.number) {
+        case .Some(.Hit):
+            entryPoint.texture = SKTexture(imageNamed: "Hit")
+        case .Some(.Detour(let exitPoint)):
+            detours = (detours % 12) + 1
+            let exitPoint = self.childNodeWithName("Entry\(exitPoint)") as! EntryPoint
+            entryPoint.texture = SKTexture(imageNamed: "Detour\(detours)")
+            exitPoint.texture = SKTexture(imageNamed: "Detour\(detours)")
+            exitPoint.hidden = false
+        case .Some(.Reflection):
+            entryPoint.texture = SKTexture(imageNamed: "Reflection")
+        case .None:
+            entryPoint.hidden = true
+        }
+    }
+    
+    func toggle(slot: Slot) {
+        playSound(soundMarkBall)
+        if slot.hidden {
+            slot.hidden = false
+            game?.markBallAtColumn(slot.column, andRow: slot.row)
+        } else {
+            slot.hidden = true
+            game?.removeMarkAtColumn(slot.column, andRow: slot.row)
+        }
+    }
+    
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
     }
@@ -161,38 +191,12 @@ class GameScene: SKScene {
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         for touch: AnyObject in touches {
             let location = touch.locationInNode(self)
-            println("location: (\(location.x),\(location.y))")
             
-            // do some stuff
             if let entryPoint = self.nodeAtPoint(location) as? EntryPoint {
-                playSound(soundProbe)
-                println(entryPoint.name!)
-                entryPoint.hidden = false
-                switch game?.probe(entryPoint.number) {
-                case .Some(.Hit):
-                    entryPoint.texture = SKTexture(imageNamed: "Hit")
-                case .Some(.Detour(let exitPoint)):
-                    detours = (detours % 12) + 1
-                    let exitPoint = self.childNodeWithName("Entry\(exitPoint)") as! EntryPoint
-                    entryPoint.texture = SKTexture(imageNamed: "Detour\(detours)")
-                    exitPoint.texture = SKTexture(imageNamed: "Detour\(detours)")
-                    exitPoint.hidden = false
-                case .Some(.Reflection):
-                    entryPoint.texture = SKTexture(imageNamed: "Reflection")
-                case .None:
-                    entryPoint.hidden = true
-                }
+                shootFrom(entryPoint)
             }
             if let slot = self.nodeAtPoint(location) as? Slot {
-                playSound(soundMarkBall)
-                println(slot.name!)
-                if slot.hidden {
-                    slot.hidden = false
-                    game?.markBallAtColumn(slot.column, andRow: slot.row)
-                } else {
-                    slot.hidden = true
-                    game?.removeMarkAtColumn(slot.column, andRow: slot.row)
-                }
+                toggle(slot)
             }
         }
     }

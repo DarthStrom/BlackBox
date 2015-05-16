@@ -82,7 +82,6 @@ public class Game {
         }
       }
     }
-    println("found \(result.count) correct balls")
     return result
   }
 }

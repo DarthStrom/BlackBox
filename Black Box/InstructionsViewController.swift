@@ -1,11 +1,3 @@
-//
-//  InstructionsViewController.swift
-//  Black Box
-//
-//  Created by Jason Duffy on 5/13/15.
-//  Copyright (c) 2015 Peapod Multimedia, ltd. All rights reserved.
-//
-
 import UIKit
 
 class InstructionsViewController: UIViewController {

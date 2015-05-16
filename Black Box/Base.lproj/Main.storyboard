@@ -146,12 +146,13 @@
                                     <action selector="dismiss:" destination="AAg-9M-DFU" eventType="touchUpInside" id="LFE-GY-LKg"/>
                                 </connections>
                             </button>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OVc-0d-e8p">
+                            <webView contentMode="scaleToFill" allowsInlineMediaPlayback="NO" mediaPlaybackAllowsAirPlay="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OVc-0d-e8p">
                                 <rect key="frame" x="0.0" y="28" width="1024" height="694"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="694" id="8KN-xl-RtW"/>
                                 </constraints>
+                                <dataDetectorType key="dataDetectorTypes"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

@@ -87,15 +87,7 @@ class GameViewController: UIViewController {
         skView.presentScene(scene)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Configure the view.
-        let skView = self.view as! SKView
-        skView.showsFPS = true
-        skView.showsNodeCount = true
-        
-        // User defaults
+    func loadAudioSetting() {
         let defaults = NSUserDefaults.standardUserDefaults()
         if let audio = defaults.stringForKey("audio") {
             if audio == "on" {
@@ -108,6 +100,16 @@ class GameViewController: UIViewController {
         } else {
             defaults.setObject("on", forKey: "audio")
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Configure the view.
+        let skView = self.view as! SKView
+        
+        // User defaults
+        loadAudioSetting()
         
         /* Sprite Kit applies additional optimizations to improve rendering performance */
         skView.ignoresSiblingOrder = true

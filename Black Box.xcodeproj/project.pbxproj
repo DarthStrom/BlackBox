@@ -21,7 +21,6 @@
 		965E60071A507C6000BB183F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 965E60051A507C6000BB183F /* Main.storyboard */; };
 		965E60091A507C6000BB183F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 965E60081A507C6000BB183F /* Images.xcassets */; };
 		965E600C1A507C6000BB183F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 965E600A1A507C6000BB183F /* LaunchScreen.xib */; };
-		968C01AF1B0439F0003F8BA7 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 968C01AE1B0439F0003F8BA7 /* README.md */; };
 		968C01B11B0445FF003F8BA7 /* InstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968C01B01B0445FF003F8BA7 /* InstructionsViewController.swift */; };
 		968C01B31B057DE4003F8BA7 /* Markdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968C01B21B057DE4003F8BA7 /* Markdown.swift */; };
 		968C01B51B058993003F8BA7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 968C01AE1B0439F0003F8BA7 /* README.md */; };
@@ -857,7 +856,6 @@
 				9610684C1A94D86D002B02D0 /* Location.swift in Sources */,
 				968C01B11B0445FF003F8BA7 /* InstructionsViewController.swift in Sources */,
 				9610684E1A94DAB7002B02D0 /* ExitResult.swift in Sources */,
-				968C01AF1B0439F0003F8BA7 /* README.md in Sources */,
 				968C01B31B057DE4003F8BA7 /* Markdown.swift in Sources */,
 				96F12CCB1A6AF6D100435452 /* Game.swift in Sources */,
 				961068521A94E01B002B02D0 /* Board.swift in Sources */,
