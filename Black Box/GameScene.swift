@@ -109,7 +109,7 @@ class GameScene: SKScene {
     override init(size: CGSize) {
         super.init(size: size)
         
-        let background = SKSpriteNode(imageNamed: "blackboxboard")
+        let background = SKSpriteNode(imageNamed: "BlackboxBoard")
         background.position = CGPoint(x: 0, y: 0)
         background.anchorPoint = CGPoint(x: 0, y: 0)
         addChild(background)
