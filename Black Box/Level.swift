@@ -5,8 +5,8 @@ class Level {
   init(number: Int) {
     if let dictionary = Dictionary<String, AnyObject>.loadJSONFromBundle("Game\(number)") {
       if let ballsArray: AnyObject = dictionary["balls"] {
-        for (row, rowArray) in enumerate(ballsArray as! [[Int]]) {
-          for (column, value) in enumerate(rowArray) {
+        for (row, rowArray) in (ballsArray as! [[Int]]).enumerate() {
+          for (column, value) in rowArray.enumerate() {
             if value == 1 {
               balls.append(Location(x: column, y: row))
             }

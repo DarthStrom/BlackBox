@@ -76,7 +76,7 @@ class Board {
   }
   
   func isInBox(position: Location) -> Bool {
-    if let slot = slots[position] {
+    if let _ = slots[position] {
       return true
     }
     return false

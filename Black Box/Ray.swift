@@ -9,7 +9,7 @@ class Ray {
   
   func shoot() -> ExitResult? {
     if var position = board.getLocationForEntry(entry) {
-      if var direction = board.getDirectionForEntry(entry) {
+      if let direction = board.getDirectionForEntry(entry) {
         if willDetourFrom(position, direction: direction) {
           return .Reflection
         }

@@ -38,7 +38,7 @@ class GameViewController: UIViewController {
             updateScore()
             showNewGameButton()
         } else {
-            println("trying to finish with \(scene.game?.marks.count) and need \(scene.game?.size)")
+            print("trying to finish with \(scene.game?.marks.count) and need \(scene.game?.size)")
             hideScore()
         }
     }
@@ -121,11 +121,11 @@ class GameViewController: UIViewController {
         return true
     }
     
-    override func supportedInterfaceOrientations() -> Int {
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
-            return Int(UIInterfaceOrientationMask.AllButUpsideDown.rawValue)
+            return UIInterfaceOrientationMask.AllButUpsideDown
         } else {
-            return Int(UIInterfaceOrientationMask.All.rawValue)
+            return UIInterfaceOrientationMask.All
         }
     }
     
@@ -138,7 +138,7 @@ class GameViewController: UIViewController {
         return true
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         finishedButton.hidden = !scene.isFinishable()
     }
 }

@@ -133,11 +133,11 @@ class GameScene: SKScene {
     
     func createGame(number: Int) {
         level = Level(number: number)
-        if let balls = level?.balls {
+        if let _ = level?.balls {
             game = Game(balls: level!.balls)
             playSound(soundNewGame)
         } else {
-            println("Couldn't create game.")
+            print("Couldn't create game.")
         }
     }
     
@@ -188,7 +188,7 @@ class GameScene: SKScene {
         /* Setup your scene here */
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         for touch: AnyObject in touches {
             let location = touch.locationInNode(self)
             

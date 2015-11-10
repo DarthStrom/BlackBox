@@ -7,7 +7,7 @@ class InstructionsViewController: UIViewController {
     override func viewDidLoad() {
         let bundle = NSBundle.mainBundle()
         let filePath = bundle.pathForResource("README", ofType: "md")
-        let inputText = String(contentsOfFile: filePath!, encoding: NSUTF8StringEncoding, error: nil)
+        let inputText = try? String(contentsOfFile: filePath!, encoding: NSUTF8StringEncoding)
         var markdown = Markdown()
         let outputHtml: String = markdown.transform(inputText!)
         webView.loadHTMLString(outputHtml, baseURL: NSURL.fileURLWithPath(bundle.bundlePath))
