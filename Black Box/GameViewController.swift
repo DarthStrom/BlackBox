@@ -104,14 +104,11 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Configure the view.
+
         let skView = self.view as! SKView
-        
-        // User defaults
+
         loadAudioSetting()
-        
-        /* Sprite Kit applies additional optimizations to improve rendering performance */
+
         skView.ignoresSiblingOrder = true
         
         setUpGame()
