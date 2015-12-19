@@ -12,6 +12,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var newGameButton: UIButton!
     @IBOutlet weak var finishedButton: UIButton!
     @IBOutlet weak var audioToggleButton: UIButton!
+    @IBOutlet weak var balls: UILabel!
 
     @IBAction func newGame(sender: UIButton) {
         setUpGame()
@@ -84,6 +85,8 @@ class GameViewController: UIViewController {
         
         hideScore()
         newGameButton.hidden = true
+        balls.hidden = false
+        balls.text = "Balls: \(scene.game!.size)"
         skView.presentScene(scene)
     }
     
@@ -137,5 +140,6 @@ class GameViewController: UIViewController {
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         finishedButton.hidden = !scene.isFinishable()
+        balls.hidden = scene.isFinishable()
     }
 }
