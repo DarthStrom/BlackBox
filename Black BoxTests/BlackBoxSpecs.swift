@@ -242,6 +242,14 @@ class BlackBoxSpecs: QuickSpec {
             expectReflection(10)
           }
         }
+
+        describe("hit takes precedence") {
+            it("before entering box") {
+                game!.placeAtColumn(0, andRow: 0)
+                game!.placeAtColumn(0, andRow: 1)
+                expectHit(1)
+            }
+        }
       }
       
       describe("scoring") {

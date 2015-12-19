@@ -10,6 +10,9 @@ class Ray {
   func shoot() -> ExitResult? {
     if var position = board.getLocationForEntry(entry) {
       if let direction = board.getDirectionForEntry(entry) {
+        if willHitFrom(position, direction: direction) {
+            return .Hit
+        }
         if willDetourFrom(position, direction: direction) {
           return .Reflection
         }
