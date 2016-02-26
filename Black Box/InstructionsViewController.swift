@@ -1,9 +1,9 @@
 import UIKit
 
 class InstructionsViewController: UIViewController {
-    
+
     @IBOutlet weak var webView: UIWebView!
-    
+
     override func viewDidLoad() {
         let bundle = NSBundle.mainBundle()
         let filePath = bundle.pathForResource("README", ofType: "md")
@@ -12,8 +12,9 @@ class InstructionsViewController: UIViewController {
         let outputHtml: String = markdown.transform(inputText!)
         webView.loadHTMLString(outputHtml, baseURL: NSURL.fileURLWithPath(bundle.bundlePath))
     }
-    
+
     @IBAction func dismiss(sender: UIButton) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+
 }

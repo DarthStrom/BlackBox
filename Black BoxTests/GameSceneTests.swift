@@ -22,7 +22,7 @@ class GameSceneTests: XCTestCase {
         subject.game = mockGame
         subject.level = mockLevel
     }
-    
+
     func testIsFinishableIfGameIsFinishable() {
         mockGame.finished = true
 
@@ -251,11 +251,14 @@ class GameSceneTests: XCTestCase {
         func probeWill(exitResult: ExitResult) {
             probe = exitResult
         }
+
     }
 
     class MockLevel: Level {
+
         func setPar(par: Int) {
             super.par = par
         }
+
     }
 }

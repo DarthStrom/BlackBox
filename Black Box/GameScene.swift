@@ -6,27 +6,27 @@ class GameScene: SKScene {
     var level: Level?
     var entryPoints = [Int: EntryPoint](minimumCapacity: 32)
     var slots = [Int: Slot](minimumCapacity: 64)
-    
+
     let soundMarkBall = SKAction.playSoundFileNamed("Mark.wav", waitForCompletion: false)
     let soundProbe = SKAction.playSoundFileNamed("Probe.wav", waitForCompletion: false)
     let soundSuccess = SKAction.playSoundFileNamed("Success.wav", waitForCompletion: true)
     let soundFailure = SKAction.playSoundFileNamed("Failure.wav", waitForCompletion: true)
     let soundNewGame = SKAction.playSoundFileNamed("NewGame.wav", waitForCompletion: false)
-    
+
     func isFinishable() -> Bool {
         if let result = game?.isFinishable() {
             return result
         }
         return false
     }
-    
+
     func getProbes() -> String {
         if let result = game?.probes {
             return String(result)
         }
         return "No game"
     }
-    
+
     func getIncorrectBalls() -> String {
         if let result = game?.incorrectBalls() {
             if result.count == 0 {
@@ -38,18 +38,18 @@ class GameScene: SKScene {
         }
         return "No game"
     }
-    
+
     func getPar() -> Int? {
         return level?.par
     }
-    
+
     func getScore() -> String {
         if let result = game?.getScore() {
             return String(result)
         }
         return "No game"
     }
-    
+
     func addEntryPoint(number: Int) {
         let input = EntryPoint.entryPoint(number, imageNamed: "Hit")
 
@@ -99,7 +99,6 @@ class GameScene: SKScene {
         default:
             return nil
         }
-
     }
 
     func entryPointNumber(coordinates: CGPoint) -> Int? {
@@ -162,7 +161,7 @@ class GameScene: SKScene {
             return false
         }
     }
-    
+
     func addSlotAtColumn(column: Int, andRow row: Int) {
         let slot = Slot.slot(column: column, row: row, imageNamed: "Guess")
         slot.anchorPoint = CGPoint(x: 0, y: 0)
@@ -172,7 +171,7 @@ class GameScene: SKScene {
         self.addChild(slot)
         self.slots[row*8 + column] = slot
     }
-    
+
     func showIncorrectBalls() {
         if let incorrectBalls = game?.incorrectBalls() {
             for ball in incorrectBalls {
@@ -182,7 +181,7 @@ class GameScene: SKScene {
             }
         }
     }
-    
+
     func showMissedBalls() {
         if let missedBalls = game?.missedBalls() {
             for ball in missedBalls {
@@ -193,7 +192,7 @@ class GameScene: SKScene {
             }
         }
     }
-    
+
     func showCorrectBalls() {
         if let correctBalls = game?.correctBalls() {
             for ball in correctBalls {
@@ -203,33 +202,33 @@ class GameScene: SKScene {
             }
         }
     }
-    
+
     override init(size: CGSize) {
         super.init(size: size)
-        
+
         let background = SKSpriteNode(imageNamed: "BlackboxBoard")
         background.position = CGPoint(x: 0, y: 0)
         background.anchorPoint = CGPoint(x: 0, y: 0)
         background.zPosition = 1
         addChild(background)
-        
+
         for i in 1...32 {
             addEntryPoint(i)
         }
-        
+
         for y in 0...7 {
             for x in 0...7 {
                 addSlotAtColumn(x, andRow: y)
             }
         }
-        
+
         createGame(randoBetweenOneAnd(80))
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func createGame(number: Int) {
         level = Level(number: number)
         if let _ = level?.balls {
@@ -239,11 +238,11 @@ class GameScene: SKScene {
             print("Couldn't create game.")
         }
     }
-    
+
     func randoBetweenOneAnd(upperLimit: Int) -> Int {
         return Int(arc4random_uniform(UInt32(upperLimit))) + 1
     }
-    
+
     func playSound(sound: SKAction) {
         let defaults = NSUserDefaults.standardUserDefaults()
         if let audio = defaults.stringForKey("audio") {
@@ -252,7 +251,7 @@ class GameScene: SKScene {
             }
         }
     }
-    
+
     func shootFrom(entryPoint: EntryPoint) {
         playSound(soundProbe)
         entryPoint.hidden = false
@@ -262,11 +261,11 @@ class GameScene: SKScene {
             entryPoint.texture = texture
         case .Some(.Detour(let exitPoint)):
             detours = (detours % 12) + 1
-            let exitPoint = self.childNodeWithName("Entry\(exitPoint)") as! EntryPoint
+            let exitPoint = self.childNodeWithName("Entry\(exitPoint)") as? EntryPoint
             let texture = SKTexture(imageNamed: "Detour\(detours)")
             entryPoint.texture = texture
-            exitPoint.texture = texture
-            exitPoint.hidden = false
+            exitPoint?.texture = texture
+            exitPoint?.hidden = false
         case .Some(.Reflection):
             let texture = SKTexture(imageNamed: "Reflection")
             entryPoint.texture = texture
@@ -274,7 +273,7 @@ class GameScene: SKScene {
             entryPoint.hidden = true
         }
     }
-    
+
     func toggle(slot: Slot) {
         playSound(soundMarkBall)
         if slot.hidden {
@@ -298,14 +297,15 @@ class GameScene: SKScene {
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
     }
-    
+
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         for touch in touches {
             handleTouch(touch.locationInNode(self))
         }
     }
-    
+
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
     }
+
 }
