@@ -36,7 +36,7 @@ class BlackBoxSpecs: QuickSpec {
                 let expectHit = { (entryPoint: Int) -> () in
                     switch game!.probe(entryPoint) {
                     case .Some(.Hit):
-                        expect(true)
+                        expect(true).to(beTrue())
                     case .Some(.Reflection):
                         fail("Expected a Hit but got a Reflection")
                     case .Some(.Detour(let i)):
@@ -51,7 +51,7 @@ class BlackBoxSpecs: QuickSpec {
                     case .Some(.Hit):
                         fail("Expected a Reflection but got a Hit")
                     case .Some(.Reflection):
-                        expect(true)
+                        expect(true).to(beTrue())
                     case .Some(.Detour(let i)):
                         fail("Expected a Reflection but got a Detour to \(i)")
                     case .None:
