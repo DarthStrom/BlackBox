@@ -1,0 +1,2 @@
+Fixed an issue preventing Hit from taking priority over Reflection prior to entering the box.
+Added an indicator for how many balls are hidden prior to marking all guesses.

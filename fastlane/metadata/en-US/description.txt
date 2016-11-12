@@ -1,0 +1,4 @@
+The computer hides balls, the player tries to find them
+Four balls are hidden on an 8x8 grid by the computer
+The player uses imaginary rays to get information on where the balls are hidden
+The object is to find the hidden balls in as few tries as possible
