@@ -8,13 +8,13 @@ class Ray {
     }
 
     func shoot() -> ExitResult? {
-        if var position = board.getLocationForEntry(entry) {
-            if let direction = board.getDirectionForEntry(entry) {
+        if var position = board.getLocationFor(entry: entry) {
+            if let direction = board.getDirectionFor(entry: entry) {
                 if willHitFrom(position, direction: direction) {
-                    return .Hit
+                    return .hit
                 }
                 if willDetourFrom(position, direction: direction) {
-                    return .Reflection
+                    return .reflection
                 }
                 position = getNewPositionFrom(position, direction: direction)
                 return shootFrom(position, direction: direction)
@@ -23,13 +23,15 @@ class Ray {
         return nil
     }
 
-    func shootFrom(position: Location, direction: Direction) -> ExitResult? {
-        if board.isInBox(position) {
-            if board.getSlotAtColumn(position.x, andRow: position.y) || willHitFrom(position, direction: direction) {
-                return .Hit
+    func shootFrom(_ position: Location, direction: Direction) -> ExitResult? {
+        if board.isInBox(position: position) {
+            if board.getSlotAt(column: position.x, andRow: position.y)
+                || willHitFrom(position, direction: direction) {
+
+                return .hit
             }
             if willReflectFrom(position, direction: direction) {
-                return .Reflection
+                return .reflection
             }
 
             let newDirection = getNewDirectionFrom(position, direction: direction)
@@ -37,92 +39,110 @@ class Ray {
 
             return shootFrom(newPosition, direction: newDirection)
         }
-        if let exitPoint = board.getEntryPointAtColumn(position.x, andRow: position.y) {
-            return .Detour(exitPoint)
+        if let exitPoint = board.getEntryPointAt(column: position.x, andRow: position.y) {
+            return .detour(exitPoint)
         }
         return nil
     }
 
-    func willDetourFrom(position: Location, direction: Direction) -> Bool {
+    func willDetourFrom(_ position: Location, direction: Direction) -> Bool {
         let newDirection = getNewDirectionFrom(position, direction: direction)
         return newDirection != direction
     }
 
-    func willHitFrom(position: Location, direction: Direction) -> Bool {
+    func willHitFrom(_ position: Location, direction: Direction) -> Bool {
         switch direction {
-        case .Up:
-            return board.getSlotAtColumn(position.x, andRow: position.y - 1)
-        case .Down:
-            return board.getSlotAtColumn(position.x, andRow: position.y + 1)
-        case .Left:
-            return board.getSlotAtColumn(position.x - 1, andRow: position.y)
-        case .Right:
-            return board.getSlotAtColumn(position.x + 1, andRow: position.y)
+        case .up:
+            return board.getSlotAt(column: position.x, andRow: position.y - 1)
+        case .down:
+            return board.getSlotAt(column: position.x, andRow: position.y + 1)
+        case .left:
+            return board.getSlotAt(column: position.x - 1, andRow: position.y)
+        case .right:
+            return board.getSlotAt(column: position.x + 1, andRow: position.y)
         }
     }
 
-    func willReflectFrom(position: Location, direction: Direction) -> Bool {
+    func willReflectFrom(_ position: Location, direction: Direction) -> Bool {
         switch direction {
-        case .Up:
-            return board.getSlotAtColumn(position.x - 1, andRow: position.y - 1) &&
-                board.getSlotAtColumn(position.x + 1, andRow: position.y - 1)
-        case .Down:
-            return board.getSlotAtColumn(position.x - 1, andRow: position.y + 1) &&
-                board.getSlotAtColumn(position.x + 1, andRow: position.y + 1)
-        case .Left:
-            return board.getSlotAtColumn(position.x - 1, andRow: position.y - 1) &&
-                board.getSlotAtColumn(position.x - 1, andRow: position.y + 1)
-        case .Right:
-            return board.getSlotAtColumn(position.x + 1, andRow: position.y - 1) &&
-                board.getSlotAtColumn(position.x + 1, andRow: position.y + 1)
+        case .up:
+            return board.getSlotAt(column: position.x - 1, andRow: position.y - 1) &&
+                board.getSlotAt(column: position.x + 1, andRow: position.y - 1)
+        case .down:
+            return board.getSlotAt(column: position.x - 1, andRow: position.y + 1) &&
+                board.getSlotAt(column: position.x + 1, andRow: position.y + 1)
+        case .left:
+            return board.getSlotAt(column: position.x - 1, andRow: position.y - 1) &&
+                board.getSlotAt(column: position.x - 1, andRow: position.y + 1)
+        case .right:
+            return board.getSlotAt(column: position.x + 1, andRow: position.y - 1) &&
+                board.getSlotAt(column: position.x + 1, andRow: position.y + 1)
         }
     }
 
-    func getNewPositionFrom(position: Location, direction: Direction) -> Location {
+    func getNewPositionFrom(_ position: Location, direction: Direction) -> Location {
         switch direction {
-        case .Up:
+        case .up:
             return Location(x: position.x, y: position.y - 1)
-        case .Down:
+        case .down:
             return Location(x: position.x, y: position.y + 1)
-        case .Left:
+        case .left:
             return Location(x: position.x - 1, y: position.y)
-        case .Right:
+        case .right:
             return Location(x: position.x + 1, y: position.y)
         }
     }
 
-    func getNewDirectionFrom(position: Location, direction: Direction) -> Direction {
+    func getNewDirectionFrom(_ position: Location, direction: Direction) -> Direction {
         switch direction {
-        case .Up:
-            if board.getSlotAtColumn(position.x - 1, andRow: position.y - 1) {
-                return .Right
-            }
-            if board.getSlotAtColumn(position.x + 1, andRow: position.y - 1) {
-                return .Left
-            }
-        case .Down:
-            if board.getSlotAtColumn(position.x - 1, andRow: position.y + 1) {
-                return .Right
-            }
-            if board.getSlotAtColumn(position.x + 1, andRow: position.y + 1) {
-                return .Left
-            }
-        case .Left:
-            if board.getSlotAtColumn(position.x - 1, andRow: position.y - 1) {
-                return .Down
-            }
-            if board.getSlotAtColumn(position.x - 1, andRow: position.y + 1) {
-                return .Up
-            }
-        case .Right:
-            if board.getSlotAtColumn(position.x + 1, andRow: position.y - 1) {
-                return .Down
-            }
-            if board.getSlotAtColumn(position.x + 1, andRow: position.y + 1) {
-                return .Up
-            }
+        case .up:
+            return getNewDirectionGoingUpFrom(position)
+        case .down:
+            return getNewDirectionGoingDownFrom(position)
+        case .left:
+            return getNewDirectionGoingLeftFrom(position)
+        case .right:
+            return getNewDirectionGoingRightFrom(position)
         }
-        return direction
     }
 
+    func getNewDirectionGoingUpFrom(_ position: Location) -> Direction {
+        if board.getSlotAt(column: position.x - 1, andRow: position.y - 1) {
+            return .right
+        }
+        if board.getSlotAt(column: position.x + 1, andRow: position.y - 1) {
+            return .left
+        }
+        return .up
+    }
+
+    func getNewDirectionGoingDownFrom(_ position: Location) -> Direction {
+        if board.getSlotAt(column: position.x - 1, andRow: position.y + 1) {
+            return .right
+        }
+        if board.getSlotAt(column: position.x + 1, andRow: position.y + 1) {
+            return .left
+        }
+        return .down
+    }
+
+    func getNewDirectionGoingLeftFrom(_ position: Location) -> Direction {
+        if board.getSlotAt(column: position.x - 1, andRow: position.y - 1) {
+            return .down
+        }
+        if board.getSlotAt(column: position.x - 1, andRow: position.y + 1) {
+            return .up
+        }
+        return .left
+    }
+
+    func getNewDirectionGoingRightFrom(_ position: Location) -> Direction {
+        if board.getSlotAt(column: position.x + 1, andRow: position.y - 1) {
+            return .down
+        }
+        if board.getSlotAt(column: position.x + 1, andRow: position.y + 1) {
+            return .up
+        }
+        return .right
+    }
 }

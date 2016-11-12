@@ -14,24 +14,24 @@ class GameViewController: UIViewController {
     @IBOutlet weak var audioToggleButton: UIButton!
     @IBOutlet weak var balls: UILabel!
 
-    @IBAction func newGame(sender: UIButton) {
+    @IBAction func newGame(_ sender: UIButton) {
         setUpGame()
     }
 
-    @IBAction func toggleSound(sender: UIButton) {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        if let audioToggle = defaults.stringForKey("audio") {
+    @IBAction func toggleSound(_ sender: UIButton) {
+        let defaults = UserDefaults.standard
+        if let audioToggle = defaults.string(forKey: "audio") {
             if audioToggle == "on" {
-                sender.setImage(UIImage(named: "AudioOff"), forState: .Normal)
+                sender.setImage(UIImage(named: "AudioOff"), for: UIControlState())
                 defaults.setValue("off", forKey: "audio")
             } else {
-                sender.setImage(UIImage(named: "AudioOn"), forState: .Normal)
+                sender.setImage(UIImage(named: "AudioOn"), for: UIControlState())
                 defaults.setValue("on", forKey: "audio")
             }
         }
     }
 
-    @IBAction func finished(sender: UIButton) {
+    @IBAction func finished(_ sender: UIButton) {
         if scene.isFinishable() {
             scene.showIncorrectBalls()
             scene.showMissedBalls()
@@ -53,29 +53,29 @@ class GameViewController: UIViewController {
     }
 
     func hideScore() {
-        probes.hidden = true
-        incorrect.hidden = true
-        score.hidden = true
-        par.hidden = true
+        probes.isHidden = true
+        incorrect.isHidden = true
+        score.isHidden = true
+        par.isHidden = true
     }
 
     func showScore() {
-        probes.hidden = false
-        incorrect.hidden = false
-        score.hidden = false
+        probes.isHidden = false
+        incorrect.isHidden = false
+        score.isHidden = false
         if let parValue = scene.getPar() {
-            par.hidden = parValue == 0
+            par.isHidden = parValue == 0
         }
     }
 
     func showFinishedButton() {
-        finishedButton.hidden = false
-        newGameButton.hidden = true
+        finishedButton.isHidden = false
+        newGameButton.isHidden = true
     }
 
     func showNewGameButton() {
-        finishedButton.hidden = true
-        newGameButton.hidden = false
+        finishedButton.isHidden = true
+        newGameButton.isHidden = false
     }
 
     func setUpGame() {
@@ -85,27 +85,27 @@ class GameViewController: UIViewController {
         }
 
         scene = GameScene(size: skView.bounds.size)
-        scene.scaleMode = .AspectFill
+        scene.scaleMode = .aspectFill
 
         hideScore()
-        newGameButton.hidden = true
-        balls.hidden = false
+        newGameButton.isHidden = true
+        balls.isHidden = false
         balls.text = "Balls: \(scene.game!.size)"
         skView.presentScene(scene)
     }
 
     func loadAudioSetting() {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        if let audio = defaults.stringForKey("audio") {
+        let defaults = UserDefaults.standard
+        if let audio = defaults.string(forKey: "audio") {
             if audio == "on" {
-                audioToggleButton.setImage(UIImage(named: "AudioOn"), forState: .Normal)
+                audioToggleButton.setImage(UIImage(named: "AudioOn"), for: UIControlState())
                 defaults.setValue("on", forKey: "audio")
             } else {
-                audioToggleButton.setImage(UIImage(named: "AudioOff"), forState: .Normal)
+                audioToggleButton.setImage(UIImage(named: "AudioOff"), for: UIControlState())
                 defaults.setValue("off", forKey: "audio")
             }
         } else {
-            defaults.setObject("on", forKey: "audio")
+            defaults.set("on", forKey: "audio")
         }
     }
 
@@ -121,15 +121,15 @@ class GameViewController: UIViewController {
         setUpGame()
     }
 
-    override func shouldAutorotate() -> Bool {
+    override var shouldAutorotate: Bool {
         return true
     }
 
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
-            return UIInterfaceOrientationMask.AllButUpsideDown
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            return UIInterfaceOrientationMask.allButUpsideDown
         } else {
-            return UIInterfaceOrientationMask.All
+            return UIInterfaceOrientationMask.all
         }
     }
 
@@ -138,13 +138,13 @@ class GameViewController: UIViewController {
         // Release any cached data, images, etc that aren't in use.
     }
 
-    override func prefersStatusBarHidden() -> Bool {
+    override var prefersStatusBarHidden: Bool {
         return true
     }
 
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        finishedButton.hidden = !scene.isFinishable()
-        balls.hidden = scene.isFinishable()
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        finishedButton.isHidden = !scene.isFinishable()
+        balls.isHidden = scene.isFinishable()
     }
 
 }

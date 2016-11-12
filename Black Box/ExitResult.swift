@@ -1,5 +1,5 @@
 public enum ExitResult {
-    case Hit
-    case Reflection
-    case Detour(Int)
+    case hit
+    case reflection
+    case detour(Int)
 }

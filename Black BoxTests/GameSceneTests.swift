@@ -82,7 +82,7 @@ class GameSceneTests: XCTestCase {
     func testTryingToAddAnEntryPointAbove32DoesNotAddAChild() {
         XCTAssertEqual(97, subject.children.count)
 
-        subject.addEntryPoint(33)
+        subject.addEntryPoint(number: 33)
 
         XCTAssertEqual(97, subject.children.count)
     }
@@ -92,21 +92,21 @@ class GameSceneTests: XCTestCase {
 
         subject.handleTouch(CGPoint(x: 50.0, y: 650.0))
 
-        XCTAssertTrue(subject.entryPoints[1]!.hidden)
+        XCTAssertTrue(subject.entryPoints[1]!.isHidden)
     }
 
     func testShootSlot1() {
-        mockGame.probeWill(.Hit)
+        mockGame.probeWill(.hit)
 
         subject.handleTouch(CGPoint(x: 50.0, y: 650.0))
 
         let entryPoint = subject.entryPoints[1]
         XCTAssertEqual("<SKTexture> \'Hit\' (148 x 148)", entryPoint?.texture?.description)
-        XCTAssertFalse(subject.entryPoints[1]!.hidden)
+        XCTAssertFalse(subject.entryPoints[1]!.isHidden)
     }
 
     func testShootSlot2() {
-        mockGame.probeWill(.Detour(1))
+        mockGame.probeWill(.detour(1))
 
         subject.handleTouch(CGPoint(x: 50.0, y: 600.0))
 
@@ -115,69 +115,69 @@ class GameSceneTests: XCTestCase {
         XCTAssertEqual("<SKTexture> \'Detour1\' (148 x 148)", entryPoint1?.texture?.description)
         XCTAssertEqual("<SKTexture> \'Detour1\' (148 x 148)", entryPoint2?.texture?.description)
         XCTAssertEqual(1, subject.detours)
-        XCTAssertFalse(entryPoint1!.hidden)
-        XCTAssertFalse(entryPoint2!.hidden)
+        XCTAssertFalse(entryPoint1!.isHidden)
+        XCTAssertFalse(entryPoint2!.isHidden)
     }
 
     func testShootSlot3() {
-        mockGame.probeWill(.Reflection)
+        mockGame.probeWill(.reflection)
 
         subject.handleTouch(CGPoint(x: 50.0, y: 500.0))
 
         let entryPoint = subject.entryPoints[3]
         XCTAssertEqual("<SKTexture> \'Reflection\' (148 x 148)", entryPoint?.texture?.description)
-        XCTAssertFalse(entryPoint!.hidden)
+        XCTAssertFalse(entryPoint!.isHidden)
     }
 
     func testShootSlot9() {
         subject.handleTouch(CGPoint(x: 100.0, y: 50.0))
 
-        XCTAssertFalse(subject.entryPoints[9]!.hidden)
+        XCTAssertFalse(subject.entryPoints[9]!.isHidden)
     }
 
     func testShootSlot18() {
         subject.handleTouch(CGPoint(x: 700.0, y: 200.0))
 
-        XCTAssertFalse(subject.entryPoints[18]!.hidden)
+        XCTAssertFalse(subject.entryPoints[18]!.isHidden)
     }
 
     func testShootSlot28() {
         subject.handleTouch(CGPoint(x: 400.0, y: 700.0))
 
-        XCTAssertFalse(subject.entryPoints[28]!.hidden)
+        XCTAssertFalse(subject.entryPoints[28]!.isHidden)
     }
 
     func testShootSlot29() {
         subject.handleTouch(CGPoint(x: 350.0, y: 700.0))
 
-        XCTAssertFalse(subject.entryPoints[29]!.hidden)
+        XCTAssertFalse(subject.entryPoints[29]!.isHidden)
     }
 
     func testShootSlot30() {
         subject.handleTouch(CGPoint(x: 300.0, y: 700.0))
 
-        XCTAssertFalse(subject.entryPoints[30]!.hidden)
+        XCTAssertFalse(subject.entryPoints[30]!.isHidden)
     }
 
     func testDoesNothingWhenTouchingNoEntryPointsOrSlots() {
         subject.handleTouch(CGPoint(x: 1.0, y: 1.0))
 
         for entryPoint in subject.entryPoints {
-            XCTAssertTrue(entryPoint.1.hidden)
+            XCTAssertTrue(entryPoint.1.isHidden)
         }
         for slot in subject.slots {
-            XCTAssertTrue(slot.1.hidden)
+            XCTAssertTrue(slot.1.isHidden)
         }
     }
 
     func testToggleSlot00() {
         subject.handleTouch(CGPoint(x: 120.0, y: 645.0))
 
-        XCTAssertFalse(subject.slots[0]!.hidden)
+        XCTAssertFalse(subject.slots[0]!.isHidden)
 
         subject.handleTouch(CGPoint(x: 120.0, y: 645.0))
 
-        XCTAssertTrue(subject.slots[0]!.hidden)
+        XCTAssertTrue(subject.slots[0]!.isHidden)
     }
 
     func testCanShowIncorrectBalls() {
@@ -210,7 +210,7 @@ class GameSceneTests: XCTestCase {
         var incorrect = 0
         var missed = 0
         var score = 0
-        var probe = ExitResult.Hit
+        var probe = ExitResult.hit
 
         override func isFinishable() -> Bool {
             return finished
@@ -236,7 +236,7 @@ class GameSceneTests: XCTestCase {
             return probe
         }
 
-        func populate(count: Int) -> [Location] {
+        func populate(_ count: Int) -> [Location] {
             var result = [Location]()
             for i in 0..<count {
                 result.append(Location(x: i, y: i))
@@ -244,11 +244,11 @@ class GameSceneTests: XCTestCase {
             return result
         }
 
-        func setProbes(probes: Int) {
+        func setProbes(_ probes: Int) {
             super.probes = probes
         }
 
-        func probeWill(exitResult: ExitResult) {
+        func probeWill(_ exitResult: ExitResult) {
             probe = exitResult
         }
 
@@ -256,7 +256,7 @@ class GameSceneTests: XCTestCase {
 
     class MockLevel: Level {
 
-        func setPar(par: Int) {
+        func setPar(_ par: Int) {
             super.par = par
         }
 

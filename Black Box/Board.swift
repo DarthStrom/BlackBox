@@ -30,22 +30,22 @@ class Board {
         }
     }
 
-    func placeAtColumn(column: Int, andRow row: Int) {
+    func placeAt(column: Int, andRow row: Int) {
         slots[Location(x: column, y: row)] = true
     }
 
-    func getEntryPointAtColumn(column: Int, andRow row: Int) -> Int? {
+    func getEntryPointAt(column: Int, andRow row: Int) -> Int? {
         return entries[Location(x: column, y: row)]
     }
 
-    func getSlotAtColumn(column: Int, andRow row: Int) -> Bool {
+    func getSlotAt(column: Int, andRow row: Int) -> Bool {
         if let result = slots[Location(x: column, y: row)] {
             return result
         }
         return false
     }
 
-    func getLocationForEntry(entry: Int) -> Location? {
+    func getLocationFor(entry: Int) -> Location? {
         switch entry {
         case 1...8:
             return Location(x: -1, y: entry - 1)
@@ -60,16 +60,16 @@ class Board {
         }
     }
 
-    func getDirectionForEntry(entry: Int) -> Direction? {
+    func getDirectionFor(entry: Int) -> Direction? {
         switch entry {
         case 1...8:
-            return .Right
+            return .right
         case 9...16:
-            return .Up
+            return .up
         case 17...24:
-            return .Left
+            return .left
         case 25...32:
-            return .Down
+            return .down
         default:
             return nil
         }
