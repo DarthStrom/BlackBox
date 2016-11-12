@@ -5,16 +5,16 @@ class InstructionsViewController: UIViewController {
     @IBOutlet weak var webView: UIWebView!
 
     override func viewDidLoad() {
-        let bundle = NSBundle.mainBundle()
-        let filePath = bundle.pathForResource("README", ofType: "md")
-        let inputText = try? String(contentsOfFile: filePath!, encoding: NSUTF8StringEncoding)
+        let bundle = Bundle.main
+        let filePath = bundle.path(forResource: "README", ofType: "md")
+        let inputText = try? String(contentsOfFile: filePath!, encoding: String.Encoding.utf8)
         var markdown = Markdown()
         let outputHtml: String = markdown.transform(inputText!)
-        webView.loadHTMLString(outputHtml, baseURL: NSURL.fileURLWithPath(bundle.bundlePath))
+        webView.loadHTMLString(outputHtml, baseURL: URL(fileURLWithPath: bundle.bundlePath))
     }
 
-    @IBAction func dismiss(sender: UIButton) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func dismiss(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
     }
 
 }

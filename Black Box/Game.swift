@@ -14,7 +14,7 @@ public class Game {
     public init(balls: [Location]) {
         size = balls.count
         for ball in balls {
-            placeAtColumn(ball.x, andRow: ball.y)
+            placeAt(column: ball.x, andRow: ball.y)
         }
     }
 
@@ -25,16 +25,16 @@ public class Game {
         return ray.shoot()
     }
 
-    public func placeAtColumn(column: Int, andRow row: Int) {
-        board.placeAtColumn(column, andRow: row)
+    public func placeAt(column: Int, andRow row: Int) {
+        board.placeAt(column: column, andRow: row)
     }
 
-    public func markBallAtColumn(column: Int, andRow row: Int) {
+    public func markBallAt(column: Int, andRow row: Int) {
         marks.updateValue(true, forKey: Location(x: column, y: row))
     }
 
-    public func removeMarkAtColumn(column: Int, andRow row: Int) {
-        marks.removeValueForKey(Location(x: column, y: row))
+    public func removeMarkAt(column: Int, andRow row: Int) {
+        marks.removeValue(forKey: Location(x: column, y: row))
     }
 
     public func isFinishable() -> Bool {
@@ -87,7 +87,7 @@ public class Game {
         return result
     }
 
-    public func whichEntryPoint(f: CGFloat) -> Int? {
+    public func whichEntryPoint(_ f: CGFloat) -> Int? {
         switch f {
         case 81..<157:
             return 1
@@ -111,22 +111,22 @@ public class Game {
     }
 
     func entryPointNumber(coordinates: CGPoint) -> Int? {
-        if leftEntryPointZone(coordinates) {
+        if leftEntryPointZone(coordinates: coordinates) {
             if let result = whichEntryPoint(coordinates.y) {
                 return 9 - result
             }
         }
-        if bottomEntryPointZone(coordinates) {
+        if bottomEntryPointZone(coordinates: coordinates) {
             if let result = whichEntryPoint(coordinates.x) {
                 return result + 8
             }
         }
-        if rightEntryPointZone(coordinates) {
+        if rightEntryPointZone(coordinates: coordinates) {
             if let result = whichEntryPoint(coordinates.y) {
                 return result + 16
             }
         }
-        if topEntryPointZone(coordinates) {
+        if topEntryPointZone(coordinates: coordinates) {
             if let result = whichEntryPoint(coordinates.x) {
                 return 9 - result + 24
             }
@@ -177,7 +177,7 @@ public class Game {
     }
 
     func pointInBox(
-        coordinates: CGPoint,
+        _ coordinates: CGPoint,
         _ point1: (x: Int, y: Int),
           _ point2: (x: Int, y: Int)
         ) -> Bool {

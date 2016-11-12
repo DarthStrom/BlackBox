@@ -3,27 +3,28 @@ import Foundation
 extension Dictionary {
 
     static func loadJSONFromBundle(filename: String) -> Dictionary<String, AnyObject>? {
-        if let path = NSBundle.mainBundle().pathForResource(filename, ofType: "json") {
+        if let path = Bundle.main.path(forResource: filename, ofType: "json") {
 
             var error: NSError?
-            let data: NSData?
+            let data: Data?
             do {
-                data = try NSData(contentsOfFile: path, options: NSDataReadingOptions())
+                data = try Data(contentsOf: URL(fileURLWithPath: path),
+                                options: NSData.ReadingOptions())
             } catch let error1 as NSError {
                 error = error1
                 data = nil
             }
             if let data = data {
 
-                let dictionary: AnyObject?
+                let json: Any?
                 do {
-                    dictionary = try NSJSONSerialization.JSONObjectWithData(data,
-                        options: NSJSONReadingOptions())
+                    json = try JSONSerialization.jsonObject(with: data,
+                        options: JSONSerialization.ReadingOptions())
                 } catch let error1 as NSError {
                     error = error1
-                    dictionary = nil
+                    json = nil
                 }
-                if let dictionary = dictionary as? Dictionary<String, AnyObject> {
+                if let dictionary = json as? Dictionary<String, AnyObject> {
                     return dictionary
                 } else {
                     print("File '\(filename)' is not valid JSON: \(error!)")

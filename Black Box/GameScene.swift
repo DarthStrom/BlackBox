@@ -26,25 +26,25 @@ class GameScene: SKScene {
         addChild(background)
 
         for i in 1...32 {
-            addEntryPoint(i)
+            addEntryPoint(number: i)
         }
 
         for y in 0...7 {
             for x in 0...7 {
-                addSlotAtColumn(x, andRow: y)
+                addSlotAt(column: x, andRow: y)
             }
         }
 
-        createGame(randoBetweenOneAnd(80))
+        createGame(number: randoBetweenOneAnd(80))
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
-            handleTouch(touch.locationInNode(self))
+            handleTouch(touch.location(in: self))
         }
     }
 
@@ -90,7 +90,7 @@ class GameScene: SKScene {
     func showIncorrectBalls() {
         if let incorrectBalls = game?.incorrectBalls() {
             for ball in incorrectBalls {
-                if let mark = childNodeWithName("Slot\(ball.x)\(ball.y)") as? Slot {
+                if let mark = childNode(withName: "Slot\(ball.x)\(ball.y)") as? Slot {
                     mark.texture = SKTexture(imageNamed: "Incorrect")
                 }
             }
@@ -100,9 +100,9 @@ class GameScene: SKScene {
     func showMissedBalls() {
         if let missedBalls = game?.missedBalls() {
             for ball in missedBalls {
-                if let miss = childNodeWithName("Slot\(ball.x)\(ball.y)") as? Slot {
+                if let miss = childNode(withName: "Slot\(ball.x)\(ball.y)") as? Slot {
                     miss.texture = SKTexture(imageNamed: "Miss")
-                    miss.hidden = false
+                    miss.isHidden = false
                 }
             }
         }
@@ -111,7 +111,7 @@ class GameScene: SKScene {
     func showCorrectBalls() {
         if let correctBalls = game?.correctBalls() {
             for ball in correctBalls {
-                if let mark = childNodeWithName("Slot\(ball.x)\(ball.y)") as? Slot {
+                if let mark = childNode(withName: "Slot\(ball.x)\(ball.y)") as? Slot {
                     mark.texture = SKTexture(imageNamed: "Correct")
                 }
             }
@@ -121,12 +121,12 @@ class GameScene: SKScene {
     // MARK: - Setup
 
     func addEntryPoint(number: Int) {
-        let input = EntryPoint.entryPoint(number, imageNamed: "Hit")
+        let input = EntryPoint.entryPoint(number: number, imageNamed: "Hit")
 
         if let coordinates = self.entryPointCoordinates(number) {
             input.position = coordinates
             input.anchorPoint = CGPoint(x: 0, y: 0)
-            input.hidden = true
+            input.isHidden = true
             input.zPosition = 2
             self.addChild(input)
             self.entryPoints[number] = input
@@ -143,20 +143,20 @@ class GameScene: SKScene {
         }
     }
 
-    func randoBetweenOneAnd(upperLimit: Int) -> Int {
+    func randoBetweenOneAnd(_ upperLimit: Int) -> Int {
         return Int(arc4random_uniform(UInt32(upperLimit))) + 1
     }
 
-    func playSound(sound: SKAction) {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        if let audio = defaults.stringForKey("audio") {
+    func playSound(_ sound: SKAction) {
+        let defaults = UserDefaults.standard
+        if let audio = defaults.string(forKey: "audio") {
             if audio == "on" {
-                runAction(sound)
+                run(sound)
             }
         }
     }
 
-    func entryPointCoordinates(number: Int) -> CGPoint? {
+    func entryPointCoordinates(_ number: Int) -> CGPoint? {
         switch number {
         case 1...8:
             return CGPoint(x: 5, y: 689 - (number * 76))
@@ -171,11 +171,11 @@ class GameScene: SKScene {
         }
     }
 
-    func addSlotAtColumn(column: Int, andRow row: Int) {
+    func addSlotAt(column: Int, andRow row: Int) {
         let slot = Slot.slot(column: column, row: row, imageNamed: "Guess")
         slot.anchorPoint = CGPoint(x: 0, y: 0)
         slot.position = CGPoint(x: 81 + column * 76, y: 81 + (7 - row) * 76)
-        slot.hidden = true
+        slot.isHidden = true
         slot.zPosition = 2
         self.addChild(slot)
         self.slots[row*8 + column] = slot
@@ -183,45 +183,46 @@ class GameScene: SKScene {
 
     // MARK: - Shooting
 
-    func shootFrom(entryPoint: EntryPoint) {
+    func shootFrom(_ entryPoint: EntryPoint) {
         playSound(soundProbe)
-        entryPoint.hidden = false
-        switch game?.probe(entryPoint.number) {
-        case .Some(.Hit):
+        entryPoint.isHidden = false
+        switch game?.probe(entry: entryPoint.number) {
+        case .some(.hit):
             let texture = SKTexture(imageNamed: "Hit")
             entryPoint.texture = texture
-        case .Some(.Detour(let exitPoint)):
+        case .some(.detour(let exitPoint)):
             detours = (detours % 12) + 1
-            let exitPoint = self.childNodeWithName("Entry\(exitPoint)") as? EntryPoint
+            let exitPoint = self.childNode(withName: "Entry\(exitPoint)") as? EntryPoint
             let texture = SKTexture(imageNamed: "Detour\(detours)")
             entryPoint.texture = texture
             exitPoint?.texture = texture
-            exitPoint?.hidden = false
-        case .Some(.Reflection):
+            exitPoint?.isHidden = false
+        case .some(.reflection):
             let texture = SKTexture(imageNamed: "Reflection")
             entryPoint.texture = texture
-        case .None:
-            entryPoint.hidden = true
+        case .none:
+            entryPoint.isHidden = true
         }
     }
 
     func toggle(slot: Slot) {
         playSound(soundMarkBall)
-        if slot.hidden {
-            slot.hidden = false
-            game?.markBallAtColumn(slot.column, andRow: slot.row)
+        if slot.isHidden {
+            slot.isHidden = false
+            game?.markBallAt(column: slot.column, andRow: slot.row)
         } else {
-            slot.hidden = true
-            game?.removeMarkAtColumn(slot.column, andRow: slot.row)
+            slot.isHidden = true
+            game?.removeMarkAt(column: slot.column, andRow: slot.row)
         }
     }
 
-    func handleTouch(location: CGPoint) {
-        if let entryPoint = game?.entryPointNumber(location), p = self.entryPoints[entryPoint] {
+    func handleTouch(_ location: CGPoint) {
+        if let entryPoint = game?.entryPointNumber(coordinates: location),
+            let p = self.entryPoints[entryPoint] {
             shootFrom(p)
         }
-        if let slot = game?.slotNumber(location), s = self.slots[slot - 1] {
-            toggle(s)
+        if let slot = game?.slotNumber(coordinates: location), let s = self.slots[slot - 1] {
+            toggle(slot: s)
         }
     }
 
