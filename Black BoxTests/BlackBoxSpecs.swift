@@ -37,7 +37,7 @@ class BlackBoxSpecs: QuickSpec {
 
                 func beAHit() -> NonNilMatcherFunc<ExitResult> {
                     return NonNilMatcherFunc { actualExpression, failureMessage in
-                        failureMessage.postfixMessage = "be <hit>"
+                        failureMessage.postfixMessage = "be hit"
                         let actualResult = try actualExpression.evaluate()
                         switch actualResult {
                         case .some(.hit):
@@ -50,7 +50,7 @@ class BlackBoxSpecs: QuickSpec {
 
                 func beAReflection() -> NonNilMatcherFunc<ExitResult> {
                     return NonNilMatcherFunc { actualExpression, failureMessage in
-                        failureMessage.postfixMessage = "be <reflection>"
+                        failureMessage.postfixMessage = "be reflection"
                         let actualResult = try actualExpression.evaluate()
                         switch actualResult {
                         case .some(.reflection):
@@ -63,7 +63,7 @@ class BlackBoxSpecs: QuickSpec {
 
                 func beADetour(to i: Int) -> NonNilMatcherFunc<ExitResult> {
                     return NonNilMatcherFunc { actualExpression, failureMessage in
-                        failureMessage.postfixMessage = "be <detour(\(i))>"
+                        failureMessage.postfixMessage = "be detour(\(i))"
                         let actualResult = try actualExpression.evaluate()
                         switch actualResult {
                         case .some(.detour(i)):

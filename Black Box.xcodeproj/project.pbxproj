@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		96003F201DD7BA7B008466E8 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96AC89441DD7BA05007356B8 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		96003F211DD7BA7B008466E8 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96AC89451DD7BA05007356B8 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		96003F221DD7BA7B008466E8 /* MockingBird.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96AC89421DD7B9D7007356B8 /* MockingBird.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9603D8181A70A9A7007A1A0F /* EntryPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9603D8171A70A9A7007A1A0F /* EntryPoint.swift */; };
 		9610684C1A94D86D002B02D0 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9610684B1A94D86D002B02D0 /* Location.swift */; };
 		9610684E1A94DAB7002B02D0 /* ExitResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9610684D1A94DAB7002B02D0 /* ExitResult.swift */; };
@@ -21,10 +24,6 @@
 		965E60091A507C6000BB183F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 965E60081A507C6000BB183F /* Images.xcassets */; };
 		965E600C1A507C6000BB183F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 965E600A1A507C6000BB183F /* LaunchScreen.xib */; };
 		9666980D1BF266A0007200DF /* Markdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9666980C1BF266A0007200DF /* Markdown.swift */; };
-		966698101BF2690A007200DF /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9666980E1BF2690A007200DF /* Nimble.framework */; };
-		966698111BF2690A007200DF /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9666980F1BF2690A007200DF /* Quick.framework */; };
-		966698131BF26944007200DF /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9666980E1BF2690A007200DF /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		966698141BF26944007200DF /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9666980F1BF2690A007200DF /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		968C01B11B0445FF003F8BA7 /* InstructionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968C01B01B0445FF003F8BA7 /* InstructionsViewController.swift */; };
 		968C01B51B058993003F8BA7 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 968C01AE1B0439F0003F8BA7 /* README.md */; };
 		968FFDA51A94F08D006E59A2 /* Ray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968FFDA41A94F08D006E59A2 /* Ray.swift */; };
@@ -33,6 +32,9 @@
 		969865241AAB48D400D277C6 /* Failure.wav in Resources */ = {isa = PBXBuildFile; fileRef = 969865201AAB48D400D277C6 /* Failure.wav */; };
 		969865251AAB48D400D277C6 /* Success.wav in Resources */ = {isa = PBXBuildFile; fileRef = 969865211AAB48D400D277C6 /* Success.wav */; };
 		969865261AAB48D400D277C6 /* NewGame.wav in Resources */ = {isa = PBXBuildFile; fileRef = 969865221AAB48D400D277C6 /* NewGame.wav */; };
+		96AC89431DD7B9D7007356B8 /* MockingBird.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96AC89421DD7B9D7007356B8 /* MockingBird.framework */; };
+		96AC89461DD7BA05007356B8 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96AC89441DD7BA05007356B8 /* Nimble.framework */; };
+		96AC89471DD7BA05007356B8 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96AC89451DD7BA05007356B8 /* Quick.framework */; };
 		96DB34321AA789F70076F165 /* Game1.json in Resources */ = {isa = PBXBuildFile; fileRef = 96DB34311AA789F70076F165 /* Game1.json */; };
 		96DB34361AA78C110076F165 /* Game11.json in Resources */ = {isa = PBXBuildFile; fileRef = 96DB34351AA78C110076F165 /* Game11.json */; };
 		96DB34381AA78C1B0076F165 /* Game21.json in Resources */ = {isa = PBXBuildFile; fileRef = 96DB34371AA78C1B0076F165 /* Game21.json */; };
@@ -136,8 +138,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				966698131BF26944007200DF /* Nimble.framework in CopyFiles */,
-				966698141BF26944007200DF /* Quick.framework in CopyFiles */,
+				96003F201DD7BA7B008466E8 /* Nimble.framework in CopyFiles */,
+				96003F211DD7BA7B008466E8 /* Quick.framework in CopyFiles */,
+				96003F221DD7BA7B008466E8 /* MockingBird.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,8 +165,6 @@
 		965E60111A507C6000BB183F /* Black BoxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Black BoxTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		965E60161A507C6000BB183F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9666980C1BF266A0007200DF /* Markdown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Markdown.swift; sourceTree = "<group>"; };
-		9666980E1BF2690A007200DF /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
-		9666980F1BF2690A007200DF /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		968C01AE1B0439F0003F8BA7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		968C01B01B0445FF003F8BA7 /* InstructionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionsViewController.swift; sourceTree = "<group>"; };
 		968FFDA41A94F08D006E59A2 /* Ray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ray.swift; sourceTree = "<group>"; };
@@ -172,6 +173,9 @@
 		969865201AAB48D400D277C6 /* Failure.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Failure.wav; sourceTree = "<group>"; };
 		969865211AAB48D400D277C6 /* Success.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Success.wav; sourceTree = "<group>"; };
 		969865221AAB48D400D277C6 /* NewGame.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = NewGame.wav; sourceTree = "<group>"; };
+		96AC89421DD7B9D7007356B8 /* MockingBird.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MockingBird.framework; path = Carthage/Build/iOS/MockingBird.framework; sourceTree = "<group>"; };
+		96AC89441DD7BA05007356B8 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
+		96AC89451DD7BA05007356B8 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		96DB34311AA789F70076F165 /* Game1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Game1.json; sourceTree = "<group>"; };
 		96DB34351AA78C110076F165 /* Game11.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Game11.json; sourceTree = "<group>"; };
 		96DB34371AA78C1B0076F165 /* Game21.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Game21.json; sourceTree = "<group>"; };
@@ -270,8 +274,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				966698101BF2690A007200DF /* Nimble.framework in Frameworks */,
-				966698111BF2690A007200DF /* Quick.framework in Frameworks */,
+				96AC89461DD7BA05007356B8 /* Nimble.framework in Frameworks */,
+				96AC89471DD7BA05007356B8 /* Quick.framework in Frameworks */,
+				96AC89431DD7B9D7007356B8 /* MockingBird.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,11 +332,10 @@
 		965E5FEF1A507C5F00BB183F = {
 			isa = PBXGroup;
 			children = (
-				9666980E1BF2690A007200DF /* Nimble.framework */,
-				9666980F1BF2690A007200DF /* Quick.framework */,
 				965E5FFA1A507C5F00BB183F /* Black Box */,
 				965E60141A507C6000BB183F /* Black BoxTests */,
 				965E5FF91A507C5F00BB183F /* Products */,
+				96AC89411DD7B9D7007356B8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -403,6 +407,16 @@
 				9666980C1BF266A0007200DF /* Markdown.swift */,
 			);
 			name = Vendor;
+			sourceTree = "<group>";
+		};
+		96AC89411DD7B9D7007356B8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				96AC89441DD7BA05007356B8 /* Nimble.framework */,
+				96AC89451DD7BA05007356B8 /* Quick.framework */,
+				96AC89421DD7B9D7007356B8 /* MockingBird.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		96DB34261AA789570076F165 /* Levels */ = {
@@ -873,7 +887,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -896,7 +910,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

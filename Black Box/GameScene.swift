@@ -14,16 +14,20 @@ class GameScene: SKScene {
     var entryPoints = [Int: EntryPoint](minimumCapacity: 32)
     var slots = [Int: Slot](minimumCapacity: 64)
 
+    var border: CGFloat {
+        return 0.005208333333333 * size.width
+    }
+
+    var cellWidth: CGFloat {
+        return (size.width - 2 * border) / 10.0
+    }
+
     // MARK: - SKScene
 
     override init(size: CGSize) {
         super.init(size: size)
 
-        let background = SKSpriteNode(imageNamed: "BlackboxBoard")
-        background.position = CGPoint(x: 0, y: 0)
-        background.anchorPoint = CGPoint(x: 0, y: 0)
-        background.zPosition = 1
-        addChild(background)
+        backgroundColor = .clear
 
         for i in 1...32 {
             addEntryPoint(number: i)
@@ -125,6 +129,7 @@ class GameScene: SKScene {
 
         if let coordinates = self.entryPointCoordinates(number) {
             input.position = coordinates
+            input.size = CGSize(width: cellWidth, height: cellWidth)
             input.anchorPoint = CGPoint(x: 0, y: 0)
             input.isHidden = true
             input.zPosition = 2
@@ -157,15 +162,18 @@ class GameScene: SKScene {
     }
 
     func entryPointCoordinates(_ number: Int) -> CGPoint? {
+        let cgNum = CGFloat(number)
         switch number {
         case 1...8:
-            return CGPoint(x: 5, y: 689 - (number * 76))
+            return CGPoint(x: border + 1, y: size.width - cellWidth - border - (cgNum * cellWidth))
         case 9...16:
-            return CGPoint(x: 81 + ((number - 9) * 76), y: 5)
+            return CGPoint(x: cellWidth + border + ((cgNum - 9) * cellWidth), y: border + 1)
         case 17...24:
-            return CGPoint(x: 689, y: 689 - ((25 - number) * 76))
+            return CGPoint(x: size.width - cellWidth - border,
+                           y: size.width - cellWidth - border - ((25 - cgNum) * cellWidth))
         case 25...32:
-            return CGPoint(x: 81 + ((32 - number) * 76), y: 689)
+            return CGPoint(x: cellWidth + border + ((32 - cgNum) * cellWidth),
+                           y: size.width - cellWidth - border)
         default:
             return nil
         }
@@ -173,8 +181,12 @@ class GameScene: SKScene {
 
     func addSlotAt(column: Int, andRow row: Int) {
         let slot = Slot.slot(column: column, row: row, imageNamed: "Guess")
+        let cgColumn = CGFloat(column)
+        let cgRow = CGFloat(row)
         slot.anchorPoint = CGPoint(x: 0, y: 0)
-        slot.position = CGPoint(x: 81 + column * 76, y: 81 + (7 - row) * 76)
+        slot.position = CGPoint(x: cellWidth + border + cgColumn * cellWidth,
+                                y: cellWidth + border + (7 - cgRow) * cellWidth)
+        slot.size = CGSize(width: cellWidth, height: cellWidth)
         slot.isHidden = true
         slot.zPosition = 2
         self.addChild(slot)
@@ -217,13 +229,123 @@ class GameScene: SKScene {
     }
 
     func handleTouch(_ location: CGPoint) {
-        if let entryPoint = game?.entryPointNumber(coordinates: location),
+        print("touched: \(location)")
+        if let entryPoint = entryPointNumber(coordinates: location),
             let p = self.entryPoints[entryPoint] {
+            print("touched entry point: \(entryPoint)")
             shootFrom(p)
         }
-        if let slot = game?.slotNumber(coordinates: location), let s = self.slots[slot - 1] {
+        if let slot = slotNumber(coordinates: location), let s = self.slots[slot - 1] {
+            print("touched slot: \(slot)")
             toggle(slot: s)
         }
     }
 
+    public func whichEntryPoint(_ f: CGFloat) -> Int? {
+        switch f {
+        case (border + cellWidth)..<(border + cellWidth*2):
+            return 1
+        case (border + cellWidth*2)..<(border + cellWidth*3):
+            return 2
+        case (border + cellWidth*3)..<(border + cellWidth*4):
+            return 3
+        case (border + cellWidth*4)..<(border + cellWidth*5):
+            return 4
+        case (border + cellWidth*5)..<(border + cellWidth*6):
+            return 5
+        case (border + cellWidth*6)..<(border + cellWidth*7):
+            return 6
+        case (border + cellWidth*7)..<(border + cellWidth*8):
+            return 7
+        case (border + cellWidth*8)..<(border + cellWidth*9):
+            return 8
+        default:
+            return nil
+        }
+    }
+
+    func entryPointNumber(coordinates: CGPoint) -> Int? {
+        if leftEntryPointZone(coordinates: coordinates) {
+            if let result = whichEntryPoint(coordinates.y) {
+                return 9 - result
+            }
+        }
+        if bottomEntryPointZone(coordinates: coordinates) {
+            if let result = whichEntryPoint(coordinates.x) {
+                return result + 8
+            }
+        }
+        if rightEntryPointZone(coordinates: coordinates) {
+            if let result = whichEntryPoint(coordinates.y) {
+                return result + 16
+            }
+        }
+        if topEntryPointZone(coordinates: coordinates) {
+            if let result = whichEntryPoint(coordinates.x) {
+                return 9 - result + 24
+            }
+        }
+        return nil
+    }
+
+    func leftEntryPointZone(coordinates: CGPoint) -> Bool {
+        return (
+            coordinates.x >= border &&
+                coordinates.x < border + cellWidth &&
+                coordinates.y >= border + cellWidth &&
+                coordinates.y < size.width - border - cellWidth)
+    }
+
+    func bottomEntryPointZone(coordinates: CGPoint) -> Bool {
+        return (
+            coordinates.x >= border + cellWidth &&
+                coordinates.x < size.width - border - cellWidth &&
+                coordinates.y >= border &&
+                coordinates.y < border + cellWidth)
+    }
+
+    func rightEntryPointZone(coordinates: CGPoint) -> Bool {
+        return (
+            coordinates.x >= size.width - border - cellWidth &&
+                coordinates.x < size.width - border &&
+                coordinates.y >= border + cellWidth &&
+                coordinates.y < size.width - border - cellWidth)
+    }
+
+    func topEntryPointZone(coordinates: CGPoint) -> Bool {
+        return (
+            coordinates.x >= border + cellWidth &&
+                coordinates.x < size.width - border - cellWidth &&
+                coordinates.y >= size.width - border - cellWidth &&
+                coordinates.y < size.width - border)
+    }
+
+    func slotNumber(coordinates: CGPoint) -> Int? {
+        if pointInBox(coordinates,
+                      (Int(cellWidth + border), Int(cellWidth + border)),
+                      (Int(size.width - border - cellWidth),
+                       Int(size.width - border - cellWidth))) {
+            let column = Int(ceil((coordinates.x - (cellWidth + border))/cellWidth))
+            let row = Int(8.0 - ceil((coordinates.y - (cellWidth + border))/cellWidth))
+
+            return 8*row + column
+        }
+        return nil
+    }
+
+    func pointInBox(
+        _ coordinates: CGPoint,
+        _ point1: (x: Int, y: Int),
+        _ point2: (x: Int, y: Int)
+        ) -> Bool {
+
+        let theX = Int(coordinates.x)
+        let theY = Int(coordinates.y)
+        switch (theX, theY) {
+        case (point1.x...point2.x, point1.y...point2.y):
+            return true
+        default:
+            return false
+        }
+    }
 }

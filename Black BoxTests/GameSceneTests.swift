@@ -80,17 +80,17 @@ class GameSceneTests: XCTestCase {
     }
 
     func testTryingToAddAnEntryPointAbove32DoesNotAddAChild() {
-        XCTAssertEqual(97, subject.children.count)
+        XCTAssertEqual(96, subject.children.count)
 
         subject.addEntryPoint(number: 33)
 
-        XCTAssertEqual(97, subject.children.count)
+        XCTAssertEqual(96, subject.children.count)
     }
 
     func testShootingBeforeThereIsAGameHidesEntryPoint() {
         subject.game = nil
 
-        subject.handleTouch(CGPoint(x: 50.0, y: 650.0))
+        shootSlot(number: 1)
 
         XCTAssertTrue(subject.entryPoints[1]!.isHidden)
     }
@@ -98,7 +98,7 @@ class GameSceneTests: XCTestCase {
     func testShootSlot1() {
         mockGame.probeWill(.hit)
 
-        subject.handleTouch(CGPoint(x: 50.0, y: 650.0))
+        shootSlot(number: 1)
 
         let entryPoint = subject.entryPoints[1]
         XCTAssertEqual("<SKTexture> \'Hit\' (148 x 148)", entryPoint?.texture?.description)
@@ -108,7 +108,7 @@ class GameSceneTests: XCTestCase {
     func testShootSlot2() {
         mockGame.probeWill(.detour(1))
 
-        subject.handleTouch(CGPoint(x: 50.0, y: 600.0))
+        shootSlot(number: 2)
 
         let entryPoint1 = subject.entryPoints[1]
         let entryPoint2 = subject.entryPoints[2]
@@ -122,7 +122,7 @@ class GameSceneTests: XCTestCase {
     func testShootSlot3() {
         mockGame.probeWill(.reflection)
 
-        subject.handleTouch(CGPoint(x: 50.0, y: 500.0))
+        shootSlot(number: 3)
 
         let entryPoint = subject.entryPoints[3]
         XCTAssertEqual("<SKTexture> \'Reflection\' (148 x 148)", entryPoint?.texture?.description)
@@ -130,31 +130,31 @@ class GameSceneTests: XCTestCase {
     }
 
     func testShootSlot9() {
-        subject.handleTouch(CGPoint(x: 100.0, y: 50.0))
+        shootSlot(number: 9)
 
         XCTAssertFalse(subject.entryPoints[9]!.isHidden)
     }
 
     func testShootSlot18() {
-        subject.handleTouch(CGPoint(x: 700.0, y: 200.0))
+        shootSlot(number: 18)
 
         XCTAssertFalse(subject.entryPoints[18]!.isHidden)
     }
 
     func testShootSlot28() {
-        subject.handleTouch(CGPoint(x: 400.0, y: 700.0))
+        shootSlot(number: 28)
 
         XCTAssertFalse(subject.entryPoints[28]!.isHidden)
     }
 
     func testShootSlot29() {
-        subject.handleTouch(CGPoint(x: 350.0, y: 700.0))
+        shootSlot(number: 29)
 
         XCTAssertFalse(subject.entryPoints[29]!.isHidden)
     }
 
     func testShootSlot30() {
-        subject.handleTouch(CGPoint(x: 300.0, y: 700.0))
+        shootSlot(number: 30)
 
         XCTAssertFalse(subject.entryPoints[30]!.isHidden)
     }
@@ -171,11 +171,11 @@ class GameSceneTests: XCTestCase {
     }
 
     func testToggleSlot00() {
-        subject.handleTouch(CGPoint(x: 120.0, y: 645.0))
+        touchSlot(column: 0, row: 0)
 
         XCTAssertFalse(subject.slots[0]!.isHidden)
 
-        subject.handleTouch(CGPoint(x: 120.0, y: 645.0))
+        touchSlot(column: 0, row: 0)
 
         XCTAssertTrue(subject.slots[0]!.isHidden)
     }
@@ -202,6 +202,25 @@ class GameSceneTests: XCTestCase {
         subject.showCorrectBalls()
 
         XCTAssertEqual("<SKTexture> \'Correct\' (148 x 148)", subject.slots[0]?.texture?.description)
+    }
+
+
+    func shootSlot(number: Int) {
+        switch number {
+        case 1...8:
+            subject.handleTouch(CGPoint(x: subject.border + 1, y: subject.size.width - subject.border - subject.cellWidth * CGFloat(number) - 1))
+        case 9...16:
+            subject.handleTouch(CGPoint(x: subject.border + subject.cellWidth * CGFloat(number - 8) + 1, y: subject.border + 1))
+        case 17...24:
+            subject.handleTouch(CGPoint(x: subject.border + subject.cellWidth * 9 + 1, y: subject.border + subject.cellWidth * CGFloat(number - 16) + 1))
+        case 25...32:
+            subject.handleTouch(CGPoint(x: subject.border + subject.cellWidth * CGFloat(33 - number), y: subject.size.width - subject.border - 1))
+        default: break
+        }
+    }
+
+    func touchSlot(column: Int, row: Int) {
+        subject.handleTouch(CGPoint(x: subject.border + subject.cellWidth * (CGFloat(column) + 1.0) + 1.0, y: subject.size.width - subject.border - subject.cellWidth * (CGFloat(row) + 1.0)))
     }
 
     class MockGame: Game {

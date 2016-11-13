@@ -13,6 +13,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var finishedButton: UIButton!
     @IBOutlet weak var audioToggleButton: UIButton!
     @IBOutlet weak var balls: UILabel!
+    @IBOutlet var gameView: SKView!
 
     @IBAction func newGame(_ sender: UIButton) {
         setUpGame()
@@ -79,19 +80,14 @@ class GameViewController: UIViewController {
     }
 
     func setUpGame() {
-        guard let skView = self.view as? SKView else {
-            print("view was not an SKView")
-            return
-        }
-
-        scene = GameScene(size: skView.bounds.size)
+        scene = GameScene(size: gameView.bounds.size)
         scene.scaleMode = .aspectFill
 
         hideScore()
         newGameButton.isHidden = true
         balls.isHidden = false
         balls.text = "Balls: \(scene.game!.size)"
-        skView.presentScene(scene)
+        gameView.presentScene(scene)
     }
 
     func loadAudioSetting() {
@@ -112,11 +108,10 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let skView = self.view as? SKView
-
         loadAudioSetting()
 
-        skView?.ignoresSiblingOrder = true
+        gameView?.ignoresSiblingOrder = true
+        gameView.allowsTransparency = true
 
         setUpGame()
     }
@@ -131,11 +126,6 @@ class GameViewController: UIViewController {
         } else {
             return UIInterfaceOrientationMask.all
         }
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Release any cached data, images, etc that aren't in use.
     }
 
     override var prefersStatusBarHidden: Bool {
