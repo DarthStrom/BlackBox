@@ -1,3 +1,6 @@
+*.mobileprovision
+*.cer
+
 ## from https://raw.githubusercontent.com/github/gitignore/master/Swift.gitignore
 # Xcode
 #
