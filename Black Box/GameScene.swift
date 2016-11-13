@@ -229,14 +229,11 @@ class GameScene: SKScene {
     }
 
     func handleTouch(_ location: CGPoint) {
-        print("touched: \(location)")
         if let entryPoint = entryPointNumber(coordinates: location),
             let p = self.entryPoints[entryPoint] {
-            print("touched entry point: \(entryPoint)")
             shootFrom(p)
         }
         if let slot = slotNumber(coordinates: location), let s = self.slots[slot - 1] {
-            print("touched slot: \(slot)")
             toggle(slot: s)
         }
     }
