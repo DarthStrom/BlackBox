@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		96003F201DD7BA7B008466E8 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96AC89441DD7BA05007356B8 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		96003F211DD7BA7B008466E8 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96AC89451DD7BA05007356B8 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		96003F221DD7BA7B008466E8 /* MockingBird.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96AC89421DD7B9D7007356B8 /* MockingBird.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9603D8181A70A9A7007A1A0F /* EntryPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9603D8171A70A9A7007A1A0F /* EntryPoint.swift */; };
 		9610684C1A94D86D002B02D0 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9610684B1A94D86D002B02D0 /* Location.swift */; };
 		9610684E1A94DAB7002B02D0 /* ExitResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9610684D1A94DAB7002B02D0 /* ExitResult.swift */; };
@@ -32,7 +31,6 @@
 		969865241AAB48D400D277C6 /* Failure.wav in Resources */ = {isa = PBXBuildFile; fileRef = 969865201AAB48D400D277C6 /* Failure.wav */; };
 		969865251AAB48D400D277C6 /* Success.wav in Resources */ = {isa = PBXBuildFile; fileRef = 969865211AAB48D400D277C6 /* Success.wav */; };
 		969865261AAB48D400D277C6 /* NewGame.wav in Resources */ = {isa = PBXBuildFile; fileRef = 969865221AAB48D400D277C6 /* NewGame.wav */; };
-		96AC89431DD7B9D7007356B8 /* MockingBird.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96AC89421DD7B9D7007356B8 /* MockingBird.framework */; };
 		96AC89461DD7BA05007356B8 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96AC89441DD7BA05007356B8 /* Nimble.framework */; };
 		96AC89471DD7BA05007356B8 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96AC89451DD7BA05007356B8 /* Quick.framework */; };
 		96DB34321AA789F70076F165 /* Game1.json in Resources */ = {isa = PBXBuildFile; fileRef = 96DB34311AA789F70076F165 /* Game1.json */; };
@@ -140,7 +138,6 @@
 			files = (
 				96003F201DD7BA7B008466E8 /* Nimble.framework in CopyFiles */,
 				96003F211DD7BA7B008466E8 /* Quick.framework in CopyFiles */,
-				96003F221DD7BA7B008466E8 /* MockingBird.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,6 +150,7 @@
 		9610684F1A94DD6E002B02D0 /* Direction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
 		961068511A94E01B002B02D0 /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		961F30BE1C04A6B80055E5F5 /* GameSceneTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSceneTests.swift; sourceTree = "<group>"; };
+		962BF8EF1F4E5E5C0095C294 /* Moxie.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Moxie.framework; path = Carthage/Build/iOS/Moxie.framework; sourceTree = "<group>"; };
 		9633C2F91A524038005826D1 /* BlackBoxSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlackBoxSpecs.swift; sourceTree = "<group>"; };
 		965E5FF81A507C5F00BB183F /* Black Box.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Black Box.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		965E5FFC1A507C6000BB183F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -173,7 +171,6 @@
 		969865201AAB48D400D277C6 /* Failure.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Failure.wav; sourceTree = "<group>"; };
 		969865211AAB48D400D277C6 /* Success.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Success.wav; sourceTree = "<group>"; };
 		969865221AAB48D400D277C6 /* NewGame.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = NewGame.wav; sourceTree = "<group>"; };
-		96AC89421DD7B9D7007356B8 /* MockingBird.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MockingBird.framework; path = Carthage/Build/iOS/MockingBird.framework; sourceTree = "<group>"; };
 		96AC89441DD7BA05007356B8 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		96AC89451DD7BA05007356B8 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		96DB34311AA789F70076F165 /* Game1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Game1.json; sourceTree = "<group>"; };
@@ -276,7 +273,6 @@
 			files = (
 				96AC89461DD7BA05007356B8 /* Nimble.framework in Frameworks */,
 				96AC89471DD7BA05007356B8 /* Quick.framework in Frameworks */,
-				96AC89431DD7B9D7007356B8 /* MockingBird.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,9 +408,9 @@
 		96AC89411DD7B9D7007356B8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				962BF8EF1F4E5E5C0095C294 /* Moxie.framework */,
 				96AC89441DD7BA05007356B8 /* Nimble.framework */,
 				96AC89451DD7BA05007356B8 /* Quick.framework */,
-				96AC89421DD7B9D7007356B8 /* MockingBird.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -543,6 +539,7 @@
 				965E600E1A507C6000BB183F /* Frameworks */,
 				965E600F1A507C6000BB183F /* Resources */,
 				966698121BF26933007200DF /* CopyFiles */,
+				962BF8F41F4E5F670095C294 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -703,6 +700,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		962BF8F41F4E5F670095C294 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Moxie.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = "carthage copy-frameworks";
+			shellScript = "";
+		};
 		968C06D21CB1A3B400964516 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
