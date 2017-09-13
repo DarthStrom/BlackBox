@@ -40,7 +40,6 @@ class GameViewController: UIViewController {
             updateScore()
             showNewGameButton()
         } else {
-            print("trying to finish with \(scene.game?.marks.count) and need \(scene.game?.size)")
             hideScore()
         }
     }

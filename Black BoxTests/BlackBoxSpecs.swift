@@ -35,41 +35,52 @@ class BlackBoxSpecs: QuickSpec {
             // continuing counter-clockwise
             describe("probing") {
 
-                func beAHit() -> NonNilMatcherFunc<ExitResult> {
-                    return NonNilMatcherFunc { actualExpression, failureMessage in
-                        failureMessage.postfixMessage = "be hit"
-                        let actualResult = try actualExpression.evaluate()
-                        switch actualResult {
-                        case .some(.hit):
-                            return true
-                        default:
-                            return false
+                func beAHit() -> Predicate<ExitResult> {
+                    return Predicate { actual in
+                        let message = ExpectationMessage.expectedActualValueTo("be a hit")
+                        if let actualValue = try actual.evaluate() {
+                            switch actualValue {
+                            case .hit:
+                                return PredicateResult(status: .matches, message: message.appended(details: "and it was!"))
+                            default:
+                                return PredicateResult(status: .fail, message: message.appended(details: "but it was \(actualValue)"))
+                            }
+                        } else {
+                            return PredicateResult(status: .fail, message: message.appendedBeNilHint())
                         }
                     }
                 }
 
-                func beAReflection() -> NonNilMatcherFunc<ExitResult> {
-                    return NonNilMatcherFunc { actualExpression, failureMessage in
-                        failureMessage.postfixMessage = "be reflection"
-                        let actualResult = try actualExpression.evaluate()
-                        switch actualResult {
-                        case .some(.reflection):
-                            return true
-                        default:
-                            return false
+                func beAReflection() -> Predicate<ExitResult> {
+                    return Predicate { actual in
+                        let message = ExpectationMessage.expectedActualValueTo("be a reflection")
+                        if let actualValue = try actual.evaluate() {
+                            switch actualValue {
+                            case .reflection:
+                                return PredicateResult(status: .matches, message: message.appended(details: "and it was!"))
+                            default:
+                                return PredicateResult(status: .fail, message: message.appended(details: "but it was \(actualValue)"))
+                            }
+                        } else {
+                            return PredicateResult(status: .fail, message: message.appendedBeNilHint())
                         }
                     }
                 }
 
-                func beADetour(to i: Int) -> NonNilMatcherFunc<ExitResult> {
-                    return NonNilMatcherFunc { actualExpression, failureMessage in
-                        failureMessage.postfixMessage = "be detour(\(i))"
-                        let actualResult = try actualExpression.evaluate()
-                        switch actualResult {
-                        case .some(.detour(i)):
-                            return true
-                        default:
-                            return false
+                func beADetour(to i: Int) -> Predicate<ExitResult> {
+                    return Predicate { actual in
+                        let message = ExpectationMessage.expectedActualValueTo("be a detour to \(i)")
+                        if let actualValue = try actual.evaluate() {
+                            switch actualValue {
+                            case .detour(i):
+                                return PredicateResult(status: .matches, message: message.appended(details: "and it was!"))
+                            case .detour(let x):
+                                return PredicateResult(status: .doesNotMatch, message: message.appended(details: "but it was a detour to \(x)"))
+                            default:
+                                return PredicateResult(status: .fail, message: message.appended(details: "but it was \(actualValue)"))
+                            }
+                        } else {
+                            return PredicateResult(status: .fail, message: message.appendedBeNilHint())
                         }
                     }
                 }

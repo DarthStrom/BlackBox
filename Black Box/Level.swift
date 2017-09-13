@@ -3,7 +3,7 @@ class Level {
     var balls = [Location]()
 
     init(number: Int) {
-        if let dictionary = Dictionary<String, AnyObject>.loadJSONFromBundle(
+        if let dictionary = [String: AnyObject].loadJSONFromBundle(
             filename: "Game\(number)") {
             if let ballsArray = dictionary["balls"] as? [[Int]] {
                 for (row, rowArray) in ballsArray.enumerated() {
