@@ -33,11 +33,12 @@ class GameViewController: UIViewController {
     }
 
     @IBAction func finished(_ sender: UIButton) {
-        if scene.isFinishable() {
+        if scene.isFinishable {
             scene.showIncorrectBalls()
             scene.showMissedBalls()
             scene.showCorrectBalls()
             updateScore()
+            playFinishSound()
             showNewGameButton()
         } else {
             hideScore()
@@ -45,10 +46,10 @@ class GameViewController: UIViewController {
     }
 
     func updateScore() {
-        probes.text = "Probes: \(scene.getProbes())"
-        incorrect.text = "Incorrect: \(scene.getIncorrectBalls())"
-        score.text = "Score: \(scene.getScore())"
-        par.text = "Par: \(scene.getPar()!)"
+        probes.text = "Probes: \(scene.probes)"
+        incorrect.text = "Incorrect: \(scene.incorrectBalls)"
+        score.text = "Score: \(scene.score)"
+        par.text = "Par: \(scene.par!)"
         showScore()
     }
 
@@ -63,7 +64,7 @@ class GameViewController: UIViewController {
         probes.isHidden = false
         incorrect.isHidden = false
         score.isHidden = false
-        if let parValue = scene.getPar() {
+        if let parValue = scene.par {
             par.isHidden = parValue == 0
         }
     }
@@ -104,6 +105,10 @@ class GameViewController: UIViewController {
         }
     }
 
+    func playFinishSound() {
+        scene.playFinishSound()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -132,8 +137,8 @@ class GameViewController: UIViewController {
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        finishedButton.isHidden = !scene.isFinishable()
-        balls.isHidden = scene.isFinishable() || !newGameButton.isHidden
+        finishedButton.isHidden = !scene.isFinishable
+        balls.isHidden = scene.isFinishable || !newGameButton.isHidden
     }
 
 }

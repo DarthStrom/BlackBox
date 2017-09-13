@@ -268,7 +268,7 @@ class BlackBoxSpecs: QuickSpec {
 
                 it("counts rays as 1") {
                     let _ = game.probe(entry: 7)
-                    expect(game.getScore()) == 1
+                    expect(game.score) == 1
                 }
 
                 it("counts multiple rays") {
@@ -276,19 +276,19 @@ class BlackBoxSpecs: QuickSpec {
                     let _ = game.probe(entry: 9)
                     let _ = game.probe(entry: 23)
                     let _ = game.probe(entry: 30)
-                    expect(game.getScore()) == 4
+                    expect(game.score) == 4
                 }
 
                 it("counts wrong ball placement as 5") {
                     game.placeAt(column: 0, andRow: 0)
                     game.markBallAt(column: 1, andRow: 0)
-                    expect(game.getScore()) == 5
+                    expect(game.score) == 5
                 }
 
                 it("counts correct ball placement as 0") {
                     game.placeAt(column: 2, andRow: 2)
                     game.markBallAt(column: 2, andRow: 2)
-                    expect(game.getScore()) == 0
+                    expect(game.score) == 0
                 }
 
                 it("is finishable after 4 ball placements") {
@@ -296,14 +296,14 @@ class BlackBoxSpecs: QuickSpec {
                     game.markBallAt(column: 2, andRow: 2)
                     game.markBallAt(column: 3, andRow: 3)
                     game.markBallAt(column: 4, andRow: 4)
-                    expect(game.isFinishable()).to(beTrue())
+                    expect(game.isFinishable).to(beTrue())
                 }
 
                 it("is not finishable before 4 ball placements") {
                     game.markBallAt(column: 1, andRow: 1)
                     game.markBallAt(column: 2, andRow: 2)
                     game.markBallAt(column: 3, andRow: 3)
-                    expect(game.isFinishable()).to(beFalse())
+                    expect(game.isFinishable).to(beFalse())
                 }
             }
 
@@ -311,13 +311,13 @@ class BlackBoxSpecs: QuickSpec {
 
                 it("returns balls that were incorrectly marked") {
                     game.markBallAt(column: 5, andRow: 4)
-                    expect(game.incorrectBalls()).to(contain(Location(x: 5, y: 4)))
+                    expect(game.incorrectBalls).to(contain(Location(x: 5, y: 4)))
                 }
 
                 it("does not return balls that were correctly marked") {
                     game.placeAt(column: 4, andRow: 5)
                     game.markBallAt(column: 4, andRow: 5)
-                    expect(game.incorrectBalls()).to(beEmpty())
+                    expect(game.incorrectBalls).to(beEmpty())
                 }
             }
 
@@ -325,13 +325,13 @@ class BlackBoxSpecs: QuickSpec {
 
                 it("returns balls that were not marked") {
                     game.placeAt(column: 6, andRow: 3)
-                    expect(game.missedBalls()).to(contain(Location(x: 6, y: 3)))
+                    expect(game.missedBalls).to(contain(Location(x: 6, y: 3)))
                 }
 
                 it("does not return balls that were correctly marked") {
                     game.placeAt(column: 2, andRow: 7)
                     game.markBallAt(column: 2, andRow: 7)
-                    expect(game.missedBalls()).to(beEmpty())
+                    expect(game.missedBalls).to(beEmpty())
                 }
             }
 
@@ -340,13 +340,13 @@ class BlackBoxSpecs: QuickSpec {
                 it("returns balls that were marked correctly") {
                     game.placeAt(column: 5, andRow: 5)
                     game.markBallAt(column: 5, andRow: 5)
-                    expect(game.correctBalls()).to(contain(Location(x: 5, y: 5)))
+                    expect(game.correctBalls).to(contain(Location(x: 5, y: 5)))
                 }
 
                 it("does not return balls that were marked incorrectly") {
                     game.placeAt(column: 2, andRow: 3)
                     game.markBallAt(column: 3, andRow: 3)
-                    expect(game.correctBalls()).to(beEmpty())
+                    expect(game.correctBalls).to(beEmpty())
                 }
             }
         }
@@ -365,12 +365,12 @@ class BlackBoxSpecs: QuickSpec {
                 game.markBallAt(column: 4, andRow: 4)
 
                 expect(game.size) == 4
-                expect(game.correctBalls()).to(contain(Location(x: 1, y: 1)))
-                expect(game.correctBalls()).to(contain(Location(x: 2, y: 2)))
-                expect(game.incorrectBalls()).to(contain(Location(x: 3, y: 3)))
-                expect(game.incorrectBalls()).to(contain(Location(x: 4, y: 4)))
-                expect(game.missedBalls()).to(contain(Location(x: 4, y: 6)))
-                expect(game.missedBalls()).to(contain(Location(x: 7, y: 2)))
+                expect(game.correctBalls).to(contain(Location(x: 1, y: 1)))
+                expect(game.correctBalls).to(contain(Location(x: 2, y: 2)))
+                expect(game.incorrectBalls).to(contain(Location(x: 3, y: 3)))
+                expect(game.incorrectBalls).to(contain(Location(x: 4, y: 4)))
+                expect(game.missedBalls).to(contain(Location(x: 4, y: 6)))
+                expect(game.missedBalls).to(contain(Location(x: 7, y: 2)))
             }
         }
     }

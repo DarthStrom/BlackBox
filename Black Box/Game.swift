@@ -35,15 +35,15 @@ public class Game {
         marks.removeValue(forKey: Location(x: column, y: row))
     }
 
-    public func isFinishable() -> Bool {
+    public var isFinishable: Bool {
         return marks.count == size
     }
 
-    public func getScore() -> Int {
-        return probes + incorrectBalls().count * 5
+    public var score: Int {
+        return probes + incorrectBalls.count * 5
     }
 
-    public func incorrectBalls() -> [Location] {
+    public var incorrectBalls: [Location] {
         var result = [Location]()
         for mark in marks {
             if let slot = board.slots[mark.0] {
@@ -55,7 +55,7 @@ public class Game {
         return result
     }
 
-    public func missedBalls() -> [Location] {
+    public var missedBalls: [Location] {
         var result = [Location]()
         for slot in board.slots {
             if slot.1 {
@@ -71,7 +71,7 @@ public class Game {
         return result
     }
 
-    public func correctBalls() -> [Location] {
+    public var correctBalls: [Location] {
         var result = [Location]()
         for slot in board.slots {
             if slot.1 {

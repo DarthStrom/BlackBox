@@ -26,57 +26,57 @@ class GameSceneTests: XCTestCase {
     func testIsFinishableIfGameIsFinishable() {
         mockGame.finished = true
 
-        XCTAssertTrue(subject.isFinishable())
+        XCTAssertTrue(subject.isFinishable)
     }
 
     func testIsNotFinishableIfGameIsNotFinishable() {
         mockGame.finished = false
 
-        XCTAssertFalse(subject.isFinishable())
+        XCTAssertFalse(subject.isFinishable)
     }
 
     func testIsNotFinishableIfThereIsNoGame() {
         subject.game = nil
 
-        XCTAssertFalse(subject.isFinishable())
+        XCTAssertFalse(subject.isFinishable)
     }
 
     func testGetsProbesFromTheGame() {
         mockGame.setProbes(5)
 
-        XCTAssertEqual("5", subject.getProbes())
+        XCTAssertEqual("5", subject.probes)
     }
 
     func testReportsNoGameWhenGameDoesNotExist() {
         subject.game = nil
 
-        XCTAssertEqual("No game", subject.getProbes())
-        XCTAssertEqual("No game", subject.getIncorrectBalls())
-        XCTAssertEqual("No game", subject.getScore())
+        XCTAssertEqual("No game", subject.probes)
+        XCTAssertEqual("No game", subject.incorrectBalls)
+        XCTAssertEqual("No game", subject.score)
     }
 
     func testGetsIncorrectBallsScore() {
         mockGame.incorrect = 4
 
-        XCTAssertEqual(String(4*5), subject.getIncorrectBalls())
+        XCTAssertEqual(String(4*5), subject.incorrectBalls)
     }
 
     func testIncorrectBallsScoresZero() {
         mockGame.incorrect = 0
 
-        XCTAssertEqual("0", subject.getIncorrectBalls())
+        XCTAssertEqual("0", subject.incorrectBalls)
     }
 
     func testGetsParFromLevel() {
         mockLevel.setPar(4)
 
-        XCTAssertEqual(4, subject.getPar())
+        XCTAssertEqual(4, subject.par)
     }
 
     func testGetsScoreFromGame() {
-        mockGame.score = 27
+        mockGame.mockScore = 27
 
-        XCTAssertEqual("27", subject.getScore())
+        XCTAssertEqual("27", subject.score)
     }
 
     func testTryingToAddAnEntryPointAbove32DoesNotAddAChild() {
@@ -228,27 +228,27 @@ class GameSceneTests: XCTestCase {
         var correct = 0
         var incorrect = 0
         var missed = 0
-        var score = 0
+        var mockScore = 0
         var probe = ExitResult.hit
 
-        override func isFinishable() -> Bool {
+        override var isFinishable: Bool {
             return finished
         }
 
-        override func incorrectBalls() -> [Location] {
+        override var incorrectBalls: [Location] {
             return populate(incorrect)
         }
 
-        override func missedBalls() -> [Location] {
+        override var missedBalls: [Location] {
             return populate(missed)
         }
 
-        override func correctBalls() -> [Location] {
+        override var correctBalls: [Location] {
             return populate(correct)
         }
 
-        override func getScore() -> Int {
-            return score
+        override var score: Int {
+            return mockScore
         }
 
         override func probe(entry: Int) -> ExitResult? {

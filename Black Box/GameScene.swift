@@ -54,45 +54,34 @@ class GameScene: SKScene {
 
     // MARK: - Game state
 
-    func isFinishable() -> Bool {
-        if let result = game?.isFinishable() {
-            return result
-        }
-        return false
+    var isFinishable: Bool {
+        return game?.isFinishable ?? false
     }
 
-    func getProbes() -> String {
-        if let result = game?.probes {
-            return String(result)
-        }
-        return "No game"
+    var probes: String {
+        guard let result = game?.probes else { return "No game" }
+
+        return String(result)
     }
 
-    func getIncorrectBalls() -> String {
-        if let result = game?.incorrectBalls() {
-            if result.count == 0 {
-                playSound(soundSuccess)
-            } else {
-                playSound(soundFailure)
-            }
-            return String(result.count * 5)
-        }
-        return "No game"
+    var incorrectBalls: String {
+        guard let result = game?.incorrectBalls else { return "No game" }
+
+        return String(result.count * 5)
     }
 
-    func getPar() -> Int? {
+    var par: Int? {
         return level?.par
     }
 
-    func getScore() -> String {
-        if let result = game?.getScore() {
-            return String(result)
-        }
-        return "No game"
+    var score: String {
+        guard let result = game?.score else { return "No game" }
+
+        return String(result)
     }
 
     func showIncorrectBalls() {
-        if let incorrectBalls = game?.incorrectBalls() {
+        if let incorrectBalls = game?.incorrectBalls {
             for ball in incorrectBalls {
                 if let mark = childNode(withName: "Slot\(ball.x)\(ball.y)") as? Slot {
                     mark.texture = SKTexture(imageNamed: "Incorrect")
@@ -102,7 +91,7 @@ class GameScene: SKScene {
     }
 
     func showMissedBalls() {
-        if let missedBalls = game?.missedBalls() {
+        if let missedBalls = game?.missedBalls {
             for ball in missedBalls {
                 if let miss = childNode(withName: "Slot\(ball.x)\(ball.y)") as? Slot {
                     miss.texture = SKTexture(imageNamed: "Miss")
@@ -113,7 +102,7 @@ class GameScene: SKScene {
     }
 
     func showCorrectBalls() {
-        if let correctBalls = game?.correctBalls() {
+        if let correctBalls = game?.correctBalls {
             for ball in correctBalls {
                 if let mark = childNode(withName: "Slot\(ball.x)\(ball.y)") as? Slot {
                     mark.texture = SKTexture(imageNamed: "Correct")
@@ -158,6 +147,14 @@ class GameScene: SKScene {
             if audio == "on" {
                 run(sound)
             }
+        }
+    }
+
+    func playFinishSound() {
+        if let incorrect = game?.incorrectBalls.count, incorrect == 0 {
+            playSound(soundSuccess)
+        } else {
+            playSound(soundFailure)
         }
     }
 
