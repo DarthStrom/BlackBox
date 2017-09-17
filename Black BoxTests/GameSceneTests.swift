@@ -35,24 +35,10 @@ class GameSceneTests: XCTestCase {
         XCTAssertFalse(subject.isFinishable)
     }
 
-    func testIsNotFinishableIfThereIsNoGame() {
-        subject.game = nil
-
-        XCTAssertFalse(subject.isFinishable)
-    }
-
     func testGetsProbesFromTheGame() {
         mockGame.setProbes(5)
 
         XCTAssertEqual("5", subject.probes)
-    }
-
-    func testReportsNoGameWhenGameDoesNotExist() {
-        subject.game = nil
-
-        XCTAssertEqual("No game", subject.probes)
-        XCTAssertEqual("No game", subject.incorrectBalls)
-        XCTAssertEqual("No game", subject.score)
     }
 
     func testGetsIncorrectBallsScore() {
@@ -85,14 +71,6 @@ class GameSceneTests: XCTestCase {
         subject.addEntryPoint(number: 33)
 
         XCTAssertEqual(96, subject.children.count)
-    }
-
-    func testShootingBeforeThereIsAGameHidesEntryPoint() {
-        subject.game = nil
-
-        shootSlot(number: 1)
-
-        XCTAssertTrue(subject.entryPoints[1]!.isHidden)
     }
 
     func testShootSlot1() {
