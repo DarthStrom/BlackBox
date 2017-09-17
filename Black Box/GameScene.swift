@@ -9,18 +9,14 @@ class GameScene: SKScene {
     let soundNewGame = SKAction.playSoundFileNamed("NewGame.wav", waitForCompletion: false)
 
     var detours = 0
-    var game: Game?
-    var level: Level?
+    var game: Game!
+    var level: Level!
     var entryPoints = [Int: EntryPoint](minimumCapacity: 32)
     var slots = [Int: Slot](minimumCapacity: 64)
 
-    var border: CGFloat {
-        return 0.005208333333333 * size.width
-    }
+    var border: CGFloat { return 0.005208333333333 * size.width }
 
-    var cellWidth: CGFloat {
-        return (size.width - 2 * border) / 10.0
-    }
+    var cellWidth: CGFloat { return (size.width - 2 * border) / 10.0 }
 
     // MARK: - SKScene
 
@@ -29,97 +25,60 @@ class GameScene: SKScene {
 
         backgroundColor = .clear
 
-        for i in 1...32 {
-            addEntryPoint(number: i)
-        }
+        for i in 1...32 { addEntryPoint(number: i) }
 
         for y in 0...7 {
-            for x in 0...7 {
-                addSlotAt(column: x, andRow: y)
-            }
+            for x in 0...7 { addSlotAt(column: x, andRow: y) }
         }
 
         createGame(number: randoBetweenOneAnd(80))
     }
 
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for touch in touches {
-            handleTouch(touch.location(in: self))
-        }
+        for touch in touches { handleTouch(touch.location(in: self)) }
     }
 
     // MARK: - Game state
 
-    func isFinishable() -> Bool {
-        if let result = game?.isFinishable() {
-            return result
-        }
-        return false
-    }
+    var isFinishable: Bool { return game.isFinishable }
 
-    func getProbes() -> String {
-        if let result = game?.probes {
-            return String(result)
-        }
-        return "No game"
-    }
+    var probes: String { return String(game.probes) }
 
-    func getIncorrectBalls() -> String {
-        if let result = game?.incorrectBalls() {
-            if result.count == 0 {
-                playSound(soundSuccess)
-            } else {
-                playSound(soundFailure)
-            }
-            return String(result.count * 5)
-        }
-        return "No game"
-    }
+    var incorrectBalls: String { return String(game.incorrectBalls.count * 5) }
 
-    func getPar() -> Int? {
-        return level?.par
-    }
+    var par: Int { return level.par }
 
-    func getScore() -> String {
-        if let result = game?.getScore() {
-            return String(result)
-        }
-        return "No game"
-    }
+    var score: String { return String(game.score) }
 
     func showIncorrectBalls() {
-        if let incorrectBalls = game?.incorrectBalls() {
-            for ball in incorrectBalls {
-                if let mark = childNode(withName: "Slot\(ball.x)\(ball.y)") as? Slot {
-                    mark.texture = SKTexture(imageNamed: "Incorrect")
-                }
+        for ball in game.incorrectBalls {
+            if let mark = childNode(withName: "Slot\(ball.x)\(ball.y)") as? Slot {
+                mark.texture = SKTexture(imageNamed: "Incorrect")
             }
         }
     }
 
     func showMissedBalls() {
-        if let missedBalls = game?.missedBalls() {
-            for ball in missedBalls {
-                if let miss = childNode(withName: "Slot\(ball.x)\(ball.y)") as? Slot {
-                    miss.texture = SKTexture(imageNamed: "Miss")
-                    miss.isHidden = false
-                }
+        for ball in game.missedBalls {
+            if let miss = childNode(withName: "Slot\(ball.x)\(ball.y)") as? Slot {
+                miss.texture = SKTexture(imageNamed: "Miss")
+                miss.isHidden = false
             }
         }
     }
 
     func showCorrectBalls() {
-        if let correctBalls = game?.correctBalls() {
-            for ball in correctBalls {
-                if let mark = childNode(withName: "Slot\(ball.x)\(ball.y)") as? Slot {
-                    mark.texture = SKTexture(imageNamed: "Correct")
-                }
+        for ball in game.correctBalls {
+            if let mark = childNode(withName: "Slot\(ball.x)\(ball.y)") as? Slot {
+                mark.texture = SKTexture(imageNamed: "Correct")
             }
         }
+    }
+
+    func playFinishSound() {
+        playSound(game.incorrectBalls.count == 0 ? soundSuccess : soundFailure)
     }
 
     // MARK: - Setup
@@ -139,17 +98,9 @@ class GameScene: SKScene {
     }
 
     func createGame(number: Int) {
-        level = Level(number: number)
-        if let _ = level?.balls {
-            game = Game(balls: level!.balls)
-            playSound(soundNewGame)
-        } else {
-            print("Couldn't create game.")
-        }
-    }
-
-    func randoBetweenOneAnd(_ upperLimit: Int) -> Int {
-        return Int(arc4random_uniform(UInt32(upperLimit))) + 1
+        level = ComputerLevel(number: number)
+        game = BlackBoxGame(balls: level!.balls)
+        playSound(soundNewGame)
     }
 
     func playSound(_ sound: SKAction) {
@@ -198,7 +149,7 @@ class GameScene: SKScene {
     func shootFrom(_ entryPoint: EntryPoint) {
         playSound(soundProbe)
         entryPoint.isHidden = false
-        switch game?.probe(entry: entryPoint.number) {
+        switch game.probe(entry: entryPoint.number) {
         case .some(.hit):
             let texture = SKTexture(imageNamed: "Hit")
             entryPoint.texture = texture
@@ -221,10 +172,10 @@ class GameScene: SKScene {
         playSound(soundMarkBall)
         if slot.isHidden {
             slot.isHidden = false
-            game?.markBallAt(column: slot.column, andRow: slot.row)
+            game.markBallAt(column: slot.column, andRow: slot.row)
         } else {
             slot.isHidden = true
-            game?.removeMarkAt(column: slot.column, andRow: slot.row)
+            game.removeMarkAt(column: slot.column, andRow: slot.row)
         }
     }
 

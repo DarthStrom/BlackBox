@@ -10,7 +10,7 @@ class BlackBoxSpecs: QuickSpec {
             var game: Game!
 
             beforeEach {
-                game = Game(size: 4)
+                game = BlackBoxGame(size: 4)
             }
 
             it("initially has 0 probes") {
@@ -21,7 +21,7 @@ class BlackBoxSpecs: QuickSpec {
 
                 it("can mark a ball") {
                     game.markBallAt(column: 3, andRow: 4)
-                    expect(game.marks).to(equal([Location(x: 3, y: 4): true]))
+                    expect(game.marks).to(equal([Location(3, 4): true]))
                 }
 
                 it("can remove a mark") {
@@ -35,41 +35,52 @@ class BlackBoxSpecs: QuickSpec {
             // continuing counter-clockwise
             describe("probing") {
 
-                func beAHit() -> NonNilMatcherFunc<ExitResult> {
-                    return NonNilMatcherFunc { actualExpression, failureMessage in
-                        failureMessage.postfixMessage = "be hit"
-                        let actualResult = try actualExpression.evaluate()
-                        switch actualResult {
-                        case .some(.hit):
-                            return true
-                        default:
-                            return false
+                func beAHit() -> Predicate<ExitResult> {
+                    return Predicate { actual in
+                        let message = ExpectationMessage.expectedActualValueTo("be a hit")
+                        if let actualValue = try actual.evaluate() {
+                            switch actualValue {
+                            case .hit:
+                                return PredicateResult(status: .matches, message: message.appended(details: "and it was!"))
+                            default:
+                                return PredicateResult(status: .fail, message: message.appended(details: "but it was \(actualValue)"))
+                            }
+                        } else {
+                            return PredicateResult(status: .fail, message: message.appendedBeNilHint())
                         }
                     }
                 }
 
-                func beAReflection() -> NonNilMatcherFunc<ExitResult> {
-                    return NonNilMatcherFunc { actualExpression, failureMessage in
-                        failureMessage.postfixMessage = "be reflection"
-                        let actualResult = try actualExpression.evaluate()
-                        switch actualResult {
-                        case .some(.reflection):
-                            return true
-                        default:
-                            return false
+                func beAReflection() -> Predicate<ExitResult> {
+                    return Predicate { actual in
+                        let message = ExpectationMessage.expectedActualValueTo("be a reflection")
+                        if let actualValue = try actual.evaluate() {
+                            switch actualValue {
+                            case .reflection:
+                                return PredicateResult(status: .matches, message: message.appended(details: "and it was!"))
+                            default:
+                                return PredicateResult(status: .fail, message: message.appended(details: "but it was \(actualValue)"))
+                            }
+                        } else {
+                            return PredicateResult(status: .fail, message: message.appendedBeNilHint())
                         }
                     }
                 }
 
-                func beADetour(to i: Int) -> NonNilMatcherFunc<ExitResult> {
-                    return NonNilMatcherFunc { actualExpression, failureMessage in
-                        failureMessage.postfixMessage = "be detour(\(i))"
-                        let actualResult = try actualExpression.evaluate()
-                        switch actualResult {
-                        case .some(.detour(i)):
-                            return true
-                        default:
-                            return false
+                func beADetour(to i: Int) -> Predicate<ExitResult> {
+                    return Predicate { actual in
+                        let message = ExpectationMessage.expectedActualValueTo("be a detour to \(i)")
+                        if let actualValue = try actual.evaluate() {
+                            switch actualValue {
+                            case .detour(i):
+                                return PredicateResult(status: .matches, message: message.appended(details: "and it was!"))
+                            case .detour(let x):
+                                return PredicateResult(status: .doesNotMatch, message: message.appended(details: "but it was a detour to \(x)"))
+                            default:
+                                return PredicateResult(status: .fail, message: message.appended(details: "but it was \(actualValue)"))
+                            }
+                        } else {
+                            return PredicateResult(status: .fail, message: message.appendedBeNilHint())
                         }
                     }
                 }
@@ -257,7 +268,7 @@ class BlackBoxSpecs: QuickSpec {
 
                 it("counts rays as 1") {
                     let _ = game.probe(entry: 7)
-                    expect(game.getScore()) == 1
+                    expect(game.score) == 1
                 }
 
                 it("counts multiple rays") {
@@ -265,19 +276,19 @@ class BlackBoxSpecs: QuickSpec {
                     let _ = game.probe(entry: 9)
                     let _ = game.probe(entry: 23)
                     let _ = game.probe(entry: 30)
-                    expect(game.getScore()) == 4
+                    expect(game.score) == 4
                 }
 
                 it("counts wrong ball placement as 5") {
                     game.placeAt(column: 0, andRow: 0)
                     game.markBallAt(column: 1, andRow: 0)
-                    expect(game.getScore()) == 5
+                    expect(game.score) == 5
                 }
 
                 it("counts correct ball placement as 0") {
                     game.placeAt(column: 2, andRow: 2)
                     game.markBallAt(column: 2, andRow: 2)
-                    expect(game.getScore()) == 0
+                    expect(game.score) == 0
                 }
 
                 it("is finishable after 4 ball placements") {
@@ -285,14 +296,14 @@ class BlackBoxSpecs: QuickSpec {
                     game.markBallAt(column: 2, andRow: 2)
                     game.markBallAt(column: 3, andRow: 3)
                     game.markBallAt(column: 4, andRow: 4)
-                    expect(game.isFinishable()).to(beTrue())
+                    expect(game.isFinishable).to(beTrue())
                 }
 
                 it("is not finishable before 4 ball placements") {
                     game.markBallAt(column: 1, andRow: 1)
                     game.markBallAt(column: 2, andRow: 2)
                     game.markBallAt(column: 3, andRow: 3)
-                    expect(game.isFinishable()).to(beFalse())
+                    expect(game.isFinishable).to(beFalse())
                 }
             }
 
@@ -300,13 +311,13 @@ class BlackBoxSpecs: QuickSpec {
 
                 it("returns balls that were incorrectly marked") {
                     game.markBallAt(column: 5, andRow: 4)
-                    expect(game.incorrectBalls()).to(contain(Location(x: 5, y: 4)))
+                    expect(game.incorrectBalls).to(contain(Location(5, 4)))
                 }
 
                 it("does not return balls that were correctly marked") {
                     game.placeAt(column: 4, andRow: 5)
                     game.markBallAt(column: 4, andRow: 5)
-                    expect(game.incorrectBalls()).to(beEmpty())
+                    expect(game.incorrectBalls).to(beEmpty())
                 }
             }
 
@@ -314,13 +325,13 @@ class BlackBoxSpecs: QuickSpec {
 
                 it("returns balls that were not marked") {
                     game.placeAt(column: 6, andRow: 3)
-                    expect(game.missedBalls()).to(contain(Location(x: 6, y: 3)))
+                    expect(game.missedBalls).to(contain(Location(6, 3)))
                 }
 
                 it("does not return balls that were correctly marked") {
                     game.placeAt(column: 2, andRow: 7)
                     game.markBallAt(column: 2, andRow: 7)
-                    expect(game.missedBalls()).to(beEmpty())
+                    expect(game.missedBalls).to(beEmpty())
                 }
             }
 
@@ -329,24 +340,24 @@ class BlackBoxSpecs: QuickSpec {
                 it("returns balls that were marked correctly") {
                     game.placeAt(column: 5, andRow: 5)
                     game.markBallAt(column: 5, andRow: 5)
-                    expect(game.correctBalls()).to(contain(Location(x: 5, y: 5)))
+                    expect(game.correctBalls).to(contain(Location(5, 5)))
                 }
 
                 it("does not return balls that were marked incorrectly") {
                     game.placeAt(column: 2, andRow: 3)
                     game.markBallAt(column: 3, andRow: 3)
-                    expect(game.correctBalls()).to(beEmpty())
+                    expect(game.correctBalls).to(beEmpty())
                 }
             }
         }
 
         describe("defined game") {
             it("can be initialized with ball placement") {
-                let balls = [Location(x: 4, y: 6),
-                    Location(x: 2, y: 2),
-                    Location(x: 1, y: 1),
-                    Location(x: 7, y: 2)]
-                let game = Game(balls: balls)
+                let balls = [Location(4, 6),
+                             Location(2, 2),
+                    Location(1, 1),
+                    Location(7, 2)]
+                let game = BlackBoxGame(balls: balls)
 
                 game.markBallAt(column: 1, andRow: 1)
                 game.markBallAt(column: 2, andRow: 2)
@@ -354,12 +365,12 @@ class BlackBoxSpecs: QuickSpec {
                 game.markBallAt(column: 4, andRow: 4)
 
                 expect(game.size) == 4
-                expect(game.correctBalls()).to(contain(Location(x: 1, y: 1)))
-                expect(game.correctBalls()).to(contain(Location(x: 2, y: 2)))
-                expect(game.incorrectBalls()).to(contain(Location(x: 3, y: 3)))
-                expect(game.incorrectBalls()).to(contain(Location(x: 4, y: 4)))
-                expect(game.missedBalls()).to(contain(Location(x: 4, y: 6)))
-                expect(game.missedBalls()).to(contain(Location(x: 7, y: 2)))
+                expect(game.correctBalls).to(contain(Location(1, 1)))
+                expect(game.correctBalls).to(contain(Location(2, 2)))
+                expect(game.incorrectBalls).to(contain(Location(3, 3)))
+                expect(game.incorrectBalls).to(contain(Location(4, 4)))
+                expect(game.missedBalls).to(contain(Location(4, 6)))
+                expect(game.missedBalls).to(contain(Location(7, 2)))
             }
         }
     }

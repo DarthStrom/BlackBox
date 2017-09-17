@@ -1,0 +1,18 @@
+PODS:
+  - Moxie (0.1.6)
+  - Nimble (7.0.1)
+  - Quick (1.1.0)
+
+DEPENDENCIES:
+  - Moxie
+  - Nimble
+  - Quick
+
+SPEC CHECKSUMS:
+  Moxie: 1fa97a6e7703cf448b2fac10ba951497f370058e
+  Nimble: 657d000e11df8aebe27cdaf9d244de7f30ed87f7
+  Quick: dafc587e21eed9f4cab3249b9f9015b0b7a7f71d
+
+PODFILE CHECKSUM: 1dee90d8da25b912b993dcb0ccada466586f2f08
+
+COCOAPODS: 1.2.1

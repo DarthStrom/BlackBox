@@ -1,0 +1,6 @@
+framework module Moxie {
+  umbrella header "Moxie-umbrella.h"
+
+  export *
+  module * { export * }
+}

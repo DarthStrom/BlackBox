@@ -2,7 +2,7 @@ import Foundation
 
 extension Dictionary {
 
-    static func loadJSONFromBundle(filename: String) -> Dictionary<String, AnyObject>? {
+    static func loadJSONFromBundle(filename: String) -> [String: AnyObject]? {
         if let path = Bundle.main.path(forResource: filename, ofType: "json") {
 
             var error: NSError?
@@ -24,7 +24,7 @@ extension Dictionary {
                     error = error1
                     json = nil
                 }
-                if let dictionary = json as? Dictionary<String, AnyObject> {
+                if let dictionary = json as? [String: AnyObject] {
                     return dictionary
                 } else {
                     print("File '\(filename)' is not valid JSON: \(error!)")
