@@ -83,13 +83,13 @@ struct Ray {
     func getNewPositionFrom(_ position: Location, direction: Direction) -> Location {
         switch direction {
         case .up:
-            return Location(x: position.x, y: position.y - 1)
+            return Location(position.x, position.y - 1)
         case .down:
-            return Location(x: position.x, y: position.y + 1)
+            return Location(position.x, position.y + 1)
         case .left:
-            return Location(x: position.x - 1, y: position.y)
+            return Location(position.x - 1, position.y)
         case .right:
-            return Location(x: position.x + 1, y: position.y)
+            return Location(position.x + 1, position.y)
         }
     }
 

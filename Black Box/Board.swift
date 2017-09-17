@@ -10,36 +10,36 @@ struct Board {
     mutating func clearSlots() {
         for y in 0...7 {
             for x in 0...7 {
-                slots[Location(x: x, y: y)] = false
+                slots[Location(x, y)] = false
             }
         }
     }
 
     mutating func populateEntries() {
         for n in 1...8 {
-            entries[Location(x: -1, y: n-1)] = n
+            entries[Location(-1, n-1)] = n
         }
         for n in 9...16 {
-            entries[Location(x: n-9, y: 8)] = n
+            entries[Location(n-9, 8)] = n
         }
         for n in 17...24 {
-            entries[Location(x: 8, y: 24-n)] = n
+            entries[Location(8, 24-n)] = n
         }
         for n in 25...32 {
-            entries[Location(x: 32-n, y: -1)] = n
+            entries[Location(32-n, -1)] = n
         }
     }
 
     mutating func placeAt(column: Int, andRow row: Int) {
-        slots[Location(x: column, y: row)] = true
+        slots[Location(column, row)] = true
     }
 
     func getEntryPointAt(column: Int, andRow row: Int) -> Int? {
-        return entries[Location(x: column, y: row)]
+        return entries[Location(column, row)]
     }
 
     func getSlotAt(column: Int, andRow row: Int) -> Bool {
-        if let result = slots[Location(x: column, y: row)] {
+        if let result = slots[Location(column, row)] {
             return result
         }
         return false
@@ -48,13 +48,13 @@ struct Board {
     func getLocationFor(entry: Int) -> Location? {
         switch entry {
         case 1...8:
-            return Location(x: -1, y: entry - 1)
+            return Location(-1, entry - 1)
         case 9...16:
-            return Location(x: entry - 9, y: 8)
+            return Location(entry - 9, 8)
         case 17...24:
-            return Location(x: 8, y: 24 - entry)
+            return Location(8, 24 - entry)
         case 25...32:
-            return Location(x: 32 - entry, y: -1)
+            return Location(32 - entry, -1)
         default:
             return nil
         }

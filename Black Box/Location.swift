@@ -5,7 +5,7 @@ public func == (lhs: Location, rhs: Location) -> Bool {
 public struct Location {
     let x: Int, y: Int
 
-    public init(x: Int, y: Int) {
+    public init(_ x: Int, _ y: Int) {
         self.x = x
         self.y = y
     }

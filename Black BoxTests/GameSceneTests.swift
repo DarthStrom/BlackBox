@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import Moxie
 @testable import Black_Box
 
 class GameSceneTests: XCTestCase {
@@ -17,50 +18,51 @@ class GameSceneTests: XCTestCase {
 
     override func setUp() {
         subject = GameScene(size: CGSize(width: 100, height: 100))
-        mockGame = MockGame(size: 4)
-        mockLevel = MockLevel(number: 1)
+        mockGame = MockGame()
+        mockLevel = MockLevel()
         subject.game = mockGame
         subject.level = mockLevel
     }
 
     func testIsFinishableIfGameIsFinishable() {
-        mockGame.finished = true
+        mockGame.stub(function: "isFinishable", return: true)
 
         XCTAssertTrue(subject.isFinishable)
     }
 
     func testIsNotFinishableIfGameIsNotFinishable() {
-        mockGame.finished = false
+        mockGame.stub(function: "isFinishable", return: false)
 
         XCTAssertFalse(subject.isFinishable)
     }
 
     func testGetsProbesFromTheGame() {
-        mockGame.setProbes(5)
+        mockGame.probes = 5
 
         XCTAssertEqual("5", subject.probes)
     }
 
     func testGetsIncorrectBallsScore() {
-        mockGame.incorrect = 4
+        let balls: [Location] = [Location(1,1), Location(2,2), Location(3,3), Location(4,4)]
+        mockGame.stub(function: "incorrectBalls", return: balls)
 
         XCTAssertEqual(String(4*5), subject.incorrectBalls)
     }
 
     func testIncorrectBallsScoresZero() {
-        mockGame.incorrect = 0
+        mockGame.stub(function: "incorrectBalls", return: 0)
 
         XCTAssertEqual("0", subject.incorrectBalls)
     }
 
     func testGetsParFromLevel() {
-        mockLevel.setPar(4)
+        mockLevel.stub(function: "par", return: 4)
 
         XCTAssertEqual(4, subject.par)
     }
 
     func testGetsScoreFromGame() {
-        mockGame.mockScore = 27
+        mockGame.stub(function: "score", return: 27)
 
         XCTAssertEqual("27", subject.score)
     }
@@ -74,7 +76,7 @@ class GameSceneTests: XCTestCase {
     }
 
     func testShootSlot1() {
-        mockGame.probeWill(.hit)
+        mockGame.stub(function: "probe", return: ExitResult.hit)
 
         shootSlot(number: 1)
 
@@ -84,7 +86,7 @@ class GameSceneTests: XCTestCase {
     }
 
     func testShootSlot2() {
-        mockGame.probeWill(.detour(1))
+        mockGame.stub(function: "probe", return: ExitResult.detour(1))
 
         shootSlot(number: 2)
 
@@ -98,7 +100,7 @@ class GameSceneTests: XCTestCase {
     }
 
     func testShootSlot3() {
-        mockGame.probeWill(.reflection)
+        mockGame.stub(function: "probe", return: ExitResult.reflection)
 
         shootSlot(number: 3)
 
@@ -159,7 +161,8 @@ class GameSceneTests: XCTestCase {
     }
 
     func testCanShowIncorrectBalls() {
-        mockGame.incorrect = 1
+        let incorrect = [Location(0, 0)]
+        mockGame.stub(function: "incorrectBalls", return: incorrect)
 
         subject.showIncorrectBalls()
 
@@ -167,7 +170,8 @@ class GameSceneTests: XCTestCase {
     }
 
     func testCanShowMissedBalls() {
-        mockGame.missed = 1
+        let missed = [Location(0, 0)]
+        mockGame.stub(function: "missedBalls", return: missed)
 
         subject.showMissedBalls()
 
@@ -175,7 +179,8 @@ class GameSceneTests: XCTestCase {
     }
 
     func testCanShowCorrectBalls() {
-        mockGame.correct = 1
+        let correct = [Location(0, 0)]
+        mockGame.stub(function: "correctBalls", return: correct)
 
         subject.showCorrectBalls()
 
@@ -201,61 +206,59 @@ class GameSceneTests: XCTestCase {
         subject.handleTouch(CGPoint(x: subject.border + subject.cellWidth * (CGFloat(column) + 1.0) + 1.0, y: subject.size.width - subject.border - subject.cellWidth * (CGFloat(row) + 1.0)))
     }
 
-    class MockGame: Game {
-        var finished = false
-        var correct = 0
-        var incorrect = 0
-        var missed = 0
-        var mockScore = 0
-        var probe = ExitResult.hit
+    class MockGame: Mock, Game {
+        var moxie = Moxie()
 
-        override var isFinishable: Bool {
-            return finished
+        var probes = 0
+        var marks = [Location : Bool]()
+        var size = 0
+
+        func placeAt(column: Int, andRow row: Int) {
+            record(function: "placeAt", wasCalledWith: [column, row])
         }
 
-        override var incorrectBalls: [Location] {
-            return populate(incorrect)
+        func markBallAt(column: Int, andRow row: Int) {
+            record(function: "markBallAt", wasCalledWith: [column, row])
         }
 
-        override var missedBalls: [Location] {
-            return populate(missed)
+        func removeMarkAt(column: Int, andRow row: Int) {
+            record(function: "removeMarkAt", wasCalledWith: [column, row])
         }
 
-        override var correctBalls: [Location] {
-            return populate(correct)
+        var isFinishable: Bool {
+            return value(forFunction: "isFinishable") ?? false
         }
 
-        override var score: Int {
-            return mockScore
+        var incorrectBalls: [Location] {
+            return value(forFunction: "incorrectBalls") ?? []
         }
 
-        override func probe(entry: Int) -> ExitResult? {
-            return probe
+        var missedBalls: [Location] {
+            return value(forFunction: "missedBalls") ?? []
         }
 
-        func populate(_ count: Int) -> [Location] {
-            var result = [Location]()
-            for i in 0..<count {
-                result.append(Location(x: i, y: i))
-            }
-            return result
+        var correctBalls: [Location] {
+            return value(forFunction: "correctBalls") ?? []
         }
 
-        func setProbes(_ probes: Int) {
-            super.probes = probes
+        var score: Int {
+            return value(forFunction: "score") ?? 0
         }
 
-        func probeWill(_ exitResult: ExitResult) {
-            probe = exitResult
+        func probe(entry: Int) -> ExitResult? {
+            return value(forFunction: "probe") ?? .hit
         }
-
     }
 
-    class MockLevel: Level {
+    class MockLevel: Mock, Level {
+        var moxie = Moxie()
 
-        func setPar(_ par: Int) {
-            super.par = par
+        var par: Int {
+            return value(forFunction: "par") ?? 0
         }
 
+        var balls: [Location] {
+            return value(forFunction: "balls") ?? [Location]()
+        }
     }
 }

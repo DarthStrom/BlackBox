@@ -48,7 +48,7 @@ class GameScene: SKScene {
 
     var incorrectBalls: String { return String(game.incorrectBalls.count * 5) }
 
-    var par: Int? { return level.par }
+    var par: Int { return level.par }
 
     var score: String { return String(game.score) }
 
@@ -98,8 +98,8 @@ class GameScene: SKScene {
     }
 
     func createGame(number: Int) {
-        level = Level(number: number)
-        game = Game(balls: level!.balls)
+        level = ComputerLevel(number: number)
+        game = BlackBoxGame(balls: level!.balls)
         playSound(soundNewGame)
     }
 

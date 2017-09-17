@@ -49,7 +49,7 @@ class GameViewController: UIViewController {
         probes.text = "Probes: \(scene.probes)"
         incorrect.text = "Incorrect: \(scene.incorrectBalls)"
         score.text = "Score: \(scene.score)"
-        par.text = "Par: \(scene.par!)"
+        par.text = "Par: \(scene.par)"
         showScore()
     }
 
@@ -64,9 +64,7 @@ class GameViewController: UIViewController {
         probes.isHidden = false
         incorrect.isHidden = false
         score.isHidden = false
-        if let parValue = scene.par {
-            par.isHidden = parValue == 0
-        }
+        par.isHidden = scene.par == 0
     }
 
     func showFinishedButton() {

@@ -10,7 +10,7 @@ class BlackBoxSpecs: QuickSpec {
             var game: Game!
 
             beforeEach {
-                game = Game(size: 4)
+                game = BlackBoxGame(size: 4)
             }
 
             it("initially has 0 probes") {
@@ -21,7 +21,7 @@ class BlackBoxSpecs: QuickSpec {
 
                 it("can mark a ball") {
                     game.markBallAt(column: 3, andRow: 4)
-                    expect(game.marks).to(equal([Location(x: 3, y: 4): true]))
+                    expect(game.marks).to(equal([Location(3, 4): true]))
                 }
 
                 it("can remove a mark") {
@@ -311,7 +311,7 @@ class BlackBoxSpecs: QuickSpec {
 
                 it("returns balls that were incorrectly marked") {
                     game.markBallAt(column: 5, andRow: 4)
-                    expect(game.incorrectBalls).to(contain(Location(x: 5, y: 4)))
+                    expect(game.incorrectBalls).to(contain(Location(5, 4)))
                 }
 
                 it("does not return balls that were correctly marked") {
@@ -325,7 +325,7 @@ class BlackBoxSpecs: QuickSpec {
 
                 it("returns balls that were not marked") {
                     game.placeAt(column: 6, andRow: 3)
-                    expect(game.missedBalls).to(contain(Location(x: 6, y: 3)))
+                    expect(game.missedBalls).to(contain(Location(6, 3)))
                 }
 
                 it("does not return balls that were correctly marked") {
@@ -340,7 +340,7 @@ class BlackBoxSpecs: QuickSpec {
                 it("returns balls that were marked correctly") {
                     game.placeAt(column: 5, andRow: 5)
                     game.markBallAt(column: 5, andRow: 5)
-                    expect(game.correctBalls).to(contain(Location(x: 5, y: 5)))
+                    expect(game.correctBalls).to(contain(Location(5, 5)))
                 }
 
                 it("does not return balls that were marked incorrectly") {
@@ -353,11 +353,11 @@ class BlackBoxSpecs: QuickSpec {
 
         describe("defined game") {
             it("can be initialized with ball placement") {
-                let balls = [Location(x: 4, y: 6),
-                    Location(x: 2, y: 2),
-                    Location(x: 1, y: 1),
-                    Location(x: 7, y: 2)]
-                let game = Game(balls: balls)
+                let balls = [Location(4, 6),
+                             Location(2, 2),
+                    Location(1, 1),
+                    Location(7, 2)]
+                let game = BlackBoxGame(balls: balls)
 
                 game.markBallAt(column: 1, andRow: 1)
                 game.markBallAt(column: 2, andRow: 2)
@@ -365,12 +365,12 @@ class BlackBoxSpecs: QuickSpec {
                 game.markBallAt(column: 4, andRow: 4)
 
                 expect(game.size) == 4
-                expect(game.correctBalls).to(contain(Location(x: 1, y: 1)))
-                expect(game.correctBalls).to(contain(Location(x: 2, y: 2)))
-                expect(game.incorrectBalls).to(contain(Location(x: 3, y: 3)))
-                expect(game.incorrectBalls).to(contain(Location(x: 4, y: 4)))
-                expect(game.missedBalls).to(contain(Location(x: 4, y: 6)))
-                expect(game.missedBalls).to(contain(Location(x: 7, y: 2)))
+                expect(game.correctBalls).to(contain(Location(1, 1)))
+                expect(game.correctBalls).to(contain(Location(2, 2)))
+                expect(game.incorrectBalls).to(contain(Location(3, 3)))
+                expect(game.incorrectBalls).to(contain(Location(4, 4)))
+                expect(game.missedBalls).to(contain(Location(4, 6)))
+                expect(game.missedBalls).to(contain(Location(7, 2)))
             }
         }
     }

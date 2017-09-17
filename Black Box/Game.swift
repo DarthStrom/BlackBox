@@ -1,4 +1,20 @@
-public class Game {
+public protocol Game {
+    var probes: Int { get set }
+    var marks: [Location: Bool] { get set }
+    var size: Int { get }
+    var isFinishable: Bool { get }
+    var score: Int { get }
+    var incorrectBalls: [Location] { get }
+    var missedBalls: [Location] { get }
+    var correctBalls: [Location] { get }
+
+    func probe(entry: Int) -> ExitResult?
+    func placeAt(column: Int, andRow: Int)
+    func markBallAt(column: Int, andRow: Int)
+    func removeMarkAt(column: Int, andRow: Int)
+}
+
+public class BlackBoxGame: Game {
     public var probes = 0
     public var marks = [Location: Bool]()
     public let size: Int
@@ -14,25 +30,6 @@ public class Game {
         for ball in balls {
             placeAt(column: ball.x, andRow: ball.y)
         }
-    }
-
-    public func probe(entry: Int) -> ExitResult? {
-        probes += 1
-
-        let ray = Ray(entry: entry, board: board)
-        return ray.shoot()
-    }
-
-    public func placeAt(column: Int, andRow row: Int) {
-        board.placeAt(column: column, andRow: row)
-    }
-
-    public func markBallAt(column: Int, andRow row: Int) {
-        marks.updateValue(true, forKey: Location(x: column, y: row))
-    }
-
-    public func removeMarkAt(column: Int, andRow row: Int) {
-        marks.removeValue(forKey: Location(x: column, y: row))
     }
 
     public var isFinishable: Bool {
@@ -83,5 +80,24 @@ public class Game {
             }
         }
         return result
+    }
+
+    public func probe(entry: Int) -> ExitResult? {
+        probes += 1
+
+        let ray = Ray(entry: entry, board: board)
+        return ray.shoot()
+    }
+
+    public func placeAt(column: Int, andRow row: Int) {
+        board.placeAt(column: column, andRow: row)
+    }
+
+    public func markBallAt(column: Int, andRow row: Int) {
+        marks.updateValue(true, forKey: Location(column, row))
+    }
+
+    public func removeMarkAt(column: Int, andRow row: Int) {
+        marks.removeValue(forKey: Location(column, row))
     }
 }
