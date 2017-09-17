@@ -1,4 +1,4 @@
-class Board {
+struct Board {
     var slots = [Location: Bool]()
     var entries = [Location: Int]()
 
@@ -7,7 +7,7 @@ class Board {
         populateEntries()
     }
 
-    func clearSlots() {
+    mutating func clearSlots() {
         for y in 0...7 {
             for x in 0...7 {
                 slots[Location(x: x, y: y)] = false
@@ -15,7 +15,7 @@ class Board {
         }
     }
 
-    func populateEntries() {
+    mutating func populateEntries() {
         for n in 1...8 {
             entries[Location(x: -1, y: n-1)] = n
         }
@@ -30,7 +30,7 @@ class Board {
         }
     }
 
-    func placeAt(column: Int, andRow row: Int) {
+    mutating func placeAt(column: Int, andRow row: Int) {
         slots[Location(x: column, y: row)] = true
     }
 

@@ -3,7 +3,7 @@ public class Game {
     public var marks = [Location: Bool]()
     public let size: Int
 
-    let board = Board()
+    var board = Board()
 
     public init(size: Int) {
         self.size = size

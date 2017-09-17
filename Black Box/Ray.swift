@@ -1,4 +1,4 @@
-class Ray {
+struct Ray {
     let entry: Int
     let board: Board
 
