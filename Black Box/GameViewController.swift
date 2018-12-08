@@ -23,10 +23,10 @@ class GameViewController: UIViewController {
         let defaults = UserDefaults.standard
         if let audioToggle = defaults.string(forKey: "audio") {
             if audioToggle == "on" {
-                sender.setImage(UIImage(named: "AudioOff"), for: UIControlState())
+                sender.setImage(UIImage(named: "AudioOff"), for: UIControl.State())
                 defaults.setValue("off", forKey: "audio")
             } else {
-                sender.setImage(UIImage(named: "AudioOn"), for: UIControlState())
+                sender.setImage(UIImage(named: "AudioOn"), for: UIControl.State())
                 defaults.setValue("on", forKey: "audio")
             }
         }
@@ -92,10 +92,10 @@ class GameViewController: UIViewController {
         let defaults = UserDefaults.standard
         if let audio = defaults.string(forKey: "audio") {
             if audio == "on" {
-                audioToggleButton.setImage(UIImage(named: "AudioOn"), for: UIControlState())
+                audioToggleButton.setImage(UIImage(named: "AudioOn"), for: UIControl.State())
                 defaults.setValue("on", forKey: "audio")
             } else {
-                audioToggleButton.setImage(UIImage(named: "AudioOff"), for: UIControlState())
+                audioToggleButton.setImage(UIImage(named: "AudioOff"), for: UIControl.State())
                 defaults.setValue("off", forKey: "audio")
             }
         } else {
