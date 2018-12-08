@@ -54,15 +54,13 @@ public class BlackBoxGame: Game {
 
     public var missedBalls: [Location] {
         var result = [Location]()
-        for slot in board.slots {
-            if slot.1 {
-                if let mark = marks[slot.0] {
-                    if !mark {
-                        result.append(slot.0)
-                    }
-                } else {
+        for slot in board.slots where slot.1 {
+            if let mark = marks[slot.0] {
+                if !mark {
                     result.append(slot.0)
                 }
+            } else {
+                result.append(slot.0)
             }
         }
         return result
@@ -70,12 +68,10 @@ public class BlackBoxGame: Game {
 
     public var correctBalls: [Location] {
         var result = [Location]()
-        for slot in board.slots {
-            if slot.1 {
-                if let mark = marks[slot.0] {
-                    if mark {
-                        result.append(slot.0)
-                    }
+        for slot in board.slots where slot.1 {
+            if let mark = marks[slot.0] {
+                if mark {
+                    result.append(slot.0)
                 }
             }
         }
