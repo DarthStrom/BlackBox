@@ -746,7 +746,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Black BoxTests/Pods-Black BoxTests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Black BoxTests/Pods-Black BoxTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Moxie/Moxie.framework",
 				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
 				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
@@ -759,7 +759,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Black BoxTests/Pods-Black BoxTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Black BoxTests/Pods-Black BoxTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		848DC5B44E7B3C38FDC848AD /* [CP] Check Pods Manifest.lock */ = {
