@@ -153,7 +153,7 @@
 		965E60111A507C6000BB183F /* Black BoxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Black BoxTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		965E60161A507C6000BB183F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9666980C1BF266A0007200DF /* Markdown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Markdown.swift; sourceTree = "<group>"; };
-		968C01AE1B0439F0003F8BA7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		968C01AE1B0439F0003F8BA7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		968C01B01B0445FF003F8BA7 /* InstructionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionsViewController.swift; sourceTree = "<group>"; };
 		968FFDA41A94F08D006E59A2 /* Ray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ray.swift; sourceTree = "<group>"; };
 		969865131AAB47AD00D277C6 /* Mark.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Mark.wav; sourceTree = "<group>"; };
@@ -288,6 +288,7 @@
 				96F0C8951A98F14E00755598 /* Slot.swift */,
 			);
 			name = Models;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		961068491A94D6F7002B02D0 /* Controllers */ = {
@@ -297,28 +298,31 @@
 				968C01B01B0445FF003F8BA7 /* InstructionsViewController.swift */,
 			);
 			name = Controllers;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		9610684A1A94D708002B02D0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				965E60011A507C6000BB183F /* GameScene.swift */,
 				9603D8171A70A9A7007A1A0F /* EntryPoint.swift */,
+				965E60011A507C6000BB183F /* GameScene.swift */,
 				965E60051A507C6000BB183F /* Main.storyboard */,
 			);
 			name = Views;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		965DF4951ABF3C92008866BC /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				9698651F1AAB48D400D277C6 /* Probe.wav */,
 				969865201AAB48D400D277C6 /* Failure.wav */,
-				969865211AAB48D400D277C6 /* Success.wav */,
-				969865221AAB48D400D277C6 /* NewGame.wav */,
 				969865131AAB47AD00D277C6 /* Mark.wav */,
+				969865221AAB48D400D277C6 /* NewGame.wav */,
+				9698651F1AAB48D400D277C6 /* Probe.wav */,
+				969865211AAB48D400D277C6 /* Success.wav */,
 			);
 			name = Sounds;
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 		965E5FEF1A507C5F00BB183F = {
@@ -326,9 +330,9 @@
 			children = (
 				965E5FFA1A507C5F00BB183F /* Black Box */,
 				965E60141A507C6000BB183F /* Black BoxTests */,
-				965E5FF91A507C5F00BB183F /* Products */,
 				96AC89411DD7B9D7007356B8 /* Frameworks */,
 				F0CDC334CE2CE5EDDA8679BA /* Pods */,
+				965E5FF91A507C5F00BB183F /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -344,19 +348,19 @@
 		965E5FFA1A507C5F00BB183F /* Black Box */ = {
 			isa = PBXGroup;
 			children = (
-				965E5FFD1A507C6000BB183F /* AppDelegate.swift */,
-				965E600A1A507C6000BB183F /* LaunchScreen.xib */,
-				9610683E1A94D686002B02D0 /* Models */,
-				9610684A1A94D708002B02D0 /* Views */,
 				961068491A94D6F7002B02D0 /* Controllers */,
 				96DB343F1AA78F7A0076F165 /* Extensions */,
 				96DB34261AA789570076F165 /* Levels */,
-				965DF4951ABF3C92008866BC /* Sounds */,
 				968C01AD1B04399D003F8BA7 /* Markdown */,
+				9610683E1A94D686002B02D0 /* Models */,
+				965DF4951ABF3C92008866BC /* Sounds */,
 				965E5FFB1A507C5F00BB183F /* Supporting Files */,
 				96B9E4BA1F69CAE50006AEA2 /* Utility */,
 				968C01B41B057DF0003F8BA7 /* Vendor */,
+				9610684A1A94D708002B02D0 /* Views */,
+				965E5FFD1A507C6000BB183F /* AppDelegate.swift */,
 				965E60081A507C6000BB183F /* Images.xcassets */,
+				965E600A1A507C6000BB183F /* LaunchScreen.xib */,
 			);
 			path = "Black Box";
 			sourceTree = "<group>";
@@ -367,6 +371,7 @@
 				965E5FFC1A507C6000BB183F /* Info.plist */,
 			);
 			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		965E60141A507C6000BB183F /* Black BoxTests */ = {
@@ -385,6 +390,7 @@
 				965E60161A507C6000BB183F /* Info.plist */,
 			);
 			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		968C01AD1B04399D003F8BA7 /* Markdown */ = {
@@ -393,6 +399,7 @@
 				968C01AE1B0439F0003F8BA7 /* README.md */,
 			);
 			name = Markdown;
+			path = Markdown;
 			sourceTree = "<group>";
 		};
 		968C01B41B057DF0003F8BA7 /* Vendor */ = {
@@ -401,6 +408,7 @@
 				9666980C1BF266A0007200DF /* Markdown.swift */,
 			);
 			name = Vendor;
+			path = Vendor;
 			sourceTree = "<group>";
 		};
 		96AC89411DD7B9D7007356B8 /* Frameworks */ = {
@@ -421,21 +429,13 @@
 				96B9E4BB1F69CB150006AEA2 /* Random.swift */,
 			);
 			name = Utility;
-			path = ..;
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		96DB34261AA789570076F165 /* Levels */ = {
 			isa = PBXGroup;
 			children = (
 				96DB34311AA789F70076F165 /* Game1.json */,
-				96DB348E1AA7CED80076F165 /* Game2.json */,
-				96DB343B1AA78C280076F165 /* Game3.json */,
-				96DB349A1AA7CF7B0076F165 /* Game4.json */,
-				96DB345A1AA7AC090076F165 /* Game5.json */,
-				96DB348A1AA7CECA0076F165 /* Game6.json */,
-				96DB344A1AA7ABE20076F165 /* Game7.json */,
-				96DB34AA1AA88D130076F165 /* Game8.json */,
-				96DB34561AA7AC000076F165 /* Game9.json */,
 				96DB34B61AA88D530076F165 /* Game10.json */,
 				96DB34351AA78C110076F165 /* Game11.json */,
 				96DB34981AA7CF740076F165 /* Game12.json */,
@@ -446,6 +446,7 @@
 				96DB34541AA7ABFC0076F165 /* Game17.json */,
 				96DB34B41AA88D4B0076F165 /* Game18.json */,
 				96DB34601AA7AC170076F165 /* Game19.json */,
+				96DB348E1AA7CED80076F165 /* Game2.json */,
 				96DB34A41AA88CE50076F165 /* Game20.json */,
 				96DB34371AA78C1B0076F165 /* Game21.json */,
 				96DB34861AA7CEB10076F165 /* Game22.json */,
@@ -456,6 +457,7 @@
 				96DB345E1AA7AC130076F165 /* Game27.json */,
 				96DB34A21AA88CDA0076F165 /* Game28.json */,
 				96DB344E1AA7ABEC0076F165 /* Game29.json */,
+				96DB343B1AA78C280076F165 /* Game3.json */,
 				96DB34AE1AA88D220076F165 /* Game30.json */,
 				96DB34391AA78C230076F165 /* Game31.json */,
 				96DB34901AA7CEE30076F165 /* Game32.json */,
@@ -466,6 +468,7 @@
 				96DB344C1AA7ABE70076F165 /* Game37.json */,
 				96DB34AC1AA88D1B0076F165 /* Game38.json */,
 				96DB34581AA7AC040076F165 /* Game39.json */,
+				96DB349A1AA7CF7B0076F165 /* Game4.json */,
 				96DB34B81AA88D660076F165 /* Game40.json */,
 				96DB34621AA7AC1C0076F165 /* Game41.json */,
 				96DB34A61AA88CF40076F165 /* Game42.json */,
@@ -476,6 +479,7 @@
 				96DB347E1AA7CBA50076F165 /* Game47.json */,
 				96DB34C21AA8AD680076F165 /* Game48.json */,
 				96DB34821AA7CEA10076F165 /* Game49.json */,
+				96DB345A1AA7AC090076F165 /* Game5.json */,
 				96DB34CE1AA8AD9B0076F165 /* Game50.json */,
 				96DB34641AA7CB250076F165 /* Game51.json */,
 				96DB34B01AA88D2A0076F165 /* Game52.json */,
@@ -486,6 +490,7 @@
 				96DB346C1AA7CB4C0076F165 /* Game57.json */,
 				96DB34CC1AA8AD930076F165 /* Game58.json */,
 				96DB348C1AA7CED20076F165 /* Game59.json */,
+				96DB348A1AA7CECA0076F165 /* Game6.json */,
 				96DB34D81AA8ADC90076F165 /* Game60.json */,
 				96DB346E1AA7CB560076F165 /* Game61.json */,
 				96DB34BA1AA88D730076F165 /* Game62.json */,
@@ -496,6 +501,7 @@
 				96DB34761AA7CB7D0076F165 /* Game67.json */,
 				96DB34D61AA8ADC20076F165 /* Game68.json */,
 				96DB34961AA7CF6C0076F165 /* Game69.json */,
+				96DB344A1AA7ABE20076F165 /* Game7.json */,
 				96DB34C61AA8AD770076F165 /* Game70.json */,
 				96DB34781AA7CB8F0076F165 /* Game71.json */,
 				96DB34A81AA88D060076F165 /* Game72.json */,
@@ -506,9 +512,12 @@
 				96DB34801AA7CBAC0076F165 /* Game77.json */,
 				96DB34C41AA8AD700076F165 /* Game78.json */,
 				96DB34841AA7CEA90076F165 /* Game79.json */,
+				96DB34AA1AA88D130076F165 /* Game8.json */,
 				96DB34D01AA8ADA40076F165 /* Game80.json */,
+				96DB34561AA7AC000076F165 /* Game9.json */,
 			);
 			name = Levels;
+			path = Levels;
 			sourceTree = "<group>";
 		};
 		96DB343F1AA78F7A0076F165 /* Extensions */ = {
@@ -517,6 +526,7 @@
 				96DB34401AA78F930076F165 /* Dictionary.swift */,
 			);
 			name = Extensions;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		F0CDC334CE2CE5EDDA8679BA /* Pods */ = {
@@ -861,6 +871,7 @@
 				965E60061A507C6000BB183F /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		965E600A1A507C6000BB183F /* LaunchScreen.xib */ = {
@@ -869,6 +880,7 @@
 				965E600B1A507C6000BB183F /* Base */,
 			);
 			name = LaunchScreen.xib;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -989,7 +1001,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = "Black Box/Info.plist";
+				INFOPLIST_FILE = "Black Box/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.peapodmm.blackbox;
@@ -1012,7 +1024,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = "Black Box/Info.plist";
+				INFOPLIST_FILE = "Black Box/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.peapodmm.blackbox;
@@ -1033,7 +1045,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "Black BoxTests/Info.plist";
+				INFOPLIST_FILE = "Black BoxTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.peapodmm.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1048,7 +1060,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = "Black BoxTests/Info.plist";
+				INFOPLIST_FILE = "Black BoxTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.peapodmm.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";

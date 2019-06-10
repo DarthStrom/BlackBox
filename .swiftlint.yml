@@ -1,7 +1,7 @@
 included:
   - Black Box
 excluded:
-  - Black Box/Markdown.swift
+  - Black Box/Vendor/Markdown.swift
 
 type_name:
   min_length: 2
