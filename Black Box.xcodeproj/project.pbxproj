@@ -131,19 +131,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		17B59F52B7C5B5FD14AAA4A3 /* Pods-Black BoxTests.debug (development).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Black BoxTests.debug (development).xcconfig"; path = "Pods/Target Support Files/Pods-Black BoxTests/Pods-Black BoxTests.debug (development).xcconfig"; sourceTree = "<group>"; };
 		1AE3747D1FA978EAB154A084 /* Pods-Black Box.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Black Box.release.xcconfig"; path = "Pods/Target Support Files/Pods-Black Box/Pods-Black Box.release.xcconfig"; sourceTree = "<group>"; };
-		1D9074395FD330A7AEA9E13E /* Pods-Black BoxTests.release (development).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Black BoxTests.release (development).xcconfig"; path = "Pods/Target Support Files/Pods-Black BoxTests/Pods-Black BoxTests.release (development).xcconfig"; sourceTree = "<group>"; };
-		2A989E29B7DABD4EC7654398 /* Pods-Black Box.release-development.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Black Box.release-development.xcconfig"; path = "Pods/Target Support Files/Pods-Black Box/Pods-Black Box.release-development.xcconfig"; sourceTree = "<group>"; };
 		2C77435B99747E85B445BDA2 /* Pods-Black BoxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Black BoxTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Black BoxTests/Pods-Black BoxTests.release.xcconfig"; sourceTree = "<group>"; };
-		3210F59E1AF0EE29A6E0B87D /* Pods-Black Box.debug-staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Black Box.debug-staging.xcconfig"; path = "Pods/Target Support Files/Pods-Black Box/Pods-Black Box.debug-staging.xcconfig"; sourceTree = "<group>"; };
-		476DFEC758CAE5F523D1E83F /* Pods-Black BoxTests.debug-staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Black BoxTests.debug-staging.xcconfig"; path = "Pods/Target Support Files/Pods-Black BoxTests/Pods-Black BoxTests.debug-staging.xcconfig"; sourceTree = "<group>"; };
-		612AA441B1E5ACEB1B5887FF /* Pods-Black Box.release (production).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Black Box.release (production).xcconfig"; path = "Pods/Target Support Files/Pods-Black Box/Pods-Black Box.release (production).xcconfig"; sourceTree = "<group>"; };
-		699A7F40B7B9930F18118637 /* Pods-Black Box.release (development).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Black Box.release (development).xcconfig"; path = "Pods/Target Support Files/Pods-Black Box/Pods-Black Box.release (development).xcconfig"; sourceTree = "<group>"; };
-		7398540684E933A2FF14C896 /* Pods-Black Box.debug (development).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Black Box.debug (development).xcconfig"; path = "Pods/Target Support Files/Pods-Black Box/Pods-Black Box.debug (development).xcconfig"; sourceTree = "<group>"; };
-		835C9B9B0C1061EAD4F97FD6 /* Pods-Black BoxTests.debug-development.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Black BoxTests.debug-development.xcconfig"; path = "Pods/Target Support Files/Pods-Black BoxTests/Pods-Black BoxTests.debug-development.xcconfig"; sourceTree = "<group>"; };
 		86EAEA89556E05B886B089C1 /* Pods_Black_BoxTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Black_BoxTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8B8583EB4395187F770AA076 /* Pods-Black BoxTests.debug (production).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Black BoxTests.debug (production).xcconfig"; path = "Pods/Target Support Files/Pods-Black BoxTests/Pods-Black BoxTests.debug (production).xcconfig"; sourceTree = "<group>"; };
 		9603D8171A70A9A7007A1A0F /* EntryPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryPoint.swift; sourceTree = "<group>"; };
 		9610684B1A94D86D002B02D0 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		9610684D1A94DAB7002B02D0 /* ExitResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExitResult.swift; sourceTree = "<group>"; };
@@ -163,7 +153,7 @@
 		965E60111A507C6000BB183F /* Black BoxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Black BoxTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		965E60161A507C6000BB183F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9666980C1BF266A0007200DF /* Markdown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Markdown.swift; sourceTree = "<group>"; };
-		968C01AE1B0439F0003F8BA7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		968C01AE1B0439F0003F8BA7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		968C01B01B0445FF003F8BA7 /* InstructionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionsViewController.swift; sourceTree = "<group>"; };
 		968FFDA41A94F08D006E59A2 /* Ray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ray.swift; sourceTree = "<group>"; };
 		969865131AAB47AD00D277C6 /* Mark.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Mark.wav; sourceTree = "<group>"; };
@@ -258,23 +248,9 @@
 		96DB34D81AA8ADC90076F165 /* Game60.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Game60.json; sourceTree = "<group>"; };
 		96F0C8951A98F14E00755598 /* Slot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Slot.swift; sourceTree = "<group>"; };
 		96F12CCA1A6AF6D100435452 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
-		9E50F90F227DA745D27EC943 /* Pods-Black Box.debug-development.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Black Box.debug-development.xcconfig"; path = "Pods/Target Support Files/Pods-Black Box/Pods-Black Box.debug-development.xcconfig"; sourceTree = "<group>"; };
 		A298B90C2E03BB403C14639B /* Pods-Black BoxTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Black BoxTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Black BoxTests/Pods-Black BoxTests.debug.xcconfig"; sourceTree = "<group>"; };
-		A4DF32866CF5E338655E5B60 /* Pods-Black BoxTests.release-production.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Black BoxTests.release-production.xcconfig"; path = "Pods/Target Support Files/Pods-Black BoxTests/Pods-Black BoxTests.release-production.xcconfig"; sourceTree = "<group>"; };
-		A58915FBC9FD0CC2662EADE6 /* Pods-Black BoxTests.release-development.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Black BoxTests.release-development.xcconfig"; path = "Pods/Target Support Files/Pods-Black BoxTests/Pods-Black BoxTests.release-development.xcconfig"; sourceTree = "<group>"; };
-		A804540CA4C7FAB1BDFED9EC /* Pods-Black Box.debug (production).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Black Box.debug (production).xcconfig"; path = "Pods/Target Support Files/Pods-Black Box/Pods-Black Box.debug (production).xcconfig"; sourceTree = "<group>"; };
-		A9DED1B9F17A94A00A835D19 /* Pods-Black BoxTests.debug (staging).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Black BoxTests.debug (staging).xcconfig"; path = "Pods/Target Support Files/Pods-Black BoxTests/Pods-Black BoxTests.debug (staging).xcconfig"; sourceTree = "<group>"; };
-		B20D03FEC9452CD04ECD0F39 /* Pods-Black BoxTests.debug-production.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Black BoxTests.debug-production.xcconfig"; path = "Pods/Target Support Files/Pods-Black BoxTests/Pods-Black BoxTests.debug-production.xcconfig"; sourceTree = "<group>"; };
 		B96C5085B51A97ED2F855F61 /* Pods-Black Box.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Black Box.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Black Box/Pods-Black Box.debug.xcconfig"; sourceTree = "<group>"; };
-		B983A784862449F73EC3F629 /* Pods-Black Box.release-production.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Black Box.release-production.xcconfig"; path = "Pods/Target Support Files/Pods-Black Box/Pods-Black Box.release-production.xcconfig"; sourceTree = "<group>"; };
-		D0371A31AFCB424719A413EC /* Pods-Black Box.debug-production.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Black Box.debug-production.xcconfig"; path = "Pods/Target Support Files/Pods-Black Box/Pods-Black Box.debug-production.xcconfig"; sourceTree = "<group>"; };
-		D1EF585D9B8C94D2DB1382E2 /* Pods-Black Box.release-staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Black Box.release-staging.xcconfig"; path = "Pods/Target Support Files/Pods-Black Box/Pods-Black Box.release-staging.xcconfig"; sourceTree = "<group>"; };
-		D3BD91A59BAA6ED5CB3E882C /* Pods-Black Box.debug (staging).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Black Box.debug (staging).xcconfig"; path = "Pods/Target Support Files/Pods-Black Box/Pods-Black Box.debug (staging).xcconfig"; sourceTree = "<group>"; };
-		DE95907D5D9BC985860DF5E0 /* Pods-Black BoxTests.release (production).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Black BoxTests.release (production).xcconfig"; path = "Pods/Target Support Files/Pods-Black BoxTests/Pods-Black BoxTests.release (production).xcconfig"; sourceTree = "<group>"; };
-		DEF275A6A0566161538ABACF /* Pods-Black BoxTests.release (staging).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Black BoxTests.release (staging).xcconfig"; path = "Pods/Target Support Files/Pods-Black BoxTests/Pods-Black BoxTests.release (staging).xcconfig"; sourceTree = "<group>"; };
 		EFED1BB4C1A7CAD391AC5A4C /* Pods_Black_Box.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Black_Box.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F234B98EE68C86F983A75E3E /* Pods-Black BoxTests.release-staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Black BoxTests.release-staging.xcconfig"; path = "Pods/Target Support Files/Pods-Black BoxTests/Pods-Black BoxTests.release-staging.xcconfig"; sourceTree = "<group>"; };
-		F744FBCC66453BB0780B8B2C /* Pods-Black Box.release (staging).xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Black Box.release (staging).xcconfig"; path = "Pods/Target Support Files/Pods-Black Box/Pods-Black Box.release (staging).xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -312,7 +288,6 @@
 				96F0C8951A98F14E00755598 /* Slot.swift */,
 			);
 			name = Models;
-			path = Models;
 			sourceTree = "<group>";
 		};
 		961068491A94D6F7002B02D0 /* Controllers */ = {
@@ -322,31 +297,28 @@
 				968C01B01B0445FF003F8BA7 /* InstructionsViewController.swift */,
 			);
 			name = Controllers;
-			path = Controllers;
 			sourceTree = "<group>";
 		};
 		9610684A1A94D708002B02D0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				9603D8171A70A9A7007A1A0F /* EntryPoint.swift */,
 				965E60011A507C6000BB183F /* GameScene.swift */,
+				9603D8171A70A9A7007A1A0F /* EntryPoint.swift */,
 				965E60051A507C6000BB183F /* Main.storyboard */,
 			);
 			name = Views;
-			path = Views;
 			sourceTree = "<group>";
 		};
 		965DF4951ABF3C92008866BC /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				969865201AAB48D400D277C6 /* Failure.wav */,
-				969865131AAB47AD00D277C6 /* Mark.wav */,
-				969865221AAB48D400D277C6 /* NewGame.wav */,
 				9698651F1AAB48D400D277C6 /* Probe.wav */,
+				969865201AAB48D400D277C6 /* Failure.wav */,
 				969865211AAB48D400D277C6 /* Success.wav */,
+				969865221AAB48D400D277C6 /* NewGame.wav */,
+				969865131AAB47AD00D277C6 /* Mark.wav */,
 			);
 			name = Sounds;
-			path = Sounds;
 			sourceTree = "<group>";
 		};
 		965E5FEF1A507C5F00BB183F = {
@@ -354,9 +326,9 @@
 			children = (
 				965E5FFA1A507C5F00BB183F /* Black Box */,
 				965E60141A507C6000BB183F /* Black BoxTests */,
+				965E5FF91A507C5F00BB183F /* Products */,
 				96AC89411DD7B9D7007356B8 /* Frameworks */,
 				F0CDC334CE2CE5EDDA8679BA /* Pods */,
-				965E5FF91A507C5F00BB183F /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -372,19 +344,19 @@
 		965E5FFA1A507C5F00BB183F /* Black Box */ = {
 			isa = PBXGroup;
 			children = (
+				965E5FFD1A507C6000BB183F /* AppDelegate.swift */,
+				965E600A1A507C6000BB183F /* LaunchScreen.xib */,
+				9610683E1A94D686002B02D0 /* Models */,
+				9610684A1A94D708002B02D0 /* Views */,
 				961068491A94D6F7002B02D0 /* Controllers */,
 				96DB343F1AA78F7A0076F165 /* Extensions */,
 				96DB34261AA789570076F165 /* Levels */,
-				968C01AD1B04399D003F8BA7 /* Markdown */,
-				9610683E1A94D686002B02D0 /* Models */,
 				965DF4951ABF3C92008866BC /* Sounds */,
+				968C01AD1B04399D003F8BA7 /* Markdown */,
 				965E5FFB1A507C5F00BB183F /* Supporting Files */,
 				96B9E4BA1F69CAE50006AEA2 /* Utility */,
 				968C01B41B057DF0003F8BA7 /* Vendor */,
-				9610684A1A94D708002B02D0 /* Views */,
-				965E5FFD1A507C6000BB183F /* AppDelegate.swift */,
 				965E60081A507C6000BB183F /* Images.xcassets */,
-				965E600A1A507C6000BB183F /* LaunchScreen.xib */,
 			);
 			path = "Black Box";
 			sourceTree = "<group>";
@@ -395,7 +367,6 @@
 				965E5FFC1A507C6000BB183F /* Info.plist */,
 			);
 			name = "Supporting Files";
-			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		965E60141A507C6000BB183F /* Black BoxTests */ = {
@@ -414,7 +385,6 @@
 				965E60161A507C6000BB183F /* Info.plist */,
 			);
 			name = "Supporting Files";
-			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		968C01AD1B04399D003F8BA7 /* Markdown */ = {
@@ -423,7 +393,6 @@
 				968C01AE1B0439F0003F8BA7 /* README.md */,
 			);
 			name = Markdown;
-			path = Markdown;
 			sourceTree = "<group>";
 		};
 		968C01B41B057DF0003F8BA7 /* Vendor */ = {
@@ -432,7 +401,6 @@
 				9666980C1BF266A0007200DF /* Markdown.swift */,
 			);
 			name = Vendor;
-			path = Vendor;
 			sourceTree = "<group>";
 		};
 		96AC89411DD7B9D7007356B8 /* Frameworks */ = {
@@ -453,13 +421,21 @@
 				96B9E4BB1F69CB150006AEA2 /* Random.swift */,
 			);
 			name = Utility;
-			path = Utility;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		96DB34261AA789570076F165 /* Levels */ = {
 			isa = PBXGroup;
 			children = (
 				96DB34311AA789F70076F165 /* Game1.json */,
+				96DB348E1AA7CED80076F165 /* Game2.json */,
+				96DB343B1AA78C280076F165 /* Game3.json */,
+				96DB349A1AA7CF7B0076F165 /* Game4.json */,
+				96DB345A1AA7AC090076F165 /* Game5.json */,
+				96DB348A1AA7CECA0076F165 /* Game6.json */,
+				96DB344A1AA7ABE20076F165 /* Game7.json */,
+				96DB34AA1AA88D130076F165 /* Game8.json */,
+				96DB34561AA7AC000076F165 /* Game9.json */,
 				96DB34B61AA88D530076F165 /* Game10.json */,
 				96DB34351AA78C110076F165 /* Game11.json */,
 				96DB34981AA7CF740076F165 /* Game12.json */,
@@ -470,7 +446,6 @@
 				96DB34541AA7ABFC0076F165 /* Game17.json */,
 				96DB34B41AA88D4B0076F165 /* Game18.json */,
 				96DB34601AA7AC170076F165 /* Game19.json */,
-				96DB348E1AA7CED80076F165 /* Game2.json */,
 				96DB34A41AA88CE50076F165 /* Game20.json */,
 				96DB34371AA78C1B0076F165 /* Game21.json */,
 				96DB34861AA7CEB10076F165 /* Game22.json */,
@@ -481,7 +456,6 @@
 				96DB345E1AA7AC130076F165 /* Game27.json */,
 				96DB34A21AA88CDA0076F165 /* Game28.json */,
 				96DB344E1AA7ABEC0076F165 /* Game29.json */,
-				96DB343B1AA78C280076F165 /* Game3.json */,
 				96DB34AE1AA88D220076F165 /* Game30.json */,
 				96DB34391AA78C230076F165 /* Game31.json */,
 				96DB34901AA7CEE30076F165 /* Game32.json */,
@@ -492,7 +466,6 @@
 				96DB344C1AA7ABE70076F165 /* Game37.json */,
 				96DB34AC1AA88D1B0076F165 /* Game38.json */,
 				96DB34581AA7AC040076F165 /* Game39.json */,
-				96DB349A1AA7CF7B0076F165 /* Game4.json */,
 				96DB34B81AA88D660076F165 /* Game40.json */,
 				96DB34621AA7AC1C0076F165 /* Game41.json */,
 				96DB34A61AA88CF40076F165 /* Game42.json */,
@@ -503,7 +476,6 @@
 				96DB347E1AA7CBA50076F165 /* Game47.json */,
 				96DB34C21AA8AD680076F165 /* Game48.json */,
 				96DB34821AA7CEA10076F165 /* Game49.json */,
-				96DB345A1AA7AC090076F165 /* Game5.json */,
 				96DB34CE1AA8AD9B0076F165 /* Game50.json */,
 				96DB34641AA7CB250076F165 /* Game51.json */,
 				96DB34B01AA88D2A0076F165 /* Game52.json */,
@@ -514,7 +486,6 @@
 				96DB346C1AA7CB4C0076F165 /* Game57.json */,
 				96DB34CC1AA8AD930076F165 /* Game58.json */,
 				96DB348C1AA7CED20076F165 /* Game59.json */,
-				96DB348A1AA7CECA0076F165 /* Game6.json */,
 				96DB34D81AA8ADC90076F165 /* Game60.json */,
 				96DB346E1AA7CB560076F165 /* Game61.json */,
 				96DB34BA1AA88D730076F165 /* Game62.json */,
@@ -525,7 +496,6 @@
 				96DB34761AA7CB7D0076F165 /* Game67.json */,
 				96DB34D61AA8ADC20076F165 /* Game68.json */,
 				96DB34961AA7CF6C0076F165 /* Game69.json */,
-				96DB344A1AA7ABE20076F165 /* Game7.json */,
 				96DB34C61AA8AD770076F165 /* Game70.json */,
 				96DB34781AA7CB8F0076F165 /* Game71.json */,
 				96DB34A81AA88D060076F165 /* Game72.json */,
@@ -536,12 +506,9 @@
 				96DB34801AA7CBAC0076F165 /* Game77.json */,
 				96DB34C41AA8AD700076F165 /* Game78.json */,
 				96DB34841AA7CEA90076F165 /* Game79.json */,
-				96DB34AA1AA88D130076F165 /* Game8.json */,
 				96DB34D01AA8ADA40076F165 /* Game80.json */,
-				96DB34561AA7AC000076F165 /* Game9.json */,
 			);
 			name = Levels;
-			path = Levels;
 			sourceTree = "<group>";
 		};
 		96DB343F1AA78F7A0076F165 /* Extensions */ = {
@@ -550,7 +517,6 @@
 				96DB34401AA78F930076F165 /* Dictionary.swift */,
 			);
 			name = Extensions;
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		F0CDC334CE2CE5EDDA8679BA /* Pods */ = {
@@ -560,30 +526,6 @@
 				1AE3747D1FA978EAB154A084 /* Pods-Black Box.release.xcconfig */,
 				A298B90C2E03BB403C14639B /* Pods-Black BoxTests.debug.xcconfig */,
 				2C77435B99747E85B445BDA2 /* Pods-Black BoxTests.release.xcconfig */,
-				7398540684E933A2FF14C896 /* Pods-Black Box.debug (development).xcconfig */,
-				D3BD91A59BAA6ED5CB3E882C /* Pods-Black Box.debug (staging).xcconfig */,
-				A804540CA4C7FAB1BDFED9EC /* Pods-Black Box.debug (production).xcconfig */,
-				699A7F40B7B9930F18118637 /* Pods-Black Box.release (development).xcconfig */,
-				F744FBCC66453BB0780B8B2C /* Pods-Black Box.release (staging).xcconfig */,
-				612AA441B1E5ACEB1B5887FF /* Pods-Black Box.release (production).xcconfig */,
-				17B59F52B7C5B5FD14AAA4A3 /* Pods-Black BoxTests.debug (development).xcconfig */,
-				A9DED1B9F17A94A00A835D19 /* Pods-Black BoxTests.debug (staging).xcconfig */,
-				8B8583EB4395187F770AA076 /* Pods-Black BoxTests.debug (production).xcconfig */,
-				1D9074395FD330A7AEA9E13E /* Pods-Black BoxTests.release (development).xcconfig */,
-				DEF275A6A0566161538ABACF /* Pods-Black BoxTests.release (staging).xcconfig */,
-				DE95907D5D9BC985860DF5E0 /* Pods-Black BoxTests.release (production).xcconfig */,
-				9E50F90F227DA745D27EC943 /* Pods-Black Box.debug-development.xcconfig */,
-				3210F59E1AF0EE29A6E0B87D /* Pods-Black Box.debug-staging.xcconfig */,
-				D0371A31AFCB424719A413EC /* Pods-Black Box.debug-production.xcconfig */,
-				2A989E29B7DABD4EC7654398 /* Pods-Black Box.release-development.xcconfig */,
-				D1EF585D9B8C94D2DB1382E2 /* Pods-Black Box.release-staging.xcconfig */,
-				B983A784862449F73EC3F629 /* Pods-Black Box.release-production.xcconfig */,
-				835C9B9B0C1061EAD4F97FD6 /* Pods-Black BoxTests.debug-development.xcconfig */,
-				476DFEC758CAE5F523D1E83F /* Pods-Black BoxTests.debug-staging.xcconfig */,
-				B20D03FEC9452CD04ECD0F39 /* Pods-Black BoxTests.debug-production.xcconfig */,
-				A58915FBC9FD0CC2662EADE6 /* Pods-Black BoxTests.release-development.xcconfig */,
-				F234B98EE68C86F983A75E3E /* Pods-Black BoxTests.release-staging.xcconfig */,
-				A4DF32866CF5E338655E5B60 /* Pods-Black BoxTests.release-production.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -600,7 +542,6 @@
 				965E5FF51A507C5F00BB183F /* Frameworks */,
 				965E5FF61A507C5F00BB183F /* Resources */,
 				968C06D21CB1A3B400964516 /* SwiftLint */,
-				6F2AF1DB452B6950DCCA47AC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -800,24 +741,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6F2AF1DB452B6950DCCA47AC /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Black Box/Pods-Black Box-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Flurry-iOS-SDK/Flurry_iOS_SDK.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Flurry_iOS_SDK.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Black Box/Pods-Black Box-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		83203FAEE3A4CE1EB134E2FB /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -938,7 +861,6 @@
 				965E60061A507C6000BB183F /* Base */,
 			);
 			name = Main.storyboard;
-			path = .;
 			sourceTree = "<group>";
 		};
 		965E600A1A507C6000BB183F /* LaunchScreen.xib */ = {
@@ -947,13 +869,12 @@
 				965E600B1A507C6000BB183F /* Base */,
 			);
 			name = LaunchScreen.xib;
-			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		965E60191A507C6000BB183F /* Debug-Development */ = {
+		965E60191A507C6000BB183F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1006,9 +927,9 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
-			name = "Debug-Development";
+			name = Debug;
 		};
-		965E601A1A507C6000BB183F /* Release-Development */ = {
+		965E601A1A507C6000BB183F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1054,11 +975,11 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
-			name = "Release-Development";
+			name = Release;
 		};
-		965E601C1A507C6000BB183F /* Debug-Development */ = {
+		965E601C1A507C6000BB183F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9E50F90F227DA745D27EC943 /* Pods-Black Box.debug-development.xcconfig */;
+			baseConfigurationReference = B96C5085B51A97ED2F855F61 /* Pods-Black Box.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1068,19 +989,20 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = "Black Box/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "Black Box/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.peapodmm.blackbox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
-			name = "Debug-Development";
+			name = Debug;
 		};
-		965E601D1A507C6000BB183F /* Release-Development */ = {
+		965E601D1A507C6000BB183F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2A989E29B7DABD4EC7654398 /* Pods-Black Box.release-development.xcconfig */;
+			baseConfigurationReference = 1AE3747D1FA978EAB154A084 /* Pods-Black Box.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1090,19 +1012,20 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = "Black Box/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "Black Box/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.peapodmm.blackbox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
-			name = "Release-Development";
+			name = Release;
 		};
-		965E601F1A507C6000BB183F /* Debug-Development */ = {
+		965E601F1A507C6000BB183F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 835C9B9B0C1061EAD4F97FD6 /* Pods-Black BoxTests.debug-development.xcconfig */;
+			baseConfigurationReference = A298B90C2E03BB403C14639B /* Pods-Black BoxTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -1110,391 +1033,29 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "Black BoxTests/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "Black BoxTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.peapodmm.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Black Box.app/Black Box";
 			};
-			name = "Debug-Development";
+			name = Debug;
 		};
-		965E60201A507C6000BB183F /* Release-Development */ = {
+		965E60201A507C6000BB183F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A58915FBC9FD0CC2662EADE6 /* Pods-Black BoxTests.release-development.xcconfig */;
+			baseConfigurationReference = 2C77435B99747E85B445BDA2 /* Pods-Black BoxTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = "Black BoxTests/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "Black BoxTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.peapodmm.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Black Box.app/Black Box";
 			};
-			name = "Release-Development";
-		};
-		96ACF04E229C8C0C0067F91B /* Debug-Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = "Debug-Staging";
-		};
-		96ACF04F229C8C0C0067F91B /* Debug-Staging */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3210F59E1AF0EE29A6E0B87D /* Pods-Black Box.debug-staging.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = SPU386ZNKS;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)",
-				);
-				INFOPLIST_FILE = "Black Box/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.peapodmm.blackbox;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = "Debug-Staging";
-		};
-		96ACF050229C8C0C0067F91B /* Debug-Staging */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 476DFEC758CAE5F523D1E83F /* Pods-Black BoxTests.debug-staging.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Black BoxTests/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.peapodmm.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Black Box.app/Black Box";
-			};
-			name = "Debug-Staging";
-		};
-		96ACF051229C8C440067F91B /* Debug-Production */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = "Debug-Production";
-		};
-		96ACF052229C8C440067F91B /* Debug-Production */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D0371A31AFCB424719A413EC /* Pods-Black Box.debug-production.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = SPU386ZNKS;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)",
-				);
-				INFOPLIST_FILE = "Black Box/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.peapodmm.blackbox;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = "Debug-Production";
-		};
-		96ACF053229C8C440067F91B /* Debug-Production */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B20D03FEC9452CD04ECD0F39 /* Pods-Black BoxTests.debug-production.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Black BoxTests/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.peapodmm.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Black Box.app/Black Box";
-			};
-			name = "Debug-Production";
-		};
-		96ACF054229C8C510067F91B /* Release-Staging */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = "Release-Staging";
-		};
-		96ACF055229C8C510067F91B /* Release-Staging */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D1EF585D9B8C94D2DB1382E2 /* Pods-Black Box.release-staging.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = SPU386ZNKS;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)",
-				);
-				INFOPLIST_FILE = "Black Box/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.peapodmm.blackbox;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = "Release-Staging";
-		};
-		96ACF056229C8C510067F91B /* Release-Staging */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F234B98EE68C86F983A75E3E /* Pods-Black BoxTests.release-staging.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = "Black BoxTests/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.peapodmm.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Black Box.app/Black Box";
-			};
-			name = "Release-Staging";
-		};
-		96ACF057229C8C5B0067F91B /* Release-Production */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = "Release-Production";
-		};
-		96ACF058229C8C5B0067F91B /* Release-Production */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B983A784862449F73EC3F629 /* Pods-Black Box.release-production.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = SPU386ZNKS;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)",
-				);
-				INFOPLIST_FILE = "Black Box/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.peapodmm.blackbox;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = "Release-Production";
-		};
-		96ACF059229C8C5B0067F91B /* Release-Production */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A4DF32866CF5E338655E5B60 /* Pods-Black BoxTests.release-production.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = "Black BoxTests/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.peapodmm.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Black Box.app/Black Box";
-			};
-			name = "Release-Production";
+			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
@@ -1502,41 +1063,29 @@
 		965E5FF31A507C5F00BB183F /* Build configuration list for PBXProject "Black Box" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				965E60191A507C6000BB183F /* Debug-Development */,
-				96ACF04E229C8C0C0067F91B /* Debug-Staging */,
-				96ACF051229C8C440067F91B /* Debug-Production */,
-				965E601A1A507C6000BB183F /* Release-Development */,
-				96ACF054229C8C510067F91B /* Release-Staging */,
-				96ACF057229C8C5B0067F91B /* Release-Production */,
+				965E60191A507C6000BB183F /* Debug */,
+				965E601A1A507C6000BB183F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "Release-Production";
+			defaultConfigurationName = Release;
 		};
 		965E601B1A507C6000BB183F /* Build configuration list for PBXNativeTarget "Black Box" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				965E601C1A507C6000BB183F /* Debug-Development */,
-				96ACF04F229C8C0C0067F91B /* Debug-Staging */,
-				96ACF052229C8C440067F91B /* Debug-Production */,
-				965E601D1A507C6000BB183F /* Release-Development */,
-				96ACF055229C8C510067F91B /* Release-Staging */,
-				96ACF058229C8C5B0067F91B /* Release-Production */,
+				965E601C1A507C6000BB183F /* Debug */,
+				965E601D1A507C6000BB183F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "Release-Production";
+			defaultConfigurationName = Release;
 		};
 		965E601E1A507C6000BB183F /* Build configuration list for PBXNativeTarget "Black BoxTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				965E601F1A507C6000BB183F /* Debug-Development */,
-				96ACF050229C8C0C0067F91B /* Debug-Staging */,
-				96ACF053229C8C440067F91B /* Debug-Production */,
-				965E60201A507C6000BB183F /* Release-Development */,
-				96ACF056229C8C510067F91B /* Release-Staging */,
-				96ACF059229C8C5B0067F91B /* Release-Production */,
+				965E601F1A507C6000BB183F /* Debug */,
+				965E60201A507C6000BB183F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "Release-Production";
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

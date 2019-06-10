@@ -3,8 +3,6 @@ target 'Black Box' do
 
   platform :ios, '8.0'
 
-  pod 'Flurry-iOS-SDK/FlurrySDK' #Analytics Pod
-
   target 'Black BoxTests' do
     inherit! :search_paths
     pod 'Quick', '~> 2.1.0'
