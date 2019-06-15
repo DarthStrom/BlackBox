@@ -147,7 +147,16 @@
 		961068511A94E01B002B02D0 /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		961F30BE1C04A6B80055E5F5 /* GameSceneTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSceneTests.swift; sourceTree = "<group>"; };
 		962BF8EF1F4E5E5C0095C294 /* Moxie.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Moxie.framework; path = Carthage/Build/iOS/Moxie.framework; sourceTree = "<group>"; };
+		96308C0022B5522B00A74E7D /* Debug-Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug-Development.xcconfig"; sourceTree = "<group>"; };
+		96308C0122B5524E00A74E7D /* Debug-Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug-Production.xcconfig"; sourceTree = "<group>"; };
+		96308C0222B5525B00A74E7D /* Debug-Staging.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug-Staging.xcconfig"; sourceTree = "<group>"; };
+		96308C0322B5527000A74E7D /* Release-Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release-Development.xcconfig"; sourceTree = "<group>"; };
+		96308C0422B5528400A74E7D /* Release-Staging.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release-Staging.xcconfig"; sourceTree = "<group>"; };
+		96308C0522B5529100A74E7D /* Release-Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release-Production.xcconfig"; sourceTree = "<group>"; };
 		9633C2F91A524038005826D1 /* BlackBoxSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlackBoxSpecs.swift; sourceTree = "<group>"; };
+		963C804822B542F5004D111C /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
+		963C804922B543D8004D111C /* Staging.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Staging.xcconfig; sourceTree = "<group>"; };
+		963C804A22B54409004D111C /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
 		965E5FF81A507C5F00BB183F /* Black Box.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Black Box.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		965E5FFC1A507C6000BB183F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		965E5FFD1A507C6000BB183F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -377,6 +386,15 @@
 			isa = PBXGroup;
 			children = (
 				965E5FFC1A507C6000BB183F /* Info.plist */,
+				963C804822B542F5004D111C /* Development.xcconfig */,
+				963C804922B543D8004D111C /* Staging.xcconfig */,
+				963C804A22B54409004D111C /* Production.xcconfig */,
+				96308C0022B5522B00A74E7D /* Debug-Development.xcconfig */,
+				96308C0222B5525B00A74E7D /* Debug-Staging.xcconfig */,
+				96308C0122B5524E00A74E7D /* Debug-Production.xcconfig */,
+				96308C0322B5527000A74E7D /* Release-Development.xcconfig */,
+				96308C0422B5528400A74E7D /* Release-Staging.xcconfig */,
+				96308C0522B5529100A74E7D /* Release-Production.xcconfig */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -956,7 +974,7 @@
 		};
 		963C803D22B53D71004D111C /* Debug-Staging */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E5A280F4F78F35613FD93CAB /* Pods-Black Box.debug-staging.xcconfig */;
+			baseConfigurationReference = 96308C0222B5525B00A74E7D /* Debug-Staging.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1053,7 +1071,7 @@
 		};
 		963C804022B53D8B004D111C /* Debug-Development */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C293FA2C2650D883D8029728 /* Pods-Black Box.debug-development.xcconfig */;
+			baseConfigurationReference = 96308C0022B5522B00A74E7D /* Debug-Development.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1143,7 +1161,7 @@
 		};
 		963C804322B53DB8004D111C /* Release-Development */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D8EB0CFA04ABB0850351EA0C /* Pods-Black Box.release-development.xcconfig */;
+			baseConfigurationReference = 96308C0322B5527000A74E7D /* Release-Development.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1229,7 +1247,7 @@
 		};
 		963C804622B53DC2004D111C /* Release-Staging */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 01648CE43FDE257155DB5546 /* Pods-Black Box.release-staging.xcconfig */;
+			baseConfigurationReference = 96308C0422B5528400A74E7D /* Release-Staging.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1370,7 +1388,7 @@
 		};
 		965E601C1A507C6000BB183F /* Debug-Production */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A29A8FDFAE88126B9BDF93D9 /* Pods-Black Box.debug-production.xcconfig */;
+			baseConfigurationReference = 96308C0122B5524E00A74E7D /* Debug-Production.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1393,7 +1411,7 @@
 		};
 		965E601D1A507C6000BB183F /* Release-Production */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CBCD6CED5CE168AAF1A443CB /* Pods-Black Box.release-production.xcconfig */;
+			baseConfigurationReference = 96308C0522B5529100A74E7D /* Release-Production.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

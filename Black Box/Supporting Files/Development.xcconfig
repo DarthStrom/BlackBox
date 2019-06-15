@@ -1,0 +1,6 @@
+// Keys
+FLURRY_API_KEY = _development_api_key_
+
+// App Settings
+APP_NAME = Black Box (dev)
+APP_BUNDLE_ID = com.peapodmm.blackbox.dev
