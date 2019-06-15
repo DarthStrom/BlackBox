@@ -588,6 +588,7 @@
 				965E5FF51A507C5F00BB183F /* Frameworks */,
 				965E5FF61A507C5F00BB183F /* Resources */,
 				968C06D21CB1A3B400964516 /* SwiftLint */,
+				48F5BEC75711F5954F3D6C08 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -785,6 +786,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		48F5BEC75711F5954F3D6C08 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Black Box/Pods-Black Box-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Flurry-iOS-SDK/Flurry_iOS_SDK.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Flurry_iOS_SDK.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Black Box/Pods-Black Box-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		83203FAEE3A4CE1EB134E2FB /* [CP] Embed Pods Frameworks */ = {
@@ -992,7 +1011,6 @@
 				);
 				INFOPLIST_FILE = "Black Box/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.peapodmm.blackbox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1089,7 +1107,6 @@
 				);
 				INFOPLIST_FILE = "Black Box/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.peapodmm.blackbox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1179,7 +1196,6 @@
 				);
 				INFOPLIST_FILE = "Black Box/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.peapodmm.blackbox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1265,7 +1281,6 @@
 				);
 				INFOPLIST_FILE = "Black Box/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.peapodmm.blackbox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1406,7 +1421,6 @@
 				);
 				INFOPLIST_FILE = "Black Box/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.peapodmm.blackbox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1429,7 +1443,6 @@
 				);
 				INFOPLIST_FILE = "Black Box/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.peapodmm.blackbox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1478,12 +1491,12 @@
 		965E5FF31A507C5F00BB183F /* Build configuration list for PBXProject "Black Box" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				965E60191A507C6000BB183F /* Debug-Production */,
 				963C803F22B53D8B004D111C /* Debug-Development */,
 				963C803C22B53D71004D111C /* Debug-Staging */,
-				965E601A1A507C6000BB183F /* Release-Production */,
-				963C804522B53DC2004D111C /* Release-Staging */,
+				965E60191A507C6000BB183F /* Debug-Production */,
 				963C804222B53DB8004D111C /* Release-Development */,
+				963C804522B53DC2004D111C /* Release-Staging */,
+				965E601A1A507C6000BB183F /* Release-Production */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = "Release-Production";
@@ -1491,12 +1504,12 @@
 		965E601B1A507C6000BB183F /* Build configuration list for PBXNativeTarget "Black Box" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				965E601C1A507C6000BB183F /* Debug-Production */,
 				963C804022B53D8B004D111C /* Debug-Development */,
 				963C803D22B53D71004D111C /* Debug-Staging */,
-				965E601D1A507C6000BB183F /* Release-Production */,
-				963C804622B53DC2004D111C /* Release-Staging */,
+				965E601C1A507C6000BB183F /* Debug-Production */,
 				963C804322B53DB8004D111C /* Release-Development */,
+				963C804622B53DC2004D111C /* Release-Staging */,
+				965E601D1A507C6000BB183F /* Release-Production */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = "Release-Production";
@@ -1504,12 +1517,12 @@
 		965E601E1A507C6000BB183F /* Build configuration list for PBXNativeTarget "Black BoxTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				965E601F1A507C6000BB183F /* Debug-Production */,
 				963C804122B53D8B004D111C /* Debug-Development */,
 				963C803E22B53D71004D111C /* Debug-Staging */,
-				965E60201A507C6000BB183F /* Release-Production */,
-				963C804722B53DC2004D111C /* Release-Staging */,
+				965E601F1A507C6000BB183F /* Debug-Production */,
 				963C804422B53DB8004D111C /* Release-Development */,
+				963C804722B53DC2004D111C /* Release-Staging */,
+				965E60201A507C6000BB183F /* Release-Production */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = "Release-Production";
