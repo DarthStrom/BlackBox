@@ -8,7 +8,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidFinishLaunching(_ application: UIApplication) {
         let builder = FlurrySessionBuilder.init()
-            .withLogLevel(FlurryLogLevelAll)
             .withCrashReporting(true)
             .withShowError(inLog: true)
 
