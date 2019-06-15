@@ -1,6 +1,0 @@
-// Keys
-FLURRY_API_KEY = _staging_api_key_
-
-// App Settings
-APP_NAME = Black Box (staging)
-APP_BUNDLE_ID = com.peapodmm.blackbox.staging

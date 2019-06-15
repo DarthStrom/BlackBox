@@ -1,6 +1,0 @@
-// Keys
-FLURRY_API_KEY = _production_api_key_
-
-// App Settings
-APP_NAME = Black Box
-APP_BUNDLE_ID = com.peapodmm.blackbox
