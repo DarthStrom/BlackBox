@@ -160,12 +160,32 @@ strip_invalid_archs() {
 }
 
 
-if [[ "$CONFIGURATION" == "Debug" ]]; then
+if [[ "$CONFIGURATION" == "Debug-Production" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Moxie/Moxie.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Quick/Quick.framework"
 fi
-if [[ "$CONFIGURATION" == "Release" ]]; then
+if [[ "$CONFIGURATION" == "Debug-Development" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/Moxie/Moxie.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Quick/Quick.framework"
+fi
+if [[ "$CONFIGURATION" == "Debug-Staging" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/Moxie/Moxie.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Quick/Quick.framework"
+fi
+if [[ "$CONFIGURATION" == "Release-Production" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/Moxie/Moxie.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Quick/Quick.framework"
+fi
+if [[ "$CONFIGURATION" == "Release-Staging" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/Moxie/Moxie.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Quick/Quick.framework"
+fi
+if [[ "$CONFIGURATION" == "Release-Development" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Moxie/Moxie.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Quick/Quick.framework"
