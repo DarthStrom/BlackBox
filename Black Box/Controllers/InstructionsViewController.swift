@@ -1,8 +1,9 @@
 import UIKit
+import WebKit
 
 class InstructionsViewController: UIViewController {
 
-    @IBOutlet weak var webView: UIWebView!
+    @IBOutlet weak var webView: WKWebView!
 
     override func viewDidLoad() {
         let bundle = Bundle.main
