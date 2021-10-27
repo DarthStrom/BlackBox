@@ -1,2 +1,1 @@
 #include "Staging.xcconfig"
-#include "Pods/Target Support Files/Pods-Black Box/Pods-Black Box.release-staging.xcconfig"

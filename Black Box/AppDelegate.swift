@@ -1,4 +1,4 @@
-import Flurry_iOS_SDK
+import FlurryAnalytics
 import UIKit
 
 @UIApplicationMain

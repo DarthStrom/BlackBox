@@ -3,18 +3,21 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4466763C2575C7A6906F8F17 /* Pods_Black_Box.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFED1BB4C1A7CAD391AC5A4C /* Pods_Black_Box.framework */; };
-		8D1A6432170A9E22FF951A14 /* Pods_Black_BoxTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86EAEA89556E05B886B089C1 /* Pods_Black_BoxTests.framework */; };
 		9603D8181A70A9A7007A1A0F /* EntryPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9603D8171A70A9A7007A1A0F /* EntryPoint.swift */; };
 		9610684C1A94D86D002B02D0 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9610684B1A94D86D002B02D0 /* Location.swift */; };
 		9610684E1A94DAB7002B02D0 /* ExitResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9610684D1A94DAB7002B02D0 /* ExitResult.swift */; };
 		961068501A94DD6E002B02D0 /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9610684F1A94DD6E002B02D0 /* Direction.swift */; };
 		961068521A94E01B002B02D0 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961068511A94E01B002B02D0 /* Board.swift */; };
 		961F30BF1C04A6B80055E5F5 /* GameSceneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961F30BE1C04A6B80055E5F5 /* GameSceneTests.swift */; };
+		962CC24A2729F34F0038A31F /* FlurryAnalyticsSPM in Frameworks */ = {isa = PBXBuildFile; productRef = 962CC2492729F34F0038A31F /* FlurryAnalyticsSPM */; };
+		962CC24C2729F3790038A31F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 962CC24B2729F3790038A31F /* SystemConfiguration.framework */; };
+		962CC24F2729F4600038A31F /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 962CC24E2729F4600038A31F /* Quick */; };
+		962CC2522729F4910038A31F /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 962CC2512729F4910038A31F /* Nimble */; };
+		962CC2552729F4D20038A31F /* Moxie in Frameworks */ = {isa = PBXBuildFile; productRef = 962CC2542729F4D20038A31F /* Moxie */; };
 		96308C0722B5566900A74E7D /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96308C0622B5566900A74E7D /* Environment.swift */; };
 		9633C2FA1A524038005826D1 /* BlackBoxSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9633C2F91A524038005826D1 /* BlackBoxSpecs.swift */; };
 		965E5FFE1A507C6000BB183F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965E5FFD1A507C6000BB183F /* AppDelegate.swift */; };
@@ -32,8 +35,6 @@
 		969865241AAB48D400D277C6 /* Failure.wav in Resources */ = {isa = PBXBuildFile; fileRef = 969865201AAB48D400D277C6 /* Failure.wav */; };
 		969865251AAB48D400D277C6 /* Success.wav in Resources */ = {isa = PBXBuildFile; fileRef = 969865211AAB48D400D277C6 /* Success.wav */; };
 		969865261AAB48D400D277C6 /* NewGame.wav in Resources */ = {isa = PBXBuildFile; fileRef = 969865221AAB48D400D277C6 /* NewGame.wav */; };
-		96AC89461DD7BA05007356B8 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96AC89441DD7BA05007356B8 /* Nimble.framework */; };
-		96AC89471DD7BA05007356B8 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96AC89451DD7BA05007356B8 /* Quick.framework */; };
 		96B9E4BC1F69CB150006AEA2 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B9E4BB1F69CB150006AEA2 /* Random.swift */; };
 		96DB34321AA789F70076F165 /* Game1.json in Resources */ = {isa = PBXBuildFile; fileRef = 96DB34311AA789F70076F165 /* Game1.json */; };
 		96DB34361AA78C110076F165 /* Game11.json in Resources */ = {isa = PBXBuildFile; fileRef = 96DB34351AA78C110076F165 /* Game11.json */; };
@@ -132,15 +133,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		01648CE43FDE257155DB5546 /* Pods-Black Box.release-staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Black Box.release-staging.xcconfig"; path = "Pods/Target Support Files/Pods-Black Box/Pods-Black Box.release-staging.xcconfig"; sourceTree = "<group>"; };
-		11450063BB8EB19CE6155438 /* Pods-Black BoxTests.release-development.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Black BoxTests.release-development.xcconfig"; path = "Pods/Target Support Files/Pods-Black BoxTests/Pods-Black BoxTests.release-development.xcconfig"; sourceTree = "<group>"; };
-		1AE3747D1FA978EAB154A084 /* Pods-Black Box.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Black Box.release.xcconfig"; path = "Pods/Target Support Files/Pods-Black Box/Pods-Black Box.release.xcconfig"; sourceTree = "<group>"; };
-		2C46194071223285FD4DC72D /* Pods-Black BoxTests.release-production.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Black BoxTests.release-production.xcconfig"; path = "Pods/Target Support Files/Pods-Black BoxTests/Pods-Black BoxTests.release-production.xcconfig"; sourceTree = "<group>"; };
-		2C77435B99747E85B445BDA2 /* Pods-Black BoxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Black BoxTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Black BoxTests/Pods-Black BoxTests.release.xcconfig"; sourceTree = "<group>"; };
-		4414E5E2EC62AF7BEE798328 /* Pods-Black BoxTests.debug-staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Black BoxTests.debug-staging.xcconfig"; path = "Pods/Target Support Files/Pods-Black BoxTests/Pods-Black BoxTests.debug-staging.xcconfig"; sourceTree = "<group>"; };
-		44647632190BEF5296D5DDEB /* Pods-Black BoxTests.debug-production.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Black BoxTests.debug-production.xcconfig"; path = "Pods/Target Support Files/Pods-Black BoxTests/Pods-Black BoxTests.debug-production.xcconfig"; sourceTree = "<group>"; };
-		5E7FAD8E54B8D51EA51027CB /* Pods-Black BoxTests.debug-development.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Black BoxTests.debug-development.xcconfig"; path = "Pods/Target Support Files/Pods-Black BoxTests/Pods-Black BoxTests.debug-development.xcconfig"; sourceTree = "<group>"; };
-		86EAEA89556E05B886B089C1 /* Pods_Black_BoxTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Black_BoxTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9603D8171A70A9A7007A1A0F /* EntryPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryPoint.swift; sourceTree = "<group>"; };
 		9610684B1A94D86D002B02D0 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		9610684D1A94DAB7002B02D0 /* ExitResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExitResult.swift; sourceTree = "<group>"; };
@@ -148,6 +140,8 @@
 		961068511A94E01B002B02D0 /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		961F30BE1C04A6B80055E5F5 /* GameSceneTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSceneTests.swift; sourceTree = "<group>"; };
 		962BF8EF1F4E5E5C0095C294 /* Moxie.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Moxie.framework; path = Carthage/Build/iOS/Moxie.framework; sourceTree = "<group>"; };
+		962CC24B2729F3790038A31F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		962CC2562729F75E0038A31F /* Black_Box-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Black_Box-Bridging-Header.h"; sourceTree = "<group>"; };
 		96308C0022B5522B00A74E7D /* Debug-Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug-Development.xcconfig"; sourceTree = "<group>"; };
 		96308C0122B5524E00A74E7D /* Debug-Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug-Production.xcconfig"; sourceTree = "<group>"; };
 		96308C0222B5525B00A74E7D /* Debug-Staging.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug-Staging.xcconfig"; sourceTree = "<group>"; };
@@ -266,15 +260,6 @@
 		96DB34D81AA8ADC90076F165 /* Game60.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Game60.json; sourceTree = "<group>"; };
 		96F0C8951A98F14E00755598 /* Slot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Slot.swift; sourceTree = "<group>"; };
 		96F12CCA1A6AF6D100435452 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
-		A298B90C2E03BB403C14639B /* Pods-Black BoxTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Black BoxTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Black BoxTests/Pods-Black BoxTests.debug.xcconfig"; sourceTree = "<group>"; };
-		A29A8FDFAE88126B9BDF93D9 /* Pods-Black Box.debug-production.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Black Box.debug-production.xcconfig"; path = "Pods/Target Support Files/Pods-Black Box/Pods-Black Box.debug-production.xcconfig"; sourceTree = "<group>"; };
-		B96C5085B51A97ED2F855F61 /* Pods-Black Box.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Black Box.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Black Box/Pods-Black Box.debug.xcconfig"; sourceTree = "<group>"; };
-		C293FA2C2650D883D8029728 /* Pods-Black Box.debug-development.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Black Box.debug-development.xcconfig"; path = "Pods/Target Support Files/Pods-Black Box/Pods-Black Box.debug-development.xcconfig"; sourceTree = "<group>"; };
-		CBCD6CED5CE168AAF1A443CB /* Pods-Black Box.release-production.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Black Box.release-production.xcconfig"; path = "Pods/Target Support Files/Pods-Black Box/Pods-Black Box.release-production.xcconfig"; sourceTree = "<group>"; };
-		D8EB0CFA04ABB0850351EA0C /* Pods-Black Box.release-development.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Black Box.release-development.xcconfig"; path = "Pods/Target Support Files/Pods-Black Box/Pods-Black Box.release-development.xcconfig"; sourceTree = "<group>"; };
-		E5A280F4F78F35613FD93CAB /* Pods-Black Box.debug-staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Black Box.debug-staging.xcconfig"; path = "Pods/Target Support Files/Pods-Black Box/Pods-Black Box.debug-staging.xcconfig"; sourceTree = "<group>"; };
-		EFED1BB4C1A7CAD391AC5A4C /* Pods_Black_Box.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Black_Box.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F0BF2AF5096A25C79A620C75 /* Pods-Black BoxTests.release-staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Black BoxTests.release-staging.xcconfig"; path = "Pods/Target Support Files/Pods-Black BoxTests/Pods-Black BoxTests.release-staging.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -282,7 +267,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4466763C2575C7A6906F8F17 /* Pods_Black_Box.framework in Frameworks */,
+				962CC24C2729F3790038A31F /* SystemConfiguration.framework in Frameworks */,
+				962CC24A2729F34F0038A31F /* FlurryAnalyticsSPM in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,9 +276,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96AC89461DD7BA05007356B8 /* Nimble.framework in Frameworks */,
-				96AC89471DD7BA05007356B8 /* Quick.framework in Frameworks */,
-				8D1A6432170A9E22FF951A14 /* Pods_Black_BoxTests.framework in Frameworks */,
+				962CC24F2729F4600038A31F /* Quick in Frameworks */,
+				962CC2522729F4910038A31F /* Nimble in Frameworks */,
+				962CC2552729F4D20038A31F /* Moxie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,7 +337,6 @@
 				965E5FFA1A507C5F00BB183F /* Black Box */,
 				965E60141A507C6000BB183F /* Black BoxTests */,
 				96AC89411DD7B9D7007356B8 /* Frameworks */,
-				F0CDC334CE2CE5EDDA8679BA /* Pods */,
 				965E5FF91A507C5F00BB183F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -381,6 +366,7 @@
 				965E5FFD1A507C6000BB183F /* AppDelegate.swift */,
 				965E60081A507C6000BB183F /* Images.xcassets */,
 				965E600A1A507C6000BB183F /* LaunchScreen.xib */,
+				962CC2562729F75E0038A31F /* Black_Box-Bridging-Header.h */,
 			);
 			path = "Black Box";
 			sourceTree = "<group>";
@@ -441,11 +427,10 @@
 		96AC89411DD7B9D7007356B8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				962CC24B2729F3790038A31F /* SystemConfiguration.framework */,
 				962BF8EF1F4E5E5C0095C294 /* Moxie.framework */,
 				96AC89441DD7BA05007356B8 /* Nimble.framework */,
 				96AC89451DD7BA05007356B8 /* Quick.framework */,
-				EFED1BB4C1A7CAD391AC5A4C /* Pods_Black_Box.framework */,
-				86EAEA89556E05B886B089C1 /* Pods_Black_BoxTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -553,29 +538,6 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		F0CDC334CE2CE5EDDA8679BA /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				B96C5085B51A97ED2F855F61 /* Pods-Black Box.debug.xcconfig */,
-				1AE3747D1FA978EAB154A084 /* Pods-Black Box.release.xcconfig */,
-				A298B90C2E03BB403C14639B /* Pods-Black BoxTests.debug.xcconfig */,
-				2C77435B99747E85B445BDA2 /* Pods-Black BoxTests.release.xcconfig */,
-				A29A8FDFAE88126B9BDF93D9 /* Pods-Black Box.debug-production.xcconfig */,
-				C293FA2C2650D883D8029728 /* Pods-Black Box.debug-development.xcconfig */,
-				E5A280F4F78F35613FD93CAB /* Pods-Black Box.debug-staging.xcconfig */,
-				CBCD6CED5CE168AAF1A443CB /* Pods-Black Box.release-production.xcconfig */,
-				01648CE43FDE257155DB5546 /* Pods-Black Box.release-staging.xcconfig */,
-				D8EB0CFA04ABB0850351EA0C /* Pods-Black Box.release-development.xcconfig */,
-				44647632190BEF5296D5DDEB /* Pods-Black BoxTests.debug-production.xcconfig */,
-				5E7FAD8E54B8D51EA51027CB /* Pods-Black BoxTests.debug-development.xcconfig */,
-				4414E5E2EC62AF7BEE798328 /* Pods-Black BoxTests.debug-staging.xcconfig */,
-				2C46194071223285FD4DC72D /* Pods-Black BoxTests.release-production.xcconfig */,
-				F0BF2AF5096A25C79A620C75 /* Pods-Black BoxTests.release-staging.xcconfig */,
-				11450063BB8EB19CE6155438 /* Pods-Black BoxTests.release-development.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -583,18 +545,19 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 965E601B1A507C6000BB183F /* Build configuration list for PBXNativeTarget "Black Box" */;
 			buildPhases = (
-				848DC5B44E7B3C38FDC848AD /* [CP] Check Pods Manifest.lock */,
 				965E5FF41A507C5F00BB183F /* Sources */,
 				965E5FF51A507C5F00BB183F /* Frameworks */,
 				965E5FF61A507C5F00BB183F /* Resources */,
 				968C06D21CB1A3B400964516 /* SwiftLint */,
-				48F5BEC75711F5954F3D6C08 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "Black Box";
+			packageProductDependencies = (
+				962CC2492729F34F0038A31F /* FlurryAnalyticsSPM */,
+			);
 			productName = "Black Box";
 			productReference = 965E5FF81A507C5F00BB183F /* Black Box.app */;
 			productType = "com.apple.product-type.application";
@@ -603,12 +566,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 965E601E1A507C6000BB183F /* Build configuration list for PBXNativeTarget "Black BoxTests" */;
 			buildPhases = (
-				326688EBFD41D8F7388934F1 /* [CP] Check Pods Manifest.lock */,
 				965E600D1A507C6000BB183F /* Sources */,
 				965E600E1A507C6000BB183F /* Frameworks */,
 				965E600F1A507C6000BB183F /* Resources */,
-				962BF8F41F4E5F670095C294 /* ShellScript */,
-				83203FAEE3A4CE1EB134E2FB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -616,6 +576,11 @@
 				965E60131A507C6000BB183F /* PBXTargetDependency */,
 			);
 			name = "Black BoxTests";
+			packageProductDependencies = (
+				962CC24E2729F4600038A31F /* Quick */,
+				962CC2512729F4910038A31F /* Nimble */,
+				962CC2542729F4D20038A31F /* Moxie */,
+			);
 			productName = "Black BoxTests";
 			productReference = 965E60111A507C6000BB183F /* Black BoxTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -628,7 +593,7 @@
 			attributes = {
 				LastSwiftMigration = 0710;
 				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 1140;
+				LastUpgradeCheck = 1310;
 				ORGANIZATIONNAME = "Peapod Multimedia, ltd.";
 				TargetAttributes = {
 					965E5FF71A507C5F00BB183F = {
@@ -653,6 +618,12 @@
 				Base,
 			);
 			mainGroup = 965E5FEF1A507C5F00BB183F;
+			packageReferences = (
+				962CC2482729F34F0038A31F /* XCRemoteSwiftPackageReference "FlurrySwiftPackage" */,
+				962CC24D2729F4600038A31F /* XCRemoteSwiftPackageReference "Quick" */,
+				962CC2502729F4910038A31F /* XCRemoteSwiftPackageReference "Nimble" */,
+				962CC2532729F4D20038A31F /* XCRemoteSwiftPackageReference "Moxie" */,
+			);
 			productRefGroup = 965E5FF91A507C5F00BB183F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -770,96 +741,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		326688EBFD41D8F7388934F1 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Black BoxTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		48F5BEC75711F5954F3D6C08 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Black Box/Pods-Black Box-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Flurry-iOS-SDK/Flurry_iOS_SDK.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Flurry_iOS_SDK.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Black Box/Pods-Black Box-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		83203FAEE3A4CE1EB134E2FB /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Black BoxTests/Pods-Black BoxTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Moxie/Moxie.framework",
-				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
-				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moxie.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Black BoxTests/Pods-Black BoxTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		848DC5B44E7B3C38FDC848AD /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Black Box-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		962BF8F41F4E5F670095C294 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Moxie.framework",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-			shellPath = "carthage copy-frameworks";
-			shellScript = "";
-		};
 		968C06D21CB1A3B400964516 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -964,6 +845,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -988,11 +870,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Black Box/Black_Box-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = "Debug-Staging";
@@ -1011,19 +895,20 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "Black Box/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = "Debug-Staging";
 		};
 		963C803E22B53D71004D111C /* Debug-Staging */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4414E5E2EC62AF7BEE798328 /* Pods-Black BoxTests.debug-staging.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -1032,7 +917,11 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Black BoxTests/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.peapodmm.$(PRODUCT_NAME:rfc1034identifier).staging";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1062,6 +951,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1086,11 +976,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Black Box/Black_Box-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = "Debug-Development";
@@ -1109,19 +1001,20 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "Black Box/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = "Debug-Development";
 		};
 		963C804122B53D8B004D111C /* Debug-Development */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5E7FAD8E54B8D51EA51027CB /* Pods-Black BoxTests.debug-development.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -1130,7 +1023,11 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Black BoxTests/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.peapodmm.$(PRODUCT_NAME:rfc1034identifier).dev";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1160,6 +1057,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1178,11 +1076,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_BRIDGING_HEADER = "Black Box/Black_Box-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1202,24 +1103,29 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "Black Box/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = "Release-Development";
 		};
 		963C804422B53DB8004D111C /* Release-Development */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 11450063BB8EB19CE6155438 /* Pods-Black BoxTests.release-development.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Black BoxTests/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.peapodmm.$(PRODUCT_NAME:rfc1034identifier).dev";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1249,6 +1155,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1266,10 +1173,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_BRIDGING_HEADER = "Black Box/Black_Box-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1289,24 +1199,29 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "Black Box/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = "Release-Staging";
 		};
 		963C804722B53DC2004D111C /* Release-Staging */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F0BF2AF5096A25C79A620C75 /* Pods-Black BoxTests.release-staging.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Black BoxTests/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.peapodmm.$(PRODUCT_NAME:rfc1034identifier).staging";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1336,6 +1251,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1360,11 +1276,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Black Box/Black_Box-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = "Debug-Production";
@@ -1391,6 +1309,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1408,10 +1327,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_BRIDGING_HEADER = "Black Box/Black_Box-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1431,12 +1353,14 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "Black Box/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = "Debug-Production";
@@ -1455,19 +1379,20 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "Black Box/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = "Release-Production";
 		};
 		965E601F1A507C6000BB183F /* Debug-Production */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 44647632190BEF5296D5DDEB /* Pods-Black BoxTests.debug-production.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -1476,7 +1401,11 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Black BoxTests/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.peapodmm.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1486,12 +1415,15 @@
 		};
 		965E60201A507C6000BB183F /* Release-Production */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2C46194071223285FD4DC72D /* Pods-Black BoxTests.release-production.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Black BoxTests/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.peapodmm.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1542,6 +1474,64 @@
 			defaultConfigurationName = "Release-Production";
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		962CC2482729F34F0038A31F /* XCRemoteSwiftPackageReference "FlurrySwiftPackage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/flurry/FlurrySwiftPackage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.3.0;
+			};
+		};
+		962CC24D2729F4600038A31F /* XCRemoteSwiftPackageReference "Quick" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Quick";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+		962CC2502729F4910038A31F /* XCRemoteSwiftPackageReference "Nimble" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Nimble";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+		962CC2532729F4D20038A31F /* XCRemoteSwiftPackageReference "Moxie" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/DarthStrom/Moxie";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		962CC2492729F34F0038A31F /* FlurryAnalyticsSPM */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 962CC2482729F34F0038A31F /* XCRemoteSwiftPackageReference "FlurrySwiftPackage" */;
+			productName = FlurryAnalyticsSPM;
+		};
+		962CC24E2729F4600038A31F /* Quick */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 962CC24D2729F4600038A31F /* XCRemoteSwiftPackageReference "Quick" */;
+			productName = Quick;
+		};
+		962CC2512729F4910038A31F /* Nimble */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 962CC2502729F4910038A31F /* XCRemoteSwiftPackageReference "Nimble" */;
+			productName = Nimble;
+		};
+		962CC2542729F4D20038A31F /* Moxie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 962CC2532729F4D20038A31F /* XCRemoteSwiftPackageReference "Moxie" */;
+			productName = Moxie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 965E5FF01A507C5F00BB183F /* Project object */;
 }

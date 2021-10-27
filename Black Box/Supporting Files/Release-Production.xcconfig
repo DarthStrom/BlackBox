@@ -1,2 +1,1 @@
 #include "Production.xcconfig"
-#include "Pods/Target Support Files/Pods-Black Box/Pods-Black Box.release-production.xcconfig"
