@@ -13,7 +13,6 @@
 		961068501A94DD6E002B02D0 /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9610684F1A94DD6E002B02D0 /* Direction.swift */; };
 		961068521A94E01B002B02D0 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961068511A94E01B002B02D0 /* Board.swift */; };
 		961F30BF1C04A6B80055E5F5 /* GameSceneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961F30BE1C04A6B80055E5F5 /* GameSceneTests.swift */; };
-		962CC24A2729F34F0038A31F /* FlurryAnalyticsSPM in Frameworks */ = {isa = PBXBuildFile; productRef = 962CC2492729F34F0038A31F /* FlurryAnalyticsSPM */; };
 		962CC24C2729F3790038A31F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 962CC24B2729F3790038A31F /* SystemConfiguration.framework */; };
 		962CC24F2729F4600038A31F /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 962CC24E2729F4600038A31F /* Quick */; };
 		962CC2522729F4910038A31F /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 962CC2512729F4910038A31F /* Nimble */; };
@@ -268,7 +267,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				962CC24C2729F3790038A31F /* SystemConfiguration.framework in Frameworks */,
-				962CC24A2729F34F0038A31F /* FlurryAnalyticsSPM in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -556,7 +554,6 @@
 			);
 			name = "Black Box";
 			packageProductDependencies = (
-				962CC2492729F34F0038A31F /* FlurryAnalyticsSPM */,
 			);
 			productName = "Black Box";
 			productReference = 965E5FF81A507C5F00BB183F /* Black Box.app */;
@@ -619,7 +616,6 @@
 			);
 			mainGroup = 965E5FEF1A507C5F00BB183F;
 			packageReferences = (
-				962CC2482729F34F0038A31F /* XCRemoteSwiftPackageReference "FlurrySwiftPackage" */,
 				962CC24D2729F4600038A31F /* XCRemoteSwiftPackageReference "Quick" */,
 				962CC2502729F4910038A31F /* XCRemoteSwiftPackageReference "Nimble" */,
 				962CC2532729F4D20038A31F /* XCRemoteSwiftPackageReference "Moxie" */,
@@ -1476,14 +1472,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		962CC2482729F34F0038A31F /* XCRemoteSwiftPackageReference "FlurrySwiftPackage" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/flurry/FlurrySwiftPackage";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 11.3.0;
-			};
-		};
 		962CC24D2729F4600038A31F /* XCRemoteSwiftPackageReference "Quick" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Quick/Quick";
@@ -1511,11 +1499,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		962CC2492729F34F0038A31F /* FlurryAnalyticsSPM */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 962CC2482729F34F0038A31F /* XCRemoteSwiftPackageReference "FlurrySwiftPackage" */;
-			productName = FlurryAnalyticsSPM;
-		};
 		962CC24E2729F4600038A31F /* Quick */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 962CC24D2729F4600038A31F /* XCRemoteSwiftPackageReference "Quick" */;

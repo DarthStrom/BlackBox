@@ -9,7 +9,6 @@
 #ifndef Black_Box_Bridging_Header_h
 #define Black_Box_Bridging_Header_h
 
-//Needed for all Flurry Integration
-#import "Flurry.h"
+
 
 #endif /* Black_Box_Bridging_Header_h */
