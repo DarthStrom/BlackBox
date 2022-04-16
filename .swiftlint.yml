@@ -5,6 +5,6 @@ excluded:
 
 type_name:
   min_length: 2
-variable_name:
+identifier_name:
   min_length: 1
 
