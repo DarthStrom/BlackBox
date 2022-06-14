@@ -1,6 +1,0 @@
-// Keys
-FLURRY_API_KEY = _flurry_api_key_
-
-// App Settings
-APP_NAME = _app_name_
-APP_BUNDLE_ID = _bundle_identifier_
