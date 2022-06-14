@@ -17,7 +17,6 @@
 		962CC24F2729F4600038A31F /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 962CC24E2729F4600038A31F /* Quick */; };
 		962CC2522729F4910038A31F /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 962CC2512729F4910038A31F /* Nimble */; };
 		962CC2552729F4D20038A31F /* Moxie in Frameworks */ = {isa = PBXBuildFile; productRef = 962CC2542729F4D20038A31F /* Moxie */; };
-		96308C0722B5566900A74E7D /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96308C0622B5566900A74E7D /* Environment.swift */; };
 		9633C2FA1A524038005826D1 /* BlackBoxSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9633C2F91A524038005826D1 /* BlackBoxSpecs.swift */; };
 		965E5FFE1A507C6000BB183F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965E5FFD1A507C6000BB183F /* AppDelegate.swift */; };
 		965E60021A507C6000BB183F /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965E60011A507C6000BB183F /* GameScene.swift */; };
@@ -141,18 +140,7 @@
 		962BF8EF1F4E5E5C0095C294 /* Moxie.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Moxie.framework; path = Carthage/Build/iOS/Moxie.framework; sourceTree = "<group>"; };
 		962CC24B2729F3790038A31F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		962CC2562729F75E0038A31F /* Black_Box-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Black_Box-Bridging-Header.h"; sourceTree = "<group>"; };
-		96308C0022B5522B00A74E7D /* Debug-Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug-Development.xcconfig"; sourceTree = "<group>"; };
-		96308C0122B5524E00A74E7D /* Debug-Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug-Production.xcconfig"; sourceTree = "<group>"; };
-		96308C0222B5525B00A74E7D /* Debug-Staging.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Debug-Staging.xcconfig"; sourceTree = "<group>"; };
-		96308C0322B5527000A74E7D /* Release-Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release-Development.xcconfig"; sourceTree = "<group>"; };
-		96308C0422B5528400A74E7D /* Release-Staging.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release-Staging.xcconfig"; sourceTree = "<group>"; };
-		96308C0522B5529100A74E7D /* Release-Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release-Production.xcconfig"; sourceTree = "<group>"; };
-		96308C0622B5566900A74E7D /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
-		96308C0822B558B800A74E7D /* ConfigTemplate.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ConfigTemplate.xcconfig; sourceTree = "<group>"; };
 		9633C2F91A524038005826D1 /* BlackBoxSpecs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlackBoxSpecs.swift; sourceTree = "<group>"; };
-		963C804822B542F5004D111C /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
-		963C804922B543D8004D111C /* Staging.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Staging.xcconfig; sourceTree = "<group>"; };
-		963C804A22B54409004D111C /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
 		965E5FF81A507C5F00BB183F /* Black Box.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Black Box.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		965E5FFC1A507C6000BB183F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		965E5FFD1A507C6000BB183F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -373,17 +361,6 @@
 			isa = PBXGroup;
 			children = (
 				965E5FFC1A507C6000BB183F /* Info.plist */,
-				96308C0822B558B800A74E7D /* ConfigTemplate.xcconfig */,
-				963C804822B542F5004D111C /* Development.xcconfig */,
-				963C804922B543D8004D111C /* Staging.xcconfig */,
-				963C804A22B54409004D111C /* Production.xcconfig */,
-				96308C0022B5522B00A74E7D /* Debug-Development.xcconfig */,
-				96308C0222B5525B00A74E7D /* Debug-Staging.xcconfig */,
-				96308C0122B5524E00A74E7D /* Debug-Production.xcconfig */,
-				96308C0322B5527000A74E7D /* Release-Development.xcconfig */,
-				96308C0422B5528400A74E7D /* Release-Staging.xcconfig */,
-				96308C0522B5529100A74E7D /* Release-Production.xcconfig */,
-				96308C0622B5566900A74E7D /* Environment.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -774,7 +751,6 @@
 				96F12CCB1A6AF6D100435452 /* Game.swift in Sources */,
 				961068521A94E01B002B02D0 /* Board.swift in Sources */,
 				96F0C8961A98F14E00755598 /* Slot.swift in Sources */,
-				96308C0722B5566900A74E7D /* Environment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -869,6 +845,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.peapodmm.blackbox.staging;
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "Black Box/Black_Box-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -879,7 +856,6 @@
 		};
 		963C803D22B53D71004D111C /* Debug-Staging */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 96308C0222B5525B00A74E7D /* Debug-Staging.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -895,7 +871,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}";
+				MARKETING_VERSION = 1.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -975,6 +951,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.peapodmm.blackbox.development;
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "Black Box/Black_Box-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -985,7 +962,6 @@
 		};
 		963C804022B53D8B004D111C /* Debug-Development */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 96308C0022B5522B00A74E7D /* Debug-Development.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1001,7 +977,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}";
+				MARKETING_VERSION = 1.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1075,6 +1051,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.peapodmm.blackbox.development;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OBJC_BRIDGING_HEADER = "Black Box/Black_Box-Bridging-Header.h";
@@ -1087,7 +1064,6 @@
 		};
 		963C804322B53DB8004D111C /* Release-Development */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 96308C0322B5527000A74E7D /* Release-Development.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1103,7 +1079,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}";
+				MARKETING_VERSION = 1.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1171,6 +1147,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.peapodmm.blackbox.staging;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OBJC_BRIDGING_HEADER = "Black Box/Black_Box-Bridging-Header.h";
@@ -1183,7 +1160,6 @@
 		};
 		963C804622B53DC2004D111C /* Release-Staging */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 96308C0422B5528400A74E7D /* Release-Staging.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1199,7 +1175,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}";
+				MARKETING_VERSION = 1.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1275,6 +1251,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.peapodmm.blackbox;
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "Black Box/Black_Box-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1325,6 +1302,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.peapodmm.blackbox;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OBJC_BRIDGING_HEADER = "Black Box/Black_Box-Bridging-Header.h";
@@ -1337,7 +1315,6 @@
 		};
 		965E601C1A507C6000BB183F /* Debug-Production */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 96308C0122B5524E00A74E7D /* Debug-Production.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1353,7 +1330,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}";
+				MARKETING_VERSION = 1.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1363,7 +1340,6 @@
 		};
 		965E601D1A507C6000BB183F /* Release-Production */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 96308C0522B5529100A74E7D /* Release-Production.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1379,7 +1355,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "${APP_BUNDLE_ID}";
+				MARKETING_VERSION = 1.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
